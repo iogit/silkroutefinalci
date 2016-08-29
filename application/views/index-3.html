@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Circle Theme - HTML5 Responsive Template</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <link href="./css/reset.css" rel="stylesheet" />
+        <link rel="stylesheet" href="./css/bootstrap.css" media="screen" />
+        <link rel="stylesheet" href="./css/icoMoon.css" media="all" />
+        <link rel="stylesheet" href="./css/prettyPhoto.css" media="screen" />
+        <link rel="stylesheet" href="./css/superfish.css" media="all" />
+        <link rel="stylesheet" href="./css/sequencejs-theme.modern-slide-in.css" media="all" />
+        <link rel="stylesheet" href="./css/circle-hover.css" media="screen" />
+        <link rel="stylesheet" href="./css/jquery.easy-pie-chart.css" media="screen" />
+        <link rel="stylesheet" href="./style.css" />
+        <link rel="stylesheet" href="./css/bootstrap-responsive.css" media="all" />
+        <link href="./css/responsive.css" rel="stylesheet" />
+        
+        <script src="./js/jquery-1.8.3.min.js"></script>
+		<script src="./js/superfish.js"></script>
+        <script src="./js/retina.js"></script>
+        <script src="./js/bootstrap.js"></script>
+        <script src="./js/bootstrap-tooltip.js"></script>
+        <script src="./js/jquery.eislideshow.js"></script>
+        <script src="./js/jquery.easing.1.3.js"></script>
+        <script src="./js/jquery.prettyPhoto.js"></script>
+        <script src="./js/modernizr-transitions.js"></script>
+        <script src="./js/jquery.isotope.min.js"></script>
+        <script src="./js/jquery.validate.min.js"></script>
+        <script src="./js/jquery.form.js"></script>
+        <script src="./js/jquery.tweet.js"></script>
+        <script src="./js/jflickrfeed.min.js"></script>
+        <script src="./js/jquery.flexslider.js"></script>
+        <script src="./js/jQuery.BlackAndWhite.js"></script>
+        <script src="./js/jquery.carouFredSel-6.0.4-packed.js"></script>
+        <script src="./js/sequence.jquery-min.js"></script>
+        <script src="./js/excanvas.js"></script>
+        <script src="./js/jquery.easy-pie-chart.js"></script>
+        <script src="./js/custom.js" charset="utf-8"></script>
+        
+        <script type="text/javascript">	
+            
+            /mobile/i.test(navigator.userAgent) && !location.hash && setTimeout(function () {
+              if (!pageYOffset) window.scrollTo(0, 1);
+            }, 1000);
+            
+            $(document).ready(function(){
+                var options = {
+                    nextButton: true,
+                    prevButton: true,
+                    animateStartingFrameIn: true,
+                    autoPlayDelay: 3000,
+                    preloader: true,
+                    pauseOnHover: true,
+                    preloadTheseFrames: [1],
+                    preloadTheseImages: [
+                        "./placeholders/slider/sequence/tn-model1.png",
+                        "./placeholders/slider/sequence/tn-model2.png",
+                        "./placeholders/slider/sequence/tn-model3.png"
+                    ]
+                };
+                
+                var sequence = $("#sequence").sequence(options).data("sequence");
+    
+                sequence.afterLoaded = function(){
+                    $("#nav").fadeIn(100);
+                    $("#nav li:nth-child("+(sequence.settings.startingFrameID)+") img").addClass("active");
+                }
+    
+                sequence.beforeNextFrameAnimatesIn = function(){
+                    $("#nav li:not(:nth-child("+(sequence.nextFrameID)+")) img").removeClass("active");
+                    $("#nav li:nth-child("+(sequence.nextFrameID)+") img").addClass("active");
+                }
+                
+                $("#nav li").click(function(){
+                    $(this).children("img").removeClass("active").children("img").addClass("active");
+                    sequence.nextFrameID = $(this).index()+1;
+                    sequence.goTo(sequence.nextFrameID);
+                });
+            });
+        </script>
+        
+        <script type="text/javascript">
+            var initPieChart = function() {
+                $('.percentage').easyPieChart({
+                    animate: 1000
+                });
+                $('.percentage-light').easyPieChart({
+                    barColor: function(percent) {
+                        percent /= 100;
+                        return "rgb(" + Math.round(255 * (1-percent)) + ", " + Math.round(255 * percent) + ", 0)";
+                    },
+                    trackColor: '#f5f5f5',
+                    barColor: '#91c448',
+                    scaleColor: false,
+                    lineCap: 'butt',
+                    lineWidth: 5,
+                    animate: 1000
+                });
+    
+                $('.updateEasyPieChart').on('click', function(e) {
+                  e.preventDefault();
+                  $('.percentage, .percentage-light').each(function() {
+                    var newValue = Math.round(100*Math.random());
+                    $(this).data('easyPieChart').update(newValue);
+                    $('span', this).text(newValue);
+                  });
+                });
+            };
+        </script>
+        
+        <noscript>
+			<link rel="stylesheet" type="text/css" href="./css/noscript.css" />
+		</noscript>        
+        
+        <link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css' />
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,300italic,600,600italic,700,800,800italic,700italic' rel='stylesheet' type='text/css' />
+        
+        <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+
+        <!--[if IE 7]>
+            <link rel="stylesheet" href="./css/ie7.css" type="text/css" media="all" />
+            <link rel="stylesheet" href="css/font-awesome-ie7.min.css" media="all" />
+        <![endif]-->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+            <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+            <link rel="stylesheet" href="./css/ie.css" type="text/css" media="all" />
+            <link rel="stylesheet" href="./css/sequencejs-theme.modern-slide-in.ie.css" type="text/css" media="all" />
+        <![endif]-->
+
+        <!-- Le fav and touch icons -->
+        <link rel="shortcut icon" href="img/favicon.ico" />
+        <link rel="apple-touch-icon" href="./img/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="./img/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="./img/apple-touch-icon-114x114.png" />
+        
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+    <body class="kp-home-3" onload="initPieChart();">
+    <header id="page-header">
+    
+    	<div id="header-top">
+        	<div class="wrapper">
+            	<div class="row-fluid">
+                	<div class="span12 clearfix">
+                    	<nav id="top-nav">
+                        	<ul id="main-menu" class="clearfix">
+                            	<li class="menu-home-icon current-menu-item">
+                                	<a href="./index.html"><span class="icon-home-5" aria-hidden="true"></span></a>
+                                    <ul>
+                                    	<li><a href="./index.html">Index style 1</a></li>
+                                        <li><a href="./index-2.html">Index style 2</a></li>
+                                        <li class="current-menu-item"><a href="./index-3.html">Index style 3</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                	<a href="#">Pages</a>
+                                    <ul>
+                                    	<li><a href="./about.html">About</a></li>
+                                        <li><a href="./elements.html">Elements</a></li>
+                                        <li><a href="./404.html">Error 404</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                	<a href="#">Portfolio</a>
+                                    <ul>
+                                    	<li><a href="./portfolio-3col.html">Portfolio 3col</a></li>
+                                        <li><a href="./portfolio-2col.html">Portfolio 2col</a></li>
+                                        <li><a href="./portfolio-1col.html">Portfolio 1col</a></li>
+                                        <li>
+                                        	<a href="./portfolio-detail.html">Portfolio detail</a>
+                                            <ul>
+                                            	<li><a href="./portfolio-detail.html">Portfolio single</a></li>
+                                                <li><a href="./portfolio-audio.html">Portfolio audio</a></li>
+                                                <li><a href="./portfolio-gallery.html">Portfolio gallery</a></li>
+                                                <li><a href="./portfolio-video.html">Portfolio video</a></li>
+                                                <li><a href="./portfolio-soundcloud.html">Portfolio soundcloud</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                	<a href="#">Blog</a>
+                                    <ul>
+                                    	<li>
+                                        	<a href="#">Blog style 1</a>
+                                            <ul>
+                                            	<li><a href="./blog-1-left-sidebar.html">With left sidebar</a></li>
+                                                <li><a href="./blog-1-right-sidebar.html">With right sidebar</a></li>
+                                                <li><a href="./blog-1-two-sidebar.html">With two sidebar</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="./blog-2.html">Blog style 2</a></li>
+                                        <li>
+                                        	<a href="#">Blog style 3</a>
+                                            <ul>
+                                            	<li><a href="./blog-3-one-sidebar.html">With one sidebar</a></li>
+                                                <li><a href="./blog-3-two-sidebar.html">With two sidebar</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                        	<a href="#">Blog single</a>
+                                            <ul>
+                                            	<li><a href="./single-1.html">Single style 1</a></li>
+                                                <li><a href="./single-2.html">Single style 2</a></li>
+                                                <li><a href="./single-3.html">Single style 3</a></li>
+                                                <li><a href="./single-4.html">Single style 4</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a href="./contact.html">Contact</a></li>
+                                
+                            </ul><!--main-menu-->
+							
+							<div id="mobile-menu">
+                                <span>Menu</span>
+                                <ul id="toggle-view-menu">
+                                    <li class="active clearfix">
+                                        <h3><a href="#">Home</a></h3>
+                                        <span>+</span>
+                                        <div class="clear"></div>                    
+                                        <div class="menu-panel clearfix">
+                                            <ul>
+                                                <li><a href="./index.html">Index style 1</a></li>
+                                                <li><a href="./index-2.html">Index style 2</a></li>
+                                                <li><a href="./index-3.html">Index style 3</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+									<li class="clearfix">
+                                        <h3><a href="#">Pages</a></h3>
+                                        <span>+</span>
+                                        <div class="clear"></div>                    
+                                        <div class="menu-panel clearfix">
+                                            <ul>
+                                                <li><a href="./about.html">About page</a></li>
+                                                <li><a href="./elements.html">Elements page</a></li>
+                                                <li><a href="./404.html">404 page</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="clearfix">
+                                        <h3><a href="#">Portfolio</a></h3>
+                                        <span>+</span>
+                                        <div class="clear"></div>                    
+                                        <div class="menu-panel clearfix">
+                                            <ul>
+                                                <li><a href="./portfolio-3col.html">Portfolio 3 column</a></li>
+                                                <li><a href="./portfolio-2col.html">Portfolio 2 column</a></li>
+                                                <li><a href="./portfolio-1col.html">Portfolio 1 column</a></li>
+                                                <li>
+                                                    <a href="#">Portfolio detail</a>
+                                                    <ul>
+                                                        <li><a href="./portfolio-detail.html">Portfolio single</a></li>
+                                                        <li><a href="./portfolio-audio.html">Portfolio audio</a></li>
+                                                        <li><a href="./portfolio-gallery.html">Portfolio gallery</a></li>
+                                                        <li><a href="./portfolio-video.html">Portfolio video</a></li>
+                                                        <li><a href="./portfolio-soundcloud.html">Portfolio soundcloud</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="clearfix">
+                                        <h3><a href="#">Blog</a></h3>
+                                        <span>+</span>
+                                        <div class="clear"></div>                    
+                                        <div class="menu-panel clearfix">
+                                            <ul>
+                                                <li>
+                                                	<a href="#">Blog style 1</a>
+                                                    <ul>
+                                                        <li><a href="./blog-1-left-sidebar.html">Width left sidebar</a></li>
+                                                        <li><a href="./blog-1-right-sidebar.html">Width right sidebar</a></li>
+                                                        <li><a href="./blog-1-two-sidebar.html">Width two sidebar</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="./blog-2.html">Blog style 2</a></li>
+                                                <li>
+                                                	<a href="#">Blog style 3</a>
+                                                    <ul>
+                                                        <li><a href="./blog-3-one-sidebar.html">Width one sidebar</a></li>
+                                                        <li><a href="./blog-3-two-sidebar.html">Width two sidebar</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Blog single</a>
+                                                    <ul>
+                                                        <li><a href="./single-1.html">Single style 1</a></li>
+                                                        <li><a href="./single-2.html">Single style 2</a></li>
+                                                        <li><a href="./single-3.html">Single style 3</a></li>
+                                                        <li><a href="./single-4.html">Single style 4</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="clearfix"><h3><a href="./contact.html">Contact</a></h3></li>					
+                                </ul><!--toggle-view-menu-->
+                            </div><!--mobile-menu-->
+							
+                        </nav><!--top-nav-->
+                        <ul class="contact-top clearfix">
+                        	<li class="clearfix"><i class="icon-phone"></i><span>1800-562-3764</span></li>
+                            <li class="clearfix"><i class="icon-envelope"></i><a href="mailto:kopatheme@gmail.com">kopatheme@gmail.com</a></li>
+                        </ul><!--contact-top-->
+                    </div><!--span12-->
+                </div><!--row-fluid-->
+            </div><!--wrapper-->
+        </div><!--header-top-->
+        
+        <div id="header-bottom">
+        	<div class="wrapper">
+            	<div class="row-fluid">
+                	<div class="span12 clearfix">
+                    	<div id="logo-image">
+                        	<a href="./index.html"><img src="./placeholders/logo.png" alt="" /></a>
+                        </div><!--logo-image-->
+                        <div class="social-box clearfix">
+                        	<ul class="socials-link clearfix">
+                            	<li class="dribbble-icon"><a href="#"><span class="icon-dribbble" aria-hidden="true"></span></a></li>
+                                <li class="gplus-icon"><a href="#"><span class="icon-google-plus" aria-hidden="true"></span></a></li>
+                                <li class="facebook-icon"><a href="#"><span class="icon-facebook" aria-hidden="true"></span></a></li>
+                                <li class="twitter-icon"><a href="#"><span class="icon-twitter" aria-hidden="true"></span></a></li>
+                                <li class="feed-icon"><a href="#"><span class="icon-feed-2" aria-hidden="true"></span></a></li>
+                                <li class="flickr-icon"><a href="#"><span class="icon-flickr" aria-hidden="true"></span></a></li>
+                            </ul><!--socials-link-->
+                            <div class="search-box clearfix">
+                                <form action="#" class="search-form clearfix" method="get" />
+                                    <input type="text" onblur="if(this.value=='')this.value=this.defaultValue;" onfocus="if(this.value==this.defaultValue)this.value='';" value="Search..." name="s" class="search-text" />
+                                    <input type="submit" value="" name="submit" class="search-submit" />
+                                </form><!-- search-form -->
+                            </div><!--search-box-->
+                        </div><!--social-box-->
+                    </div><!--span12-->
+                </div><!--row-fluid-->
+            </div><!--wrapper-->
+        </div><!--header-bottom-->
+        
+	</header><!--page-header-->
+    
+    <div id="main-content">
+    
+        <div class="row-fluid">
+        	
+            <div class="span12">
+            
+            	<div class="widget-area-2">
+                
+                    <div class="widget sequence-wrapper">
+            
+                        <div class="sequence-container">
+                        
+                            <a class="prev" href="#"></a>
+                            <a class="next" href="#"></a>
+                            
+                            <div class="sequence-slider">
+                            
+                                <div id="sequence">
+                                    <ul>
+                                        <li id="intro">
+                                            <div class="title animate-in"><h2>Customer Support and Beyond</h2></div>
+                                            <div class="subtitle animate-in">
+                                                <h3>With a Clean & Modern design</h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse faucibus urna ut odio ornare et tempor dui tincidunt. Quisque ac nisi felis. Maecenas</p>
+                                                <a class="more-link" href="#">Read more</a>
+                                            </div>
+                                            <img class="model x animate-in" src="./placeholders/slider/sequence/model1.png" alt="" />
+                                        </li>
+                                        <li id="creative">
+                                            <div class="title-2"><h2>Customize your home page with 3 layouts</h2></div>
+                                            <div class="subtitle-2 animate-in">
+                                                <h3>Corportae, Magazine and Blog</h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse faucibus urna ut odio ornare et tempor dui tincidunt. Quisque ac nisi felis. Maecenas</p>
+                                                <a class="more-link" href="#">Read more</a>
+                                            </div>
+                                            <img class="model-2-1" src="./placeholders/slider/sequence/model2-1.png" alt="" />
+                                            <img class="model-2-2" src="./placeholders/slider/sequence/model2-2.png" alt="" />
+                                            <img class="model-2-3" src="./placeholders/slider/sequence/model2-3.png" alt="" />
+                                        </li>
+                                        <li id="support" class="frame3">
+                                            <div class="title"><h2>Responsive Layouts</h2></div>
+                                            <div class="subtitle animate-in">
+                                                <h3>Desktop, Tablet and  Mobile phone</h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse faucibus urna ut odio ornare et tempor dui tincidunt. Quisque ac nisi felis. Maecenas</p>
+                                                <a class="more-link" href="#">Read more</a>
+                                            </div>
+                                            <img class="model-3-1" src="./placeholders/slider/sequence/model3-1.png" alt="" />
+                                            <img class="model-3-2" src="./placeholders/slider/sequence/model3-2.png" alt="" />
+                                            <img class="model-3-3" src="./placeholders/slider/sequence/model3-3.png" alt="" />
+                                            <img class="model-3-4" src="./placeholders/slider/sequence/model3-4.png" alt="" />
+                                        </li>
+                                    </ul>
+                                </div><!--sequence-->
+                                <ul id="nav">
+                                    <li><img src="./placeholders/slider/sequence/tn-model1.png" alt="Model 1" /></li>
+                                    <li><img src="./placeholders/slider/sequence/tn-model2.png" alt="Model 2" /></li>
+                                    <li><img src="./placeholders/slider/sequence/tn-model3.png" alt="Model 3" /></li>
+                                </ul>
+                                                
+                            </div><!--sequence-slider-->
+                        
+                        </div><!--sequence-container-->
+                    
+                    </div><!--sequence-wrapper-->
+                    
+                    <div class="widget kp-tag-line">
+                        <span class="bottom-circle"></span>
+                        <span class="bottom-bullet"></span>
+                        <div class="wrapper">
+                            <div class="row-fluid">
+                                <div class="span12">
+                                    <h4 class="widget-title">Looking for a professional and unique design?</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                                </div><!--span12-->
+                            </div><!--row-fluid-->
+                        </div><!--wrapper-->
+                    </div><!--kp-tag-line-->
+                    
+                    <div class="widget kp-service">
+                        <span class="bottom-circle"></span>
+                        <span class="bottom-bullet"></span>
+                        <div class="wrapper">
+                            <div class="row-fluid">
+                                <div class="span3">
+                                    <article>
+                                        <div class="ch-item">
+                                            <div class="ch-info">
+                                                <div class="ch-info-front">
+                                                    <a href="#" data-icon="&#xe18c;"></a>                                    
+                                                </div>
+                                                <div class="ch-info-back">
+                                                    <a href="#" data-icon="&#xe18c;"></a>                                         
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h2 class="ch-title"><a href="#">Wordpress</a></h2>
+                                        <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et</p>
+                                    </article>
+                                </div><!--span3-->
+                                <div class="span3">
+                                    <article>
+                                        <div class="ch-item">
+                                            <div class="ch-info">
+                                                <div class="ch-info-front">
+                                                    <a href="#" data-icon="&#xe1ba;"></a>                                    
+                                                </div>
+                                                <div class="ch-info-back">
+                                                    <a href="#" data-icon="&#xe1ba;"></a>                                         
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h2 class="ch-title"><a href="#">HTML 5</a></h2>
+                                        <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et</p>
+                                    </article>
+                                </div><!--span3-->
+                                <div class="span3">
+                                    <article>
+                                        <div class="ch-item">
+                                            <div class="ch-info">
+                                                <div class="ch-info-front">
+                                                    <a href="#" data-icon="&#xe054;"></a>                                    
+                                                </div>
+                                                <div class="ch-info-back">
+                                                    <a href="#" data-icon="&#xe054;"></a>                                         
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h2 class="ch-title"><a href="#">Responsive design</a></h2>
+                                        <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et</p>
+                                    </article>
+                                </div><!--span3-->
+                                <div class="span3">
+                                    <article>
+                                        <div class="ch-item">
+                                            <div class="ch-info">
+                                                <div class="ch-info-front">
+                                                    <a href="#" data-icon="&#xe08a;"></a>                                    
+                                                </div>
+                                                <div class="ch-info-back">
+                                                    <a href="#" data-icon="&#xe08a;"></a>                                         
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h2 class="ch-title"><a href="#">Easy setup</a></h2>
+                                        <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et</p>
+                                    </article>
+                                </div><!--span3-->
+                            </div><!--row-fluid-->
+                        </div><!--wrapper-->
+                    </div><!--kp-service-->
+                    
+                    <div class="widget kp-our-work">
+        
+                        <span class="bottom-circle"></span>
+                        <span class="bottom-bullet"></span>
+                        
+                        <div class="wrapper">
+                        
+                            <div class="row-fluid">
+                            
+                                <div class="span12">
+                                    
+                                    <h4 class="widget-title">Our Latest Works</h4>
+                                    <div class="list-carousel responsive">
+                                            
+                                        <ul class="our-work-widget">
+                                            <li style="width: 260px;">
+                                                <article class="entry-item clearfix">
+                                                    <div class="entry-thumb hover-effect">
+                                                        <div class="mask">
+                                                            <a class="link-detail" data-icon="&#xe0c2;" href="#"></a>
+                                                        </div>
+                                                        <img src="./placeholders/post-image/post-36.jpg" alt="" />
+                                                    </div>
+                                                    <div class="entry-content">
+                                                        <h3 class="entry-title"><a href="#">Porta Vulputate Justo</a></h3>
+                                                        <p class="entry-meta">
+                                                            <span class="entry-category"><span class="icon-clock-4 entry-icon" aria-hidden="true"></span><span>August 22, 2013</span></span>
+                                            				<span class="entry-comment"><span class="icon-bubbles-4 entry-icon" aria-hidden="true"></span><a href="#">20</a></span>
+                                                        </p>
+                                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed</p>
+                                                        <a class="more-link" href="#">Read more</a>
+                                                    </div><!--entry-content-->
+                                                </article><!--entry-item-->
+                                            </li>
+                                            <li style="width: 245px;">
+                                                <article class="entry-item clearfix">
+                                                    <div class="entry-thumb hover-effect">
+                                                        <div class="mask">
+                                                            <a class="link-detail" data-icon="&#xe0c2;" href="#"></a>
+                                                        </div>
+                                                        <img src="./placeholders/post-image/post-37.jpg" alt="" />
+                                                    </div>
+                                                    <div class="entry-content">
+                                                        <h3 class="entry-title"><a href="#">Porta Vulputate Justo</a></h3>
+                                                        <p class="entry-meta">
+                                                            <span class="entry-category"><span class="icon-clock-4 entry-icon" aria-hidden="true"></span><span>August 22, 2013</span></span>
+                                            				<span class="entry-comment"><span class="icon-bubbles-4 entry-icon" aria-hidden="true"></span><a href="#">20</a></span>
+                                                        </p>
+                                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed</p>
+                                                        <a class="more-link" href="#">Read more</a>
+                                                    </div><!--entry-content-->
+                                                </article><!--entry-item-->
+                                            </li>
+                                            <li style="width: 245px;">
+                                                <article class="entry-item standard-post clearfix">
+                                                    <div class="entry-thumb hover-effect">
+                                                        <div class="mask">
+                                                            <a class="link-detail" data-icon="&#xe0c2;" href="#"></a>
+                                                        </div>
+                                                        <img src="./placeholders/post-image/post-38.jpg" alt="" />
+                                                    </div>
+                                                    <div class="entry-content">
+                                                        <h3 class="entry-title"><a href="#">Porta Vulputate Justo</a></h3>
+                                                        <p class="entry-meta">
+                                                            <span class="entry-category"><span class="icon-clock-4 entry-icon" aria-hidden="true"></span><span>August 22, 2013</span></span>
+                                            				<span class="entry-comment"><span class="icon-bubbles-4 entry-icon" aria-hidden="true"></span><a href="#">20</a></span>
+                                                        </p>
+                                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed</p>
+                                                        <a class="more-link" href="#">Read more</a>
+                                                    </div><!--entry-content-->
+                                                </article><!--entry-item-->
+                                            </li>
+                                            <li style="width: 245px;">
+                                                <article class="entry-item standard-post clearfix">
+                                                    <div class="entry-thumb hover-effect">
+                                                        <div class="mask">
+                                                            <a class="link-detail" data-icon="&#xe0c2;" href="#"></a>
+                                                        </div>
+                                                        <img src="./placeholders/post-image/post-39.jpg" alt="" />
+                                                    </div>
+                                                    <div class="entry-content">
+                                                        <h3 class="entry-title"><a href="#">Porta Vulputate Justo</a></h3>
+                                                        <p class="entry-meta">
+                                                            <span class="entry-category"><span class="icon-clock-4 entry-icon" aria-hidden="true"></span><span>August 22, 2013</span></span>
+                                            				<span class="entry-comment"><span class="icon-bubbles-4 entry-icon" aria-hidden="true"></span><a href="#">20</a></span>
+                                                        </p>
+                                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed</p>
+                                                        <a class="more-link" href="#">Read more</a>
+                                                    </div><!--entry-content-->
+                                                </article><!--entry-item-->
+                                            </li>
+                                            <li style="width: 245px;">
+                                                <article class="entry-item standard-post clearfix">
+                                                    <div class="entry-thumb hover-effect">
+                                                        <div class="mask">
+                                                            <a class="link-detail" data-icon="&#xe0c2;" href="#"></a>
+                                                        </div>
+                                                        <img src="./placeholders/post-image/post-37.jpg" alt="" />
+                                                    </div>
+                                                    <div class="entry-content">
+                                                        <h3 class="entry-title"><a href="#">Porta Vulputate Justo</a></h3>
+                                                        <p class="entry-meta">
+                                                            <span class="entry-category"><span class="icon-clock-4 entry-icon" aria-hidden="true"></span><span>August 22, 2013</span></span>
+                                            				<span class="entry-comment"><span class="icon-bubbles-4 entry-icon" aria-hidden="true"></span><a href="#">20</a></span>
+                                                        </p>
+                                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed</p>
+                                                        <a class="more-link" href="#">Read more</a>
+                                                    </div><!--entry-content-->
+                                                </article><!--entry-item-->
+                                            </li>
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                        
+                                        <div class="carousel-nav clearfix">
+                                            <a id="prev-3" class="carousel-prev" href="#">&lt;</a>
+                                            <a id="next-3" class="carousel-next" href="#">&gt;</a>
+                                        </div><!--end:carousel-nav-->
+                                        
+                                    </div><!--end:list-carousel-->
+                                    
+                                </div><!--span12-->
+                            
+                            </div><!--row-fluid-->
+                        
+                        </div><!--wrapper-->
+                    
+                    </div><!--kp-our-work-->
+                    
+                </div><!--widget-area-2-->
+                
+            </div><!--span12-->
+            
+        </div><!--row-fluid-->
+        
+        <div class="row-fluid">
+        
+        	<div class="span12">
+            
+            	<div class="kp-our-experient">
+                    <span class="bottom-circle"></span>
+                    <span class="bottom-bullet"></span>
+                    <div class="wrapper">
+                        <div class="row-fluid">
+                            <div class="span12">
+                                <div class="widget-area-3">
+                                    <div class="widget">
+                                        <h4 class="widget-title">From the blog</h4>
+                                        <article class="entry-item clearfix">
+                                            <div class="entry-date">
+                                                <p>15</p>
+                                                <strong>Feb</strong>
+                                            </div>
+                                            <div class="entry-content">
+                                                <h3 class="entry-title"><a href="#">Quisque vitae ipsum ac justo porta</a></h3>
+                                                <p class="entry-meta">
+                                                    <span class="entry-category"><span class="icon-book entry-icon" aria-hidden="true"></span>In: <a href="#">Marketing</a></span>
+                                            		<span class="entry-comment"><span class="icon-bubbles-4 entry-icon" aria-hidden="true"></span><a href="#">20</a></span>
+                                                </p>
+                                                <p>Orem ipsum dolor sit amet Consectetur adipiscing elit. Vestibulum ut magna velit. Quisque placerat, risus in adipiscing rhoncus, quam purus bibendum</p>
+                                                <a href="#" class="more-link">Read more</a>
+                                            </div>
+                                        </article>
+                                        <article class="entry-item clearfix">
+                                            <div class="entry-date">
+                                                <p>15</p>
+                                                <strong>Feb</strong>
+                                            </div>
+                                            <div class="entry-content">
+                                                <h3 class="entry-title"><a href="#">Quisque vitae ipsum ac justo porta</a></h3>
+                                                <p class="entry-meta">
+                                                    <span class="entry-category"><span class="icon-book entry-icon" aria-hidden="true"></span>In: <a href="#">Marketing</a></span>
+                                            		<span class="entry-comment"><span class="icon-bubbles-4 entry-icon" aria-hidden="true"></span><a href="#">20</a></span>
+                                                </p>
+                                                <p>Orem ipsum dolor sit amet Consectetur adipiscing elit. Vestibulum ut magna velit. Quisque placerat, risus in adipiscing rhoncus, quam purus bibendum</p>
+                                                <a href="#" class="more-link">Read more</a>
+                                            </div>
+                                        </article>
+                                    </div><!--widget-->
+                                </div><!--widget-area-3-->
+                                
+                                <div class="widget-area-4">
+                                    <div class="widget">
+                                        
+                                        <h4 class="widget-title">Our Expertise</h4>
+                                        <ul class="kp-skill clearfix">
+                                            <li>
+                                                <div class="chart">
+                                                    <div class="percentage-light" data-percent="75"><span>75</span><sup>%</sup></div>
+                                                    <center><div class="label">Web development</div></center>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="chart">
+                                                    <div class="percentage-light" data-percent="60"><span>60</span><sup>%</sup></div>
+                                                    <center><div class="label">Web design</div></center>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="chart">
+                                                    <div class="percentage-light" data-percent="80"><span>80</span><sup>%</sup></div>
+                                                    <center><div class="label">Wordpress theme</div></center>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="chart">
+                                                    <div class="percentage-light" data-percent="90"><span>90</span><sup>%</sup></div>
+                                                    <center><div class="label">Photoshop</div></center>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        
+                                    </div><!--widget-->
+                                </div><!--widget-area-4-->
+                                
+                                <div class="clear"></div>
+                                
+                            </div><!--span12-->
+                        </div><!--row-fluid-->
+                    </div><!--wrapper-->
+                </div><!--kp-our-experient-->
+            
+            </div><!--span12-->
+            
+        </div><!--row-fluid-->
+        
+        <div class="row-fluid">
+        
+        	<div class="span12">
+            
+            	<div class="widget-area-5">
+                	
+                    <div class="kp-client-logo">
+        
+                        <span class="bottom-circle"></span>
+                        <span class="bottom-bullet"></span>
+                        <div class="wrapper">
+                            <div class="row-fluid">
+                                <div class="span12">
+                                    <h4 class="widget-title">Some of Our Clients</h4>
+                                    <ul class="clearfix">
+                                        <li><a href="#"><img src="./placeholders/logo/logo-1.png" alt="" /></a></li>
+                                        <li><a href="#"><img src="./placeholders/logo/logo-2.png" alt="" /></a></li>
+                                        <li><a href="#"><img src="./placeholders/logo/logo-3.png" alt="" /></a></li>
+                                        <li><a href="#"><img src="./placeholders/logo/logo-4.png" alt="" /></a></li>
+                                        <li><a href="#"><img src="./placeholders/logo/logo-2.png" alt="" /></a></li>
+                                    </ul>
+                                </div><!--span12-->
+                            </div><!--row-fluid-->
+                        </div><!--wrapper-->
+                        
+                    </div><!--kp-client-logo-->
+                    
+                    <div class="kp-testimonial">
+                        <div class="wrapper">
+                            <div class="row-fluid">
+                                <div class="span12">
+                                    <h4 class="widget-title">Testimonials</h4>
+                                    
+                                    <div class="list-carousel responsive">
+                                            
+                                        <ul class="testimonial-slider">
+                                            <li style="width: 355px;">
+                                                <article class="testimonial-item clearfix">
+                                                    <div class="testimonial-content clearfix">
+                                                        <span class="quote-icon"></span>
+                                                        <blockquote>If you look at any designer you admire, whose work inspires you, and whose approach somehow resonates with you.</blockquote>
+                                                        <span class="arrow"></span>
+                                                    </div>
+                                                    <div class="testimonial-author clearfix">
+                                                        <img src="./placeholders/avatar/avatar-2.jpg" alt="" />
+                                                        <a class="author-name" href="#">John Doe,</a>
+                                                        <a href="#" class="author-url">GraphicsFuel.com</a>
+                                                    </div>
+                                                </article><!--testimonial-item-->
+                                            </li>
+                                            <li style="width: 355px;">
+                                                <article class="testimonial-item clearfix">
+                                                    <div class="testimonial-content clearfix">
+                                                        <span class="quote-icon"></span>
+                                                        <blockquote>If you look at any designer you admire, whose work inspires you, and whose approach somehow resonates with you.</blockquote>
+                                                        <span class="arrow"></span>
+                                                    </div>
+                                                    <div class="testimonial-author clearfix">
+                                                        <img src="./placeholders/avatar/avatar-3.jpg" alt="" />
+                                                        <a class="author-name" href="#">Melissa J. Moser,</a>
+                                                        <a href="#" class="author-url">GraphicsFuel.com</a>
+                                                    </div>
+                                                </article><!--testimonial-item-->
+                                            </li>
+                                            <li style="width: 355px;">
+                                                <article class="testimonial-item clearfix">
+                                                    <div class="testimonial-content clearfix">
+                                                        <span class="quote-icon"></span>
+                                                        <blockquote>If you look at any designer you admire, whose work inspires you, and whose approach somehow resonates with you.</blockquote>
+                                                        <span class="arrow"></span>
+                                                    </div>
+                                                    <div class="testimonial-author clearfix">
+                                                        <img src="./placeholders/avatar/avatar-4.jpg" alt="" />
+                                                        <a class="author-name" href="#">John Doe,</a>
+                                                        <a href="#" class="author-url">GraphicsFuel.com</a>
+                                                    </div>
+                                                </article><!--testimonial-item-->
+                                            </li>
+                                            <li style="width: 355px;">
+                                                <article class="testimonial-item clearfix">
+                                                    <div class="testimonial-content clearfix">
+                                                        <span class="quote-icon"></span>
+                                                        <blockquote>If you look at any designer you admire, whose work inspires you, and whose approach somehow resonates with you.</blockquote>
+                                                        <span class="arrow"></span>
+                                                    </div>
+                                                    <div class="testimonial-author clearfix">
+                                                        <img src="./placeholders/avatar/avatar-2.jpg" alt="" />
+                                                        <a class="author-name" href="#">John Doe,</a>
+                                                        <a href="#" class="author-url">GraphicsFuel.com</a>
+                                                    </div>
+                                                </article><!--testimonial-item-->
+                                            </li>
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                        
+                                        <div class="carousel-nav clearfix">
+                                            <a id="prev-4" class="carousel-prev" href="#">&lt;</a>
+                                            <a id="next-4" class="carousel-next" href="#">&gt;</a>
+                                        </div><!--end:carousel-nav-->
+                                        
+                                    </div><!--end:list-carousel-->
+                                    
+                                </div><!--span12-->
+                            </div><!--row-fluid-->
+                        </div><!--wrapper-->
+                    </div><!--kp-testimonial-->
+                    
+                    <div class="bottom-twitter bottom-tagline">
+                    	<div class="wrapper">
+                        	<div class="row-fluid">
+                                <div class="span12">
+                                    <!--<div class="twitter-widget">
+                                        <div class='twitter_outer'>
+                                            <input type='hidden' class='tweet_id' value='envato'>
+                                            <input type='hidden' class='tweet_count' value='1'>
+                                            <div class='twitter_inner clearfix'></div>
+                                        </div>
+                                    </div>-->
+                                    <p>Donec at nulla non ipsum aliquet blandit. Pellentesque id fermentum nunc.</p>
+                                </div><!--span12-->
+                        	</div><!--row-fluid-->
+                    	</div><!--wrapper-->
+                	</div><!--bottom-twitter-->
+                    
+                </div><!--widget-area-5-->
+                
+            </div><!--span12-->
+            
+        </div><!--row-fluid-->
+    
+    </div><!--main-content-->
+    
+    <div id="bottom-sidebar">
+    	
+        <div class="wrapper">
+        	
+            <div class="row-fluid">
+            	
+                <div class="span3 widget-area-6">
+                	<div id="footer-logo-image">
+                        <a class="white-logo" href="#"><img src="./placeholders/white-logo.png" alt="" /></a>
+                        <a class="dark-logo" href="#"><img src="./placeholders/logo.png" alt="" /></a>
+                    </div>
+                    <div class="widget clearfix widget_text">                    
+                        <div class="textwidget">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In luctus luctus est vestibulum luctus. Cras semper mollis feugiat. Suspendisse mollis, massa id aliquam vulputate, libero...</div>                 		
+                    </div><!--widget_text-->
+                </div><!--span3-->
+                
+                <div class="span3 widget-area-7">
+                	<div class="widget">
+                    	<h4 class="widget-title">Photo on Flickr</h4>
+                        <div class="flickr-wrap clearfix" id="flickr-feed-1">                    
+                            <ul class="kopa-flickr-widget clearfix"></ul>
+                        </div><!--flickr-wrap-->
+                    </div><!--widget-->
+                </div><!--span3-->
+                
+                <div class="span3 widget-area-8">
+                	<!--<div class="widget clearfix widget_tag_cloud">
+                    	<h4 class="widget-title">Tag Clound</h4>
+                        <div class="tagcloud">
+                            <a href="#">carousel</a>
+                            <a href="#">china</a>
+                            <a href="#">carousel</a>
+                            <a href="#">china</a>
+                            <a href="#">carousel</a>
+                            <a href="#">china</a>
+                            <a href="#">carousel</a>
+                            <a href="#">china</a>
+                            <a href="#">carousel</a>
+                            <a href="#">china</a>
+						</div>
+					</div>-->
+                    <div class="widget">
+                    	<h4 class="widget-title">Tags</h4>
+                        <div class="kp-tagcloud">
+                            <a href="#">
+                                <span class="kp-tag-left"></span>
+                                <span class="kp-tag-rounded"></span>
+                                <span class="kp-tag-text">Thesis</span>
+                                <span class="kp-tag-right"></span>
+                            </a>
+                            <a href="#">
+                                <span class="kp-tag-left"></span>
+                                <span class="kp-tag-rounded"></span>
+                                <span class="kp-tag-text">Premium Themes</span>
+                                <span class="kp-tag-right"></span>
+                            </a>
+                            <a href="#">
+                                <span class="kp-tag-left"></span>
+                                <span class="kp-tag-rounded"></span>
+                                <span class="kp-tag-text">Genesis</span>
+                                <span class="kp-tag-right"></span>
+                            </a>
+                            <a href="#">
+                                <span class="kp-tag-left"></span>
+                                <span class="kp-tag-rounded"></span>
+                                <span class="kp-tag-text">Clouds</span>
+                                <span class="kp-tag-right"></span>
+                            </a>
+                            <a href="#">
+                                <span class="kp-tag-left"></span>
+                                <span class="kp-tag-rounded"></span>
+                                <span class="kp-tag-text">Icons</span>
+                                <span class="kp-tag-right"></span>
+                            </a>
+                            <a href="#">
+                                <span class="kp-tag-left"></span>
+                                <span class="kp-tag-rounded"></span>
+                                <span class="kp-tag-text">Premium Themes</span>
+                                <span class="kp-tag-right"></span>
+                            </a>
+                            <a href="#">
+                                <span class="kp-tag-left"></span>
+                                <span class="kp-tag-rounded"></span>
+                                <span class="kp-tag-text">Themedy</span>
+                                <span class="kp-tag-right"></span>
+                            </a>
+                            <a href="#">
+                                <span class="kp-tag-left"></span>
+                                <span class="kp-tag-rounded"></span>
+                                <span class="kp-tag-text">Genesis</span>
+                                <span class="kp-tag-right"></span>
+                            </a>
+                            <a href="#">
+                                <span class="kp-tag-left"></span>
+                                <span class="kp-tag-rounded"></span>
+                                <span class="kp-tag-text">Clouds</span>
+                                <span class="kp-tag-right"></span>
+                            </a>
+                            <a href="#">
+                                <span class="kp-tag-left"></span>
+                                <span class="kp-tag-rounded"></span>
+                                <span class="kp-tag-text">Themedy</span>
+                                <span class="kp-tag-right"></span>
+                            </a>
+						</div>
+                    </div><!--widget-->
+                </div><!--span3-->
+                
+                <div class="span3 widget-area-9">
+                	<div class="widget">
+                    	<h4 class="widget-title">Latest Comments</h4>
+                        <ul class="kp-latest-comment">
+                            <li>
+                                <article class="clearfix">
+                                    <a class="entry-thumb" href="#"><img alt="" src="./placeholders/60x60/60x60-1.jpg" /></a>
+                                    <div class="entry-content clearfix">
+                                        <a class="comment-name" href="#">Dannci says:</a>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac posuere ante. Ut scelerisque luctu...</p>
+                                    </div>
+                                </article>
+                            </li>
+                            <li>
+                                <article class="clearfix">
+                                    <a class="entry-thumb" href="#"><img alt="" src="./placeholders/60x60/60x60-2.jpg" /></a>
+                                    <div class="entry-content clearfix">
+                                        <a class="comment-name" href="#">Dannci says:</a>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac posuere ante. Ut scelerisque luctu...</p>
+                                    </div>
+                                </article>
+                            </li>
+                            
+                        </ul>
+                    </div><!--widget-->
+                </div><!--span3-->
+                
+            </div><!--row-fluid-->
+            
+        </div><!--wrapper-->
+        
+    </div><!--bottom-sidebar-->
+    
+    <footer id="page-footer">
+    	<div class="wrapper">
+        	<div class="row-fluid">
+            	<div class="span12">
+                	<div id="copyright">Copyrights. © 2013 by KOPASOFT</div>
+                </div><!--span12-->
+            </div><!--row-fluid-->
+        </div><!--wrapper-->
+    </footer><!--page-footer-->
+    <p id="back-top">
+        <a href="#top">Back to Top</a>
+    </p>
+    
+    </body>
+</html>
