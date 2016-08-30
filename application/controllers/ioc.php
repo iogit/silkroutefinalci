@@ -20,12 +20,19 @@ First function for controller.It will run first anyway
 
 function index()
 {
-
-$data['email']=$this->session->userdata('email');
+$data["loginerror"]='';
+$email=$this->session->userdata('email');
 if($this->session->userdata('logged_in')){
 
 
-$data["loginSignupHtml"]='<li id="contact"> <a href="logout"> Sign Out </a> </li>';
+$data["loginSignupHtml"]='   <li id="features"> <a href="jobseekers"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
+      <div class="vc_menu-open-right vc_menu-2-v">
+        <ul class="clearfix">
+          <li> <a href="logout">Sign Out</a></li>
+          
+        </ul>
+      </div>
+    </li>';
 $data["login"]="";
 }else
 {
@@ -40,6 +47,7 @@ $data["popup2"]="";
 $data["message2"]="";
 $data["message"]="";
 $data["popup"]="";
+
 $this->load->view("index",$data);
 //$this->home();
 
@@ -47,23 +55,92 @@ $this->load->view("index",$data);
 
 function about()
 {
+	$data["loginerror"]='';
+$email=$this->session->userdata('email');
+if($this->session->userdata('logged_in'))
+{
+$data["loginSignupHtml"]='   <li id="features"> <a href="jobseekers"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
+      <div class="vc_menu-open-right vc_menu-2-v">
+        <ul class="clearfix">
+          <li> <a href="logout">Sign Out</a></li>
+          
+        </ul>
+      </div>
+    </li>';
+$data["login"]="";
+}else
+{
+$data["loginSignupHtml"]=$this->loginSignupHtml();	
+$data["email"]="Visitor";
+$data["logout"]="";
+$data["login"]="Login";
+}
 $data["ok"]="";
 $data["popup2"]="";
 $data["message2"]="";
 $data["message"]="";
 $data["popup"]="";
+$data["loginerror"]='';
+$this->load->view("header",$data);
 $this->load->view("about",$data);
 //$this->home();
 
 }
 
-function jobseekers()
+
+function rp()
 {
 $data["ok"]="";
 $data["popup2"]="";
 $data["message2"]="";
 $data["message"]="";
 $data["popup"]="";
+$this->load->view("registration",$data);
+//$this->home();
+
+}
+
+function lp()
+{
+$data["ok"]="";
+$data["popup2"]="";
+$data["message2"]="";
+$data["message"]="";
+$data["popup"]="";
+$this->load->view("login",$data);
+//$this->home();
+
+}
+
+function jobseekers()
+{
+	$data["loginerror"]='';
+$email=$this->session->userdata('email');
+if($this->session->userdata('logged_in')){
+
+$data["loginSignupHtml"]='   <li id="features"> <a href="jobseekers"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
+      <div class="vc_menu-open-right vc_menu-2-v">
+        <ul class="clearfix">
+          <li> <a href="logout">Sign Out</a></li>
+          
+        </ul>
+      </div>
+    </li>';
+$data["login"]="";
+}else
+{
+$data["loginSignupHtml"]=$this->loginSignupHtml();	
+$data["email"]="Visitor";
+$data["logout"]="";
+$data["login"]="Login";
+}
+$data["ok"]="";
+$data["popup2"]="";
+$data["message2"]="";
+$data["message"]="";
+$data["popup"]="";
+$data["loginerror"]='';
+$this->load->view("header",$data);
 $this->load->view("job-seekers",$data);
 //$this->home();
 
@@ -71,11 +148,34 @@ $this->load->view("job-seekers",$data);
 
 function jobs()
 {
+	$data["loginerror"]='';
+$email=$this->session->userdata('email');
+if($this->session->userdata('logged_in')){
+
+
+$data["loginSignupHtml"]='   <li id="features"> <a href="jobseekers"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
+      <div class="vc_menu-open-right vc_menu-2-v">
+        <ul class="clearfix">
+          <li> <a href="logout">Sign Out</a></li>
+          
+        </ul>
+      </div>
+    </li>';
+$data["login"]="";
+}else
+{
+$data["loginSignupHtml"]=$this->loginSignupHtml();	
+$data["email"]="Visitor";
+$data["logout"]="";
+$data["login"]="Login";
+}
 $data["ok"]="";
 $data["popup2"]="";
 $data["message2"]="";
 $data["message"]="";
 $data["popup"]="";
+$data["loginerror"]='';
+$this->load->view("header",$data);
 $this->load->view("jobs",$data);
 //$this->home();
 
@@ -85,11 +185,34 @@ $this->load->view("jobs",$data);
 
 function blog()
 {
+	$data["loginerror"]='';
+$email=$this->session->userdata('email');
+if($this->session->userdata('logged_in')){
+
+
+$data["loginSignupHtml"]='   <li id="features"> <a href="jobseekers"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
+      <div class="vc_menu-open-right vc_menu-2-v">
+        <ul class="clearfix">
+          <li> <a href="logout">Sign Out</a></li>
+          
+        </ul>
+      </div>
+    </li>';
+$data["login"]="";
+}else
+{
+$data["loginSignupHtml"]=$this->loginSignupHtml();	
+$data["email"]="Visitor";
+$data["logout"]="";
+$data["login"]="Login";
+}
 $data["ok"]="";
 $data["popup2"]="";
 $data["message2"]="";
 $data["message"]="";
 $data["popup"]="";
+$data["loginerror"]='';
+$this->load->view("header",$data);
 $this->load->view("blog",$data);
 //$this->home();
 
@@ -107,6 +230,9 @@ $data["popup2"]="";
 $data["message2"]="";
 $data["message"]="";
 $data["popup"]="";
+$data["loginerror"]='';
+$data["loginSignupHtml"]=$this->loginSignupHtml();	
+$this->load->view("header",$data);
 $this->load->view("menu",$data);
 
 
@@ -1494,7 +1620,29 @@ $this->blog();
 }
 public function contact()
 {
+	$data["loginerror"]='';
+$email=$this->session->userdata('email');
+if($this->session->userdata('logged_in')){
 
+
+$data["loginSignupHtml"]='   <li id="features"> <a href="jobseekers"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
+      <div class="vc_menu-open-right vc_menu-2-v">
+        <ul class="clearfix">
+          <li> <a href="logout">Sign Out</a></li>
+          
+        </ul>
+      </div>
+    </li>';
+$data["login"]="";
+}else
+{
+$data["loginSignupHtml"]=$this->loginSignupHtml();	
+$data["email"]="Visitor";
+$data["logout"]="";
+$data["login"]="Login";
+}
+$data["loginerror"]='';
+$this->load->view("header",$data);
 $this->load->view("contact");
 }
 
@@ -1613,8 +1761,6 @@ $this->form_validation->set_message('required','Error');
 
 if($this->form_validation->run()==FALSE){
 
-echo "fail";
-exit();
 $username=$this->input->post("username");
 $password=$this->input->post("password");
 /*
@@ -1650,11 +1796,39 @@ $data["messagepassword"]='"Şifreniz" alanını boş bıraktınız.';
 }
 
 */
-
-$data["loginerror"]="";
 $data['title']="Ana Sayfa | Orakli Eczanesi";
 //$this->load->view("io_header",$data);
-$this->load->view('storeuser/view_usr_login',$data);
+$data["loginerror"]='    <div class="vc_secondary-menu-wrapper" style="background-image: url("img/pattern1.png");">
+    	<div class="container"><div class="row">
+              <div class="vc_secondary-menu">
+                <div class="vc_contact-top-wrapper col-xs-12 col-sm-7 col-md-8 col-lg-9">
+                  <div class="vc_contact-top pull-right">
+                    <div class="pull-left">
+                      <h5> <span> <i class="fa fa-envelope"> </i> info@itsilkroutellc.com </span> </h5>
+                    </div>
+                    <div class="pull-left">
+                      <h5> <span> <i class="fa fa-phone"> </i> +1-972-819-3767 , +1-972-819-3797</span> </h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="vc_social-share-wrapper hidden-xs col-sm-5 col-md-4 col-lg-3">
+                  <div class="vc_social-share vc_tight pull-right"> 
+                      <a title="Twitter" class="twitter" href="#"> <i class="fa fa-twitter"></i> </a> 
+                      <a title="Facebook" class="facebook" href="#"> <i class="fa fa-facebook"></i> </a> 
+                      <a title="Gplus" class="gplus" href="#"> <i class=" fa fa-google-plus"></i> </a> 
+                      <a title="linkedin" class="linkedin" href="#"> <i class="fa fa-linkedin"></i> </a> 
+                      <a title="email" class="email" href="#"> <i class="fa fa-envelope"></i> </a> 
+                      <a title="Rss" class="rss" href="#"> <i class="fa fa-rss"></i> </a> 
+                  </div>
+                </div>
+              </div> 
+		      <div class="vc_sub-menu-bg"><div class="element-1"></div><div class="element-2"></div></div>              
+        </div></div>  
+        <!-- container row --> 
+    </div>';
+    
+$data["loginSignupHtml"]=$this->loginSignupHtml();
+$this->load->view('index',$data);
 //$this->load->view("io_footer");
 
 
@@ -1694,7 +1868,25 @@ $data["errorfieldusername"]='';
 $data["errorfieldpassword"]='error';
 $data["messageusername"]="";
 $data["messagepassword"]='';
-$data["loginerror"]='Geçersiz Kullanıcı Adı ve/veya Şifre. Lütfen bilgilerinizi kontrol ediniz';
+$data["loginerror"]='    <div class="vc_secondary-menu-wrapper" style="background-image: url("img/pattern1.png");">
+    	<div class="container"><div class="row">
+              <div class="vc_secondary-menu">
+                <div class="vc_contact-top-wrapper col-xs-12 col-sm-7 col-md-8 col-lg-9">
+                  <div class="vc_contact-top pull-right">
+                    <div class="pull-left">
+                      <h5> <span>  </span> </h5>
+                    </div>
+                    <div class="pull-left">
+                      <h5> <span style="color:red;"> <i class="fa fa-exclamation" aria-hidden="true"> </i> Wrong password or username</span> </h5>
+                    </div>
+                  </div>
+                </div>
+                
+              </div> 
+		      <div class="vc_sub-menu-bg"><div class="element-1"></div><div class="element-2"></div></div>              
+        </div></div>  
+        <!-- container row --> 
+    </div>';
 $data["loginSignupHtml"]=$this->loginSignupHtml();
 $data['title']="Ana Sayfa | Orakli Eczanesi";
 //$this->load->view("io_header",$data);
@@ -1859,7 +2051,7 @@ echo "Please click this link to activate your account".anchor('http://localhost/
 
 
 function loginSignupHtml(){
-	$loginSignupHtml='<li style="background-color:#666;"> <a href="#"> Log In <i class="fa fa-caret-down"> </i> </a> 
+	$loginSignupHtml='<li style="background-color:#666;"> <a href="lp"> Log In <i class="fa fa-caret-down"> </i> </a> 
   <div class="vc_menu-open-left vc_mega-menu short-width">
     <div class="child-menu">
      

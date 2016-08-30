@@ -56,12 +56,12 @@ $limit=0;
 		}
 		
 		   if($realCount==0){
-		 // $slider="Henüz Yorum Yapılmamıştır.<a class='reply' href='".$shoot."'>Yorum Gönder</a>"; 
+		 // $slider="Hen�z Yorum Yapilmamistir.<a class='reply' href='".$shoot."'>Yorum G�nder</a>"; 
      	 $slider.='<div class="parent child">
             <figure class="img-circle blog-fleft"></figure>
             <div class="parent-sub-img"></div>
             <h2><a href="#"></a></h2>
-			<h3 class="h3div"><p>Resim Bulunamadı</p></h3>
+			<h3 class="h3div"><p>Resim Bulunamadi</p></h3>
             <span></span> <a class="reply" href="all#contact-form"></a>
             
           </div>';
@@ -119,7 +119,7 @@ $limit=0;
 	    $ioBlog_statusx="Beklemede";
 	}else
 	{	$color="";
-	  $ioBlog_statusx="Gönderildi";
+	  $ioBlog_statusx="G�nderildi";
 	}
 
 	if($ioBlog_live==1){  //if it has permission to display
@@ -155,7 +155,7 @@ $limit=0;
             <figure class="img-circle blog-fleft"><img id="newimg" src="'.$url.'img/mark.jpg" alt="" class="img-circle"></figure>
             <div class="parent-sub-img"></div>
             <h2><a href="#">ioComment</a></h2>
-            <span></span> <a class="reply" href="all#contact-form">Yorum Gönder</a>
+            <span></span> <a class="reply" href="all#contact-form">Yorum G�nder</a>
             <p> '.$ioBlog_answer.' </p>
           </div>';
 	
@@ -176,13 +176,13 @@ $limit=0;
 		}
 		
 		   if($realCount==0){
-		 // $blog_list_new="Henüz Yorum Yapılmamıştır.<a class='reply' href='".$shoot."'>Yorum Gönder</a>"; 
+		 // $blog_list_new="Hen�z Yorum Yapilmamistir.<a class='reply' href='".$shoot."'>Yorum G�nder</a>"; 
      	 $blog_list_new.='<div class="parent child">
             <figure class="img-circle blog-fleft"></figure>
             <div class="parent-sub-img"></div>
             <h2><a href="#"></a></h2>
-			<h3 class="h3div"><p> Henüz Yorum Yapılmamıştır denem</p></h3>
-            <span></span> <a class="reply" href="all#contact-form">Yorum Gönder</a>
+			<h3 class="h3div"><p> Hen�z Yorum Yapilmamistir denem</p></h3>
+            <span></span> <a class="reply" href="all#contact-form">Yorum G�nder</a>
             
           </div>';
 		}
@@ -224,7 +224,7 @@ $limit=0;
 	    $ioBlog_statusx="Beklemede";
 	}else
 	{	$color="";
-	  $ioBlog_statusx="Gönderildi";
+	  $ioBlog_statusx="G�nderildi";
 	}
 
 	if($ioBlog_live==1){  //if it has permission to display
@@ -259,7 +259,7 @@ $limit=0;
             <figure class="img-circle blog-fleft"><img id="newimg" src="'.$url.'img/mark.jpg" alt="" class="img-circle"></figure>
             <div class="parent-sub-img"></div>
             <h2><a href="#">ioComment</a></h2>
-            <span></span> <a class="reply" href="all#contact-form">Yorum Gönder</a>
+            <span></span> <a class="reply" href="all#contact-form">Yorum G�nder</a>
             <p> '.$ioComment_answer.' </p>
           </div>';
 	
@@ -280,13 +280,13 @@ $limit=0;
 		}
 		
 		   if($realCount==0){
-		 // $comment_list_popular="Henüz Yorum Yapılmamıştır.<a class='reply' href='".$shoot."'>Yorum Gönder</a>"; 
+		 // $comment_list_popular="Hen�z Yorum Yapilmamistir.<a class='reply' href='".$shoot."'>Yorum G�nder</a>"; 
      	 $blog_list_popular.='<div class="parent child">
             <figure class="img-circle blog-fleft"></figure>
             <div class="parent-sub-img"></div>
             <h2><a href="#"></a></h2>
-			<h3 class="h3div"><p> Henüz Yorum Yapılmamıştır denem</p></h3>
-            <span></span> <a class="reply" href="all#contact-form">Yorum Gönder</a>
+			<h3 class="h3div"><p> Hen�z Yorum Yapilmamistir denem</p></h3>
+            <span></span> <a class="reply" href="all#contact-form">Yorum G�nder</a>
             
           </div>';
 		}
@@ -329,7 +329,7 @@ $limit=0;
 	    $ioBlog_statusx="Beklemede";
 	}else
 	{	$color="";
-	  $ioBlog_statusx="Gönderildi";
+	  $ioBlog_statusx="G�nderildi";
 	}
 
 	if($ioBlog_live==1){  //if it has permission to display
@@ -364,7 +364,7 @@ $limit=0;
             <figure class="img-circle blog-fleft"><img id="newimg" src="'.$url.'img/mark.jpg" alt="" class="img-circle"></figure>
             <div class="parent-sub-img"></div>
             <h2><a href="#">ioComment</a></h2>
-            <span></span> <a class="reply" href="all#contact-form">Yorum Gönder</a>
+            <span></span> <a class="reply" href="all#contact-form">Yorum G�nder</a>
             <p> '.$ioComment_answer.' </p>
           </div>';
 	
@@ -385,13 +385,13 @@ $limit=0;
 		}
 		
 		   if($realCount==0){
-		 // $comment_list_popular="Henüz Yorum Yapılmamıştır.<a class='reply' href='".$shoot."'>Yorum Gönder</a>"; 
+		 // $comment_list_popular="Hen�z Yorum Yapilmamistir.<a class='reply' href='".$shoot."'>Yorum G�nder</a>"; 
      	 $blog_list_popular_top.='<div class="parent child">
             <figure class="img-circle blog-fleft"></figure>
             <div class="parent-sub-img"></div>
             <h2><a href="#"></a></h2>
-			<h3 class="h3div"><p> Henüz Yorum Yapılmamıştır denem</p></h3>
-            <span></span> <a class="reply" href="all#contact-form">Yorum Gönder</a>
+			<h3 class="h3div"><p> Hen�z Yorum Yapilmamistir denem</p></h3>
+            <span></span> <a class="reply" href="all#contact-form">Yorum G�nder</a>
             
           </div>';
 		}
@@ -447,7 +447,7 @@ $randomzerotofour = rand (0,4);
 	    $ioComment_statusx="Beklemede";
 	}else
 	{	$color="";
-	  $ioComment_statusx="Gönderildi";
+	  $ioComment_statusx="G�nderildi";
 	}
 
 	if($ioComment_post==1){  //if it has permission to display
@@ -482,7 +482,7 @@ $randomzerotofour = rand (0,4);
             <figure class="img-circle blog-fleft"><img id="newimg" src="'.$url.'img/mark.jpg" alt="" class="img-circle"></figure>
             <div class="parent-sub-img"></div>
             <h2><a href="#">ioComment</a></h2>
-            <span></span> <a class="reply" href="all#contact-form">Yorum Gönder</a>
+            <span></span> <a class="reply" href="all#contact-form">Yorum G�nder</a>
             <p> '.$ioComment_answer.' </p>
           </div>';
 	
@@ -527,13 +527,13 @@ $randomzerotofour = rand (0,4);
 		}
 		
 		   if($realCount==0){
-		 // $comment_list="Henüz Yorum Yapılmamıştır.<a class='reply' href='".$shoot."'>Yorum Gönder</a>"; 
+		 // $comment_list="Hen�z Yorum Yapilmamistir.<a class='reply' href='".$shoot."'>Yorum G�nder</a>"; 
      	 $comment_list.='<div class="parent child">
             <figure class="img-circle blog-fleft"></figure>
             <div class="parent-sub-img"></div>
             <h2><a href="#"></a></h2>
-			<h3 class="h3div"><p> Henüz Yorum Yapılmamıştır denem</p></h3>
-            <span></span> <a class="reply" href="all#contact-form">Yorum Gönder</a>
+			<h3 class="h3div"><p> Hen�z Yorum Yapilmamistir denem</p></h3>
+            <span></span> <a class="reply" href="all#contact-form">Yorum G�nder</a>
             
           </div>';
 		}
@@ -567,7 +567,7 @@ if($productCount>0)
 	$ioNews_link=$row["ioNews_link"];
 	$ioNews_date=$row["ioNews_date"];
 	
-	$ioNews_content="Içerik Bu Alanda Gösterilemez, İçeriğe Ait Başlığı Bulup İşlem Yapınız";
+	$ioNews_content="I�erik Bu Alanda G�sterilemez, I�erige Ait Basligi Bulup Islem Yapiniz";
 	
 	//$prdct_addDate=strftime("%b %d %Y %X",strtotime($row["prdct_addDate"]));
 	
@@ -582,7 +582,7 @@ if($productCount>0)
 	}else
 	
 	{
-	$news_listTop="Listelenecek Haber Bulunmamaktadır";	
+	$news_listTop="Listelenecek Haber Bulunmamaktadir";	
 		
 		}
 
@@ -623,7 +623,7 @@ if($productCount>0)
 	}else
 	
 	{
-	$bottomblogtitles="Listelenecek Başlık Bulunmamaktadır";	
+	$bottomblogtitles="Listelenecek Baslik Bulunmamaktadir";	
 		
 		}
 
@@ -709,7 +709,7 @@ $counterrecentposts=0;
 	}else
 	
 	{
-	$viewblog="Listelenecek Başlık Bulunmamaktadır";	
+	$viewblog="Listelenecek Baslik Bulunmamaktadir";	
 		
 		}
 
@@ -758,7 +758,7 @@ if($productCount>0)
 	}else
 	
 	{
-	$viewgallery="Listelenecek Başlık Bulunmamaktadır";	
+	$viewgallery="Listelenecek Baslik Bulunmamaktadir";	
 		
 		}
 
@@ -838,7 +838,7 @@ $videocounter=0;
 	}else
 	
 	{
-	$viewgalleryvids="Listelenecek Video Bulunmamaktadır";	
+	$viewgalleryvids="Listelenecek Video Bulunmamaktadir";	
 		
 		}
 
@@ -1216,262 +1216,3 @@ echo $loginSignupHtml;
   </header>
   <!-- Header Ends --> 
 
-
-
-
-<!-- Middle Content Start -->
-  <div class="vc_banner block">
-    <div class="wrapper">
-         <div class="homepage-hero-module">
-    <div class="video-container">
-     
-        <div class="filter"></div>
-        <video autoplay loop class="fillWidth">
-            <source src="media/file.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.</video>
-        <div class="poster hidden">
-            <img src="http://www.videojs.com/img/poster.jpg" alt="">
-        </div>
-    </div>
-</div>
-          <!-- vc_metro-wrapper --> 
-    </div>
-    <!-- wrapper --> 
-  </div>
-  <!-- vc_banner -->
-  
-  <div class="vc_welcome block">
-    <div class="wrapper">
-      <div class="container">
-	  
-
-        <h1 style="font-family: 'Courgette', cursive; line-height:60px;"> A Fundamental Shift In How Business & Technology Bridge. </h1>
-        <div class="row">
-          <div class="col-md-2">
-            <div class="vc_icon-round">
-              <div class="bg-wrapper">
-                <div class="bg"> <i class="fa fa-rocket"> </i> </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-7">
-            <div class="description">
-              
-              <p class="text"> I.T. Silk Route is a leading professional staffing company, providing a broad range of services and solutions in strategy, consulting, staffing and operations.</p>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="vc_button pull-left"> <a href="about.html" class="vc_btn "> Learn More </a> </div>
-            <div class="border"> </div>
-          </div>
-        </div>
-        <!-- row --> 
-      </div>
-      <!-- container --> 
-    </div>
-    <!-- wrapper --> 
-  </div>
-  <!-- vc_welcome -->
-  
-  <div class="vc_features block">
-    <div class="wrapper">
-     
-      <!-- container --> 
-    </div>
-    <!-- wrapper --> 
-  </div>
-  <!-- vc_features-->
-  
-  <div class="vc_latest-portfolio block">
-    <div class="wrapper">
-      <div class="container">
-        <h2 class="pull-left"  style="font-family: 'Courgette', cursive; line-height:60px;"> Our Services and Offerings </h2>
-        <div class="vc_carousel-control clearfix"> <a href="#"> <i class="fa fa-chevron-left"> </i> </a> <a href="#"> <i class="fa fa-chevron-right"> </i> </a> </div>
-        <div class="vc_splitter"> <span class="bg"> </span> </div>
-        
-		  
-		   <div class="row text-center">
-            <div class="col-md-4">
-              <div class="vc_icon-roundx vc_centerx"  >
-                <div class="bgx-wrapper">
-                  <div class="bgx"> <img alt="example image" src="img/about/01.jpg"> </div>
-                </div>
-              </div>
-              <div class="vc_splitter"></div>
-              <h3 style="margin-bottom:0;">SEARCH JOBS</h3>
-              <p> <em>KEYWORD, LOCATION</em> </p>
-              <a class="vc_btn btn-small" href="#">Search</a> </div>
-            <div class="col-md-4">
-              <div class="vc_icon-roundx vc_centerx">
-                <div class="bgx-wrapper">
-                  <div class="bgx"> <img alt="example image" src="img/about/02.jpg"> </div>
-                </div>
-              </div>
-              <div class="vc_splitter"></div>
-              <h3 style="margin-bottom:0;">SIGN UP FOR JOB ALERTS</h3>
-              <p> <em>RECEIVE SPECIFIC EMAIL ALERTS</em> </p>
-              <a class="vc_btn btn-small" href="#">Subscribe</a> </div>
-            <div class="col-md-4">
-              <div class="vc_icon-roundx vc_centerx"  >
-                <div class="bg-wrapper">
-                  <div class="bgx"> <img alt="example image" src="img/about/03.jpg"> </div>
-                </div>
-              </div>
-              <div class="vc_splitter"></div>
-              <h3 style="margin-bottom:0;">POST YOUR RESUME</h3>
-              <p> <em>APPLY ONLINE</em> </p>
-              <a class="vc_btn btn-small" href="#">Enter Info</a> </div>
-          </div><!-- row -->
-          <!-- .vc_carousel --> 
-        </div>
-        <!-- .vc_carousel-wrap --> 
-      </div>
-      <!-- .container-->
-      <div class="clearfix"> </div>
-    </div>
-    <!-- .wrapper --> 
-  </div>
-  <!-- .vc_latest-portfolio -->
-  
-  <div class="vc_blog-contact block">
-    <div class="wrapper">
-      <div class="container">
-        <div class="row">
-          <div id="vc_blog-list-widget" class="widget col-md-8">
-	  	  	<div class="vc_blog-list">
-  <h2> Latest <span class="vc_main-color"> Blogs </span> </h2>
-  <div class="vc_splitter"> <span class="bg"> </span> </div>
-    
-	<?php echo $viewblog; ?>
-	
-  <div class="clearfix"> </div>
-</div>
-<!-- .vc_blog-list -->           </div>
-          <!-- #vc_blog-list-widget .col-md-8 -->
-          <div id="vc_contact-form-widget" class="widget col-md-4">
-	  	  	<div class="vc_contact-form">
-  <h2> Contact <span class="vc_main-color"> Us </span> </h2>
-  <div class="vc_splitter"> <span class="bg"> </span> </div>
-  <div id="contact-form-result">
-      <div id="success" class="alert alert-success hidden"><button type="button" class="close" data-dismiss="alert">&times;</button>We have <strong>successfully</strong> received your Message and will get Back to you as soon as possible.</div>
-      <div id="error" class="alert alert-danger hidden"><button type="button" class="close" data-dismiss="alert">&times;</button> </div>
-      <div id="empty" class="alert alert-danger hidden"><button type="button" class="close" data-dismiss="alert">&times;</button>Please <strong>Fill up</strong> all the Fields and Try Again.</div>
-      <div id="unexpected" class="alert alert-danger hidden"><button type="button" class="close" data-dismiss="alert">&times;</button>An <strong>unexpected error</strong> occured. Please Try Again later.</div>                 
-  </div>               
-  <form action="functions/quick-contact.html" method="post" id="contact-form-widget" name="contact-form-widget" role="form">
-    <input type="hidden" value="info@venmond.com" name="admin-email" id="admin-email">
-    <input type="hidden" value="Venmond, Inc." name="admin-name" id="admin-name">
-    <div class="form-group">
-        <input type="text" onfocus="if(this.value=='Name:') this.value='';" onblur="if(this.value=='') this.value='Name:';" value="Name:" size="35" class="required" id="contact-form-name" name="contact-form-name">
-    </div>
-    <div class="form-group">
-        <input type="email" onfocus="if(this.value=='E-mail:') this.value='';" onblur="if(this.value=='') this.value='E-mail:';" value="E-mail:" size="35" class="required email"  id="contact-form-email" name="contact-form-email">
-    </div>
-    <div class="form-group">
-        <textarea onfocus="if(this.value=='Message:') this.value='';" onblur="if(this.value=='') this.value='Message:';" class="required" id="contact-form-message" name="contact-form-message"  cols="32" rows="10">Message:</textarea>
-    </div>
-    <div class="form-group">
-        <input type="submit" value="Send Message" class="vc_btn" id="contact-form-submit" name="contact-form-submit">
-        <div id="contact-form-loader"> </div>                
-    </div>
-    
-  </form>
-</div>          </div>
-          <!--  #vc_blog-list-widget .col-md-4 --> 
-        </div>
-        <!-- .row -->
-        <div class="clearfix"> </div>
-        <div class="vc_line-splitter"> <span class="bg"> </span> </div>
-      </div>
-      <!-- .container --> 
-    </div>
-    <!-- .wrapper --> 
-  </div>
-  <!-- .vc_blog-contact -->
-  
-  <!-- .vc_client --> 
-<!-- Middle Content End -->
-  
-  
-  
-  
-  
-<!-- Footer Start -->
-  <footer class="footer-1 mode-1" id="footer">
-   
-    <!-- vc_footer-links -->  
-      
-    <div class="vc_bottom">
-      <div class="wrapper">
-        <div class="container">
-          <div class="vc_footer-line"> </div>
-          <div class="bg">
-            <div class="row">
-              <div class=" col-sm-12 col-md-6">
-                <div class="copyright pull-left">
-                  <h5> Copyright &copy;2016  ITSILKROUTELLC. All Rights Reserved  </h5>
-                </div>
-              </div>
-              <div class=" col-sm-12 col-md-6">
-                <div class="menu pull-right"> 
-                	<a href="contact.html"> Contact </a>                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-<!-- Footer END -->
-
-</div>
-<!-- .vc_body END  -->
-
-
-<a class="back-top" href="#" id="back-top"> <i class="fa fa-chevron-up icon-white"> </i> </a> 
-
-<!-- Javascript =============================================== --> 
-<!-- Placed at the end of the document so the pages load faster --> 
-<script type="text/javascript" src="js/jquery.js"></script> 
-<script type="text/javascript" src="js/bootstrap.min.js"></script> 
-<script type="text/javascript" src="js/tinyscrollbar.js"></script> 
-<script type="text/javascript" src="js/caroufredsel.js"></script> 
-<script type="text/javascript" src="js/plugins.js"></script>
-<script type="text/javascript" src="plugins/prettyPhoto-plugin/js/jquery.prettyPhoto.js"></script> 
-<script type="text/javascript" src="plugins/isotope-plugin/js/jquery.isotope.min.js"></script> 
-<script type="text/javascript" src="functions/twitter/jquery.tweet.js"></script>
-<script type="text/javascript" src="js/theme.js"></script>
-<script type="text/javascript" src="custom/custom.js"></script>
-
-<!-- Specific Page Scripts Put Here -->
-<script src="js/specific/quick-contact.js"  type="text/javascript"></script>
-
-<!-- Specific Page Scripts Put Here -->
-<script src="js/specific/metro-slider.js" type="text/javascript"></script>
-<script src="js/specific/quick-contact.js"  type="text/javascript"></script>
-
-
-
-<!-- Specific Page Scripts END -->
-
-
-
-
-
-
-<!-- Google Analytics: Change UA-XXXXX-X to be your site's ID. Go to http://www.google.com/analytics/ for more information. -->
-
-<script>
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-XXXXX-X']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-</script>
-
-
-</body>
-</html>
