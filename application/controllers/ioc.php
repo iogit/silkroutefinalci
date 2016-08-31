@@ -1531,17 +1531,16 @@ public function send_email(){
 
 $this->load->library("form_validation");
 
-$this->form_validation->set_rules("fullName","Full Name", "required|alpha|xss_clean");  //capital letter or lower case letter
-$this->form_validation->set_rules("eMail","E-mail address", "required|valid_email|xss_clean");
-$this->form_validation->set_rules("message","Message", "required|xss_clean");
+$this->form_validation->set_rules("contact-form-name","Full Name", "required");  //capital letter or lower case letter
+$this->form_validation->set_rules("contact-form-email","E-mail", "required|valid_email");
+$this->form_validation->set_rules("contact-form-subject","Subject", "required");
+$this->form_validation->set_rules("contact-form-message","Message", "required");
 
 if($this->form_validation->run() == FALSE){
-$data["message"]="";
-$this->load->view("site_header");
-$this->load->view("site_nav");
-$this->load->view("content_contact",$data);
-$this->load->view("site_footer");
 
+
+echo "error";
+exit();
 }
 
 else{
@@ -1560,10 +1559,10 @@ $config=array(
 $data["message"]="The e-mail has been successfuly send";
 $this->load->library("email");
 
-$this->email->from(set_value("eMail"), set_value("fullName"));
+$this->email->from(set_value("contact-form-email"), set_value("fullName"));
 $this->email->to("sweedenibo@gmail.com");
 $this->email->subject("Message from out form");
-$this->email->message(set_value("Message"));
+$this->email->message(set_value("contact-form-email"));
 $this->email->send();
 
 

@@ -44,9 +44,8 @@
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 An <strong>unexpected error</strong> occured. Please Try Again later.</div>
             </div>
-            <form id="contact-form" name="contact-form" action="functions/contact.html" method="post">
-              <input type="hidden" value="info@venmond.com" name="admin-email" id="admin-email">
-              <input type="hidden" value="Venmond, Inc." name="admin-name" id="admin-name">
+            <form id="contact" name="contact" action="send_email" method="post">
+              
               <div class="row">
                 <div class="col-md-4">
                   <div class="form-group">
