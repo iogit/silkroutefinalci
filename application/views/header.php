@@ -1143,7 +1143,7 @@ function checkPass()
         </ul>
       </div>
     </li>
-    <li id="portfolios"> <a href="portfolio-2-columns.html"> Employee Portal <i class="fa fa-caret-down"> </i> </a>    </li>
+    <li id="portfolios"> <a href="loginPage"> Employee Portal <i class="fa fa-caret-down"> </i> </a>    </li>
  <li id="about"> <a href="about"> About Us </a> </li>
 
     <li id="contact"> <a href="contact"> Contact Us </a> </li>
@@ -1211,7 +1211,7 @@ echo $loginSignupHtml;
         </div></div>  
         <!-- container row --> 
     </div>
-	<?php echo $loginerror; ?>
+	
     <div class="vc_menu-bg"><div class="element-1"></div><div class="element-2"></div></div>
   </header>
   <!-- Header Ends --> 

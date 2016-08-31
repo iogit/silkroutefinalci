@@ -88,6 +88,66 @@ $this->load->view("about",$data);
 }
 
 
+function loginPage()
+{
+$data["loginerror"]='';
+$email=$this->session->userdata('email');
+if($this->session->userdata('logged_in')){
+
+
+$data["loginSignupHtml"]='   <li id="features"> <a href="jobseekers"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
+      <div class="vc_menu-open-right vc_menu-2-v">
+        <ul class="clearfix">
+          <li> <a href="logout">Sign Out</a></li>
+          
+        </ul>
+      </div>
+    </li>';
+	
+redirect('/');
+}
+$data["ok"]="";
+$data["popup2"]="";
+$data["message2"]="";
+$data["message"]="";
+$data["popup"]="";
+$data["loginerror"]='	';
+$this->load->view("header",$data);
+$this->load->view("login-page",$data);
+//$this->home();
+
+}
+function rPage()
+{
+$data["loginerror"]='';
+$email=$this->session->userdata('email');
+if($this->session->userdata('logged_in')){
+
+
+$data["loginSignupHtml"]='   <li id="features"> <a href="jobseekers"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
+      <div class="vc_menu-open-right vc_menu-2-v">
+        <ul class="clearfix">
+          <li> <a href="logout">Sign Out</a></li>
+          
+        </ul>
+      </div>
+    </li>';
+	
+redirect('/');
+}
+$data["ok"]="";
+$data["popup2"]="";
+$data["message2"]="";
+$data["message"]="";
+$data["popup"]="";
+$data["loginerror"]='	';
+$this->load->view("header",$data);
+$this->load->view("registration-page",$data);
+//$this->home();
+
+}
+
+
 function rp()
 {
 $data["ok"]="";
@@ -1748,7 +1808,41 @@ redirect('/');
 
 function l()
 {
+	$data["loginerror"]='';
+$email=$this->session->userdata('email');
+if($this->session->userdata('logged_in')){
 
+
+$data["loginSignupHtml"]='   <li id="features"> <a href="jobseekers"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
+      <div class="vc_menu-open-right vc_menu-2-v">
+        <ul class="clearfix">
+          <li> <a href="logout">Sign Out</a></li>
+          
+        </ul>
+      </div>
+    </li>';
+	
+redirect('/');
+}
+$data["loginerror"]='';
+$email=$this->session->userdata('email');
+if($this->session->userdata('logged_in')){
+
+
+$data["loginSignupHtml"]='   <li id="features"> <a href="jobseekers"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
+      <div class="vc_menu-open-right vc_menu-2-v">
+        <ul class="clearfix">
+          <li> <a href="logout">Sign Out</a></li>
+          
+        </ul>
+      </div>
+    </li>';
+$data["login"]="";
+}else
+{
+$data["loginSignupHtml"]=$this->loginSignupHtml();	
+
+}
 $email=$this->input->post("email");
 $password=$this->input->post("password");
 	
@@ -1798,37 +1892,15 @@ $data["messagepassword"]='"Şifreniz" alanını boş bıraktınız.';
 */
 $data['title']="Ana Sayfa | Orakli Eczanesi";
 //$this->load->view("io_header",$data);
-$data["loginerror"]='    <div class="vc_secondary-menu-wrapper" style="background-image: url("img/pattern1.png");">
-    	<div class="container"><div class="row">
-              <div class="vc_secondary-menu">
-                <div class="vc_contact-top-wrapper col-xs-12 col-sm-7 col-md-8 col-lg-9">
-                  <div class="vc_contact-top pull-right">
-                    <div class="pull-left">
-                      <h5> <span> <i class="fa fa-envelope"> </i> info@itsilkroutellc.com </span> </h5>
-                    </div>
-                    <div class="pull-left">
-                      <h5> <span> <i class="fa fa-phone"> </i> +1-972-819-3767 , +1-972-819-3797</span> </h5>
-                    </div>
-                  </div>
-                </div>
-                <div class="vc_social-share-wrapper hidden-xs col-sm-5 col-md-4 col-lg-3">
-                  <div class="vc_social-share vc_tight pull-right"> 
-                      <a title="Twitter" class="twitter" href="#"> <i class="fa fa-twitter"></i> </a> 
-                      <a title="Facebook" class="facebook" href="#"> <i class="fa fa-facebook"></i> </a> 
-                      <a title="Gplus" class="gplus" href="#"> <i class=" fa fa-google-plus"></i> </a> 
-                      <a title="linkedin" class="linkedin" href="#"> <i class="fa fa-linkedin"></i> </a> 
-                      <a title="email" class="email" href="#"> <i class="fa fa-envelope"></i> </a> 
-                      <a title="Rss" class="rss" href="#"> <i class="fa fa-rss"></i> </a> 
-                  </div>
-                </div>
-              </div> 
-		      <div class="vc_sub-menu-bg"><div class="element-1"></div><div class="element-2"></div></div>              
-        </div></div>  
-        <!-- container row --> 
-    </div>';
+
+$data["loginerror"]=' 
+              <div id="unexpected" class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                Please enter your email and password <strong></strong></div>';
     
 $data["loginSignupHtml"]=$this->loginSignupHtml();
-$this->load->view('index',$data);
+$this->load->view('header',$data);
+$this->load->view('login-page',$data);
 //$this->load->view("io_footer");
 
 
@@ -1868,30 +1940,16 @@ $data["errorfieldusername"]='';
 $data["errorfieldpassword"]='error';
 $data["messageusername"]="";
 $data["messagepassword"]='';
-$data["loginerror"]='    <div class="vc_secondary-menu-wrapper" style="background-image: url("img/pattern1.png");">
-    	<div class="container"><div class="row">
-              <div class="vc_secondary-menu">
-                <div class="vc_contact-top-wrapper col-xs-12 col-sm-7 col-md-8 col-lg-9">
-                  <div class="vc_contact-top pull-right">
-                    <div class="pull-left">
-                      <h5> <span>  </span> </h5>
-                    </div>
-                    <div class="pull-left">
-                      <h5> <span style="color:red;"> <i class="fa fa-exclamation" aria-hidden="true"> </i> Wrong password or username</span> </h5>
-                    </div>
-                  </div>
-                </div>
-                
-              </div> 
-		      <div class="vc_sub-menu-bg"><div class="element-1"></div><div class="element-2"></div></div>              
-        </div></div>  
-        <!-- container row --> 
-    </div>';
+$data["loginerror"]=' 
+              <div id="unexpected" class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                Your email or password is incorrect. <strong></strong></div>';
 $data["loginSignupHtml"]=$this->loginSignupHtml();
 $data['title']="Ana Sayfa | Orakli Eczanesi";
 //$this->load->view("io_header",$data);
 
-$this->load->view('index',$data);
+$this->load->view('header',$data);
+$this->load->view('login-page',$data);
 //$this->load->view("io_footer");
 
 }else{
@@ -1909,7 +1967,7 @@ $newdata = array(
 $this->session->set_userdata($newdata);  
 
 
-redirect('index');
+redirect('/');
 }
 }
 
@@ -1950,7 +2008,22 @@ return true;
 
 function r()
 {
+$data["loginerror"]='';
+$email=$this->session->userdata('email');
+if($this->session->userdata('logged_in')){
 
+
+$data["loginSignupHtml"]='   <li id="features"> <a href="jobseekers"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
+      <div class="vc_menu-open-right vc_menu-2-v">
+        <ul class="clearfix">
+          <li> <a href="logout">Sign Out</a></li>
+          
+        </ul>
+      </div>
+    </li>';
+	
+redirect('/');
+}
 
 
 
@@ -1963,6 +2036,25 @@ $this->form_validation->set_message('valid_email', 'email exist');
 
 if($this->form_validation->run()==FALSE)
 {
+$data["loginerror"]='';
+$email=$this->session->userdata('email');
+if($this->session->userdata('logged_in')){
+
+
+$data["loginSignupHtml"]='   <li id="features"> <a href="jobseekers"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
+      <div class="vc_menu-open-right vc_menu-2-v">
+        <ul class="clearfix">
+          <li> <a href="logout">Sign Out</a></li>
+          
+        </ul>
+      </div>
+    </li>';
+$data["login"]="";
+}else
+{
+$data["loginSignupHtml"]=$this->loginSignupHtml();	
+
+}
 /*
 $this->load->helper('captcha');
 $randWord=$this->_random_string(6);
@@ -2002,11 +2094,23 @@ $data["captchaval"]=$captcha['word'];
 $data["loginerror"]="";
 $data["error_server_val"]="server_side_val";
 */
-echo "<script>alert('hata');</script>";
-$data['title']="Ana Sayfa | Orakli Eczanesi";
-$this->load->view('index',$data);
-//$this->load->view("io_footer");
-//hasnt been run or there are validation errors
+
+				
+$data["loginerror"]=' 
+              <div id="unexpected" class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                Please check your email and password. Password must be at least 6 characters<strong></strong></div>';
+				
+if(validation_errors()!=null){
+$data["loginerror"]=' 
+              <div id="unexpected" class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+'.validation_errors().'<strong></strong></div>';}
+    
+	
+$data["loginSignupHtml"]=$this->loginSignupHtml();
+$this->load->view('header',$data);
+$this->load->view('registration-page',$data);
 
 }else{
 
@@ -2031,9 +2135,22 @@ $newdata = array(
        'logged_in' => TRUE  
       );  
 $this->session->set_userdata($newdata);  
+$data["loginerror"]=' 
+               <div id="success" class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                Your account has been successfully created.<strong></strong></div>';
 
-
-redirect('index');
+				
+				$data["loginSignupHtml"]='   <li id="features"> <a href="jobseekers"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
+      <div class="vc_menu-open-right vc_menu-2-v">
+        <ul class="clearfix">
+          <li> <a href="logout">Sign Out</a></li>
+          
+        </ul>
+      </div>
+    </li>';
+$this->load->view('header',$data);
+$this->load->view('registration-page',$data);
 /*
 //email confirmation 
 $this->load->library('email');
@@ -2051,7 +2168,7 @@ echo "Please click this link to activate your account".anchor('http://localhost/
 
 
 function loginSignupHtml(){
-	$loginSignupHtml='<li style="background-color:#666;"> <a href="lp"> Log In <i class="fa fa-caret-down"> </i> </a> 
+	/*$loginSignupHtml='<li style="background-color:#666;"> <a href="lp"> Log In <i class="fa fa-caret-down"> </i> </a> 
   <div class="vc_menu-open-left vc_mega-menu short-width">
     <div class="child-menu">
      
@@ -2072,7 +2189,7 @@ function loginSignupHtml(){
     <input type="hidden" value="Venmond, Inc." name="admin-name" id="admin-name">
     <div class="form-group">
 
-        <input  type="email" onfocus="if(this.value=="E-mail:") this.value="";\" onblur="if(this.value=="E-mail") this.value="E-mail:";" value="" placeholder="E-mail:" size="35" class="required email" id="email" name="email">
+        <input  type="email" value="E-mail:" onfocus="if(this.value==\'E-mail:\') this.value=\'\';" size="35" class="required email" id="email" name="email">
     </div>
 
 
@@ -2119,7 +2236,7 @@ function loginSignupHtml(){
     <input type="hidden" value="Venmond, Inc." name="admin-name" id="admin-name">
     <div class="form-group">
 
-        <input placeholder="E-mail:" type="email" onfocus="if(this.value=="E-mail:") this.value=\'\';" onblur="if(this.value=="E-mail") this.value="E-mail:";" value="" size="35" class="required email" id="email" name="email">
+        <input type="email" value="E-mail:" onfocus="if(this.value==\'E-mail:\') this.value=\'\';" size="35" class="required email" id="email" name="email">
     </div>
 
 <!--
@@ -2156,8 +2273,8 @@ function loginSignupHtml(){
     </div>
        
   </div>                
-</li>';
-
+</li>';*/
+$loginSignupHtml='<li id="contact">  <a href="loginPage"> <span class="fa fa-user" aria-hidden="true" style="color:orange; font-size: 1.2em;"> </span> &nbsp; Log In | Sign Up </a> </li>';
 return $loginSignupHtml;
 	
 	
