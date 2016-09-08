@@ -83,9 +83,254 @@ $data["popup"]="";
 $data["loginerror"]='';
 $this->load->view("header",$data);
 $this->load->view("about",$data);
+$this->load->view("footer",$data);
 //$this->home();
 
 }
+
+function blogs()
+{
+
+$data["loginerror"]='';
+$email=$this->session->userdata('email');
+if($this->session->userdata('logged_in')){
+
+
+$data["loginSignupHtml"]='   <li id="features"> <a href="jobseekers"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
+      <div class="vc_menu-open-right vc_menu-2-v">
+        <ul class="clearfix">
+          <li> <a href="logout">Sign Out</a></li>
+          
+        </ul>
+      </div>
+    </li>';
+$data["login"]="";
+}else
+{
+$data["loginSignupHtml"]=$this->loginSignupHtml();	
+$data["email"]="Visitor";
+$data["logout"]="";
+$data["login"]="Login";
+}
+
+$detid=$this->input->get('id');
+
+
+$blogspecfull="";
+$detailblogsql=$this->db->query("SELECT * FROM io_blog");
+
+	$blogcount=$detailblogsql->num_rows();
+	
+	
+			if($blogcount>=1){
+				
+				foreach($detailblogsql->result_array() as $blogcount){
+		    // $blogcount=$detailblogsql->result_array(); 
+//print_r($blogcount);			 
+			 $ioBlog_id=$blogcount['ioBlog_id'];
+			 $ioBlog_title=$blogcount["ioBlog_title"];
+			 $ioBlog_content=$blogcount["ioBlog_content"];
+			 $ioBlog_contentShort=substr($ioBlog_content, 0, 500);
+			 
+			 $ioBlog_link=$blogcount["ioBlog_link"];
+			 $ioBlog_view=$blogcount["ioBlog_view"];
+			 $ioBlog_date=$blogcount["ioBlog_date"];
+			 $ioBlog_day=substr($ioBlog_date, 8, 2);
+			 
+			 //Convert month number to 
+			 $monthNum=substr($ioBlog_date, 5, 2);
+             $dateObj   = DateTime::createFromFormat('!m', $monthNum);
+             $ioBlog_monthName = $dateObj->format('F'); // March
+			 
+			 //Extract the year from date string.
+			 $ioBlog_year=substr($ioBlog_date, 0, 4);
+			 
+		     $ioBlog_view=$ioBlog_view+1;
+			 $this->db->query("UPDATE io_blog SET ioBlog_view='$ioBlog_view' where ioBlog_id='$ioBlog_id'");
+			 $blogspecfull.=' 
+
+			 <article class="blog-row clearfix">
+                <div class="blog-left">
+                  <div class="vc_anim vc_anim-slide"> <a href="'.base_url().'detailblog?id='.$ioBlog_id.'" class="vc_preview"> <img style="max-height:752px; max-width:230px" alt="example image" src="'.base_url().'images/blog_images/'.$ioBlog_id.'.jpg"  /> </a>
+                    <div class="vc_hover">
+                      <div class="hover-wrapper">
+                        <div class="icon-wrapper">
+                          <ul>
+                            <li class="vc_icon"> <a data-rel="prettyPhoto" href="'.base_url().'images/blog_images/'.$ioBlog_id.'.jpg" > <i class="icon-play-sign"> </i> </a> </li>
+                            <li class="vc_icon"> <a  href="'.base_url().'images/blog_images/'.$ioBlog_id.'.jpg" > <i class="fa fa-link"> </i> </a> </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+				
+				
+                <div class="blog-right clearfix">
+                  <div class="entry-date">
+                    <div class="day">'.$ioBlog_day.'</div>
+                    <div class="month">'.$ioBlog_monthName.'</div>
+                  </div>
+                  <div class="title">
+                    <h3> <a href="'.base_url().'detailblog?id='.$ioBlog_id.'"> '.$ioBlog_title.' </a> </h3>
+                    <span class="comments"> <i class="icon-comments"> </i> '.$ioBlog_view.' </span> <span class="taxonomy"> <i class="icon-tags"> </i> <a href="#"> itsilkroute </a> <a href="#">  </a> </span> </div>
+                  <div class="description">
+                    <p> '.$ioBlog_contentShort.'<a href="'.base_url().'detailblog?id='.$ioBlog_id.'" class="vc_read-more"> read more </a> </p>
+                  </div>
+                </div>
+              </article>
+            
+			';
+			
+	
+				}
+			
+	
+		}else{
+		echo '<script language="JavaScript"> 
+{
+window.alert("Beklenmeyen Bir hata Ile Karsilasildi: X090x106ILP, <br> ");
+window.location.href ="'.base_url().'";}';
+		
+		
+		
+		
+		exit();
+			}
+				 
+	$comment_bloglist="";
+$realCount=0;
+//this block grabs the whole list for viewing
+if($comment_bloglist==""){
+$sqlblogcomment=$this->db->query("SELECT * FROM io_comment WHERE  ioComment_idparent='$detid' AND ioComment_categid='3' ORDER BY ioComment_date DESC");  //or ASC
+$commentblogcounter=$sqlblogcomment->num_rows(); //count output amount
+$url=base_url();
+if($commentblogcounter>0)  //if there is comment
+{
+$limit=0;
+	foreach($sqlblogcomment->result_array() as $rowcomment) //take comments
+	{
+
+	$ioComment_id=$rowcomment["ioComment_id"];
+	$ioComment_name=$rowcomment["ioComment_name"];
+	$ioComment_email=$rowcomment["ioComment_email"];
+	$ioComment_title=$rowcomment["ioComment_title"];
+	$ioComment_comment=$rowcomment["ioComment_comment"];
+	$ioComment_answer=$rowcomment["ioComment_answer"];
+	$ioComment_date=$rowcomment["ioComment_date"];
+	$ioComment_post=$rowcomment["ioComment_post"];
+	$ioComment_view=$rowcomment["ioComment_view"];
+	$url=base_url();
+		$ioComment_titlesub = substr($ioComment_title, 0, 25);
+		$ioComment_titlesub2 = substr($ioComment_title, 0, 30);
+		$ioComment_commentsub = substr($ioComment_title, 0,60);
+$randomzerotofour = rand (0,4);
+	
+	//$prdct_addDate=strftime("%b %d %Y %X",strtotime($row["prdct_addDate"]));
+	$shoot="#contact-form";
+	
+	if($ioComment_post==0)
+	{	$color="red";
+	    $ioComment_statusx="Beklemede";
+	}else
+	{	$color="";
+	  $ioComment_statusx="Gönderildi";
+	}
+
+	if($ioComment_post==1){  //if it has permission to display
+	$realCount++;
+	$randomonetoseven = rand (1,7);
+	$comment_bloglist.='  <li class="comment clearfix">
+                                        <article class="comment-wrap clearfix"> 
+                                            <div class="comment-avatar">
+                                                <img src="'.base_url().'placeholders/avatar/'.$randomonetoseven.'.jpg" alt="" />                                           
+                                            </div>
+                                            <div class="comment-body clearfix">
+                                                <div class="comment-meta">
+                                                    <span class="author">'.$ioComment_name.'</span>
+                                                    <span class="date">&nbsp;-&nbsp;'.$ioComment_date.'</span>
+                                                </div><!-- end:comment-meta -->                        
+                                                <p>'.$ioComment_comment.'</p>
+                                                <footer>
+													
+												</footer>
+                                            </div><!--comment-body -->
+                                        </article>                                                                               
+                                    </li>';
+              if($ioComment_answer!=""){      $comment_bloglist.='<ul class="children">
+                                        <li class="comment clearfix">
+                                            <article class="comment-wrap clearfix"> 
+                                                <div class="comment-avatar">
+                                                    <img src="'.base_url().'placeholders/avatar/0.jpg" alt="" />                                           
+                                                </div>
+                                                <div class="comment-body clearfix">
+                                                    <div class="comment-meta">
+                                                        <span class="author">Admin</span>
+                                                        <span class="date">&nbsp;-&nbsp;</span>
+                                                    </div><!-- end:comment-meta -->                        
+                                                    <p>'.$ioComment_answer.'</p>
+                                                    <footer>
+														
+													</footer>
+                                                </div><!--comment-body -->
+                                            </article>                                                                               
+                                        </li></ul>
+                                    ';}
+	
+
+	}
+	}
+	
+	}else //if there is no comment
+	
+	{
+		
+		 
+		}
+		
+		   if($realCount==0){
+		 // $comment_list="Henüz Yorum Yapılmamıştır.<a class='reply' href='".$shoot."'>Yorum Gönder</a>"; 
+     	 $comment_bloglist.=' <article class="timeline-item quote-post clearfix">
+                                                    
+                                                    <div class="timeline-icon">
+                                                        <div><p data-icon="&#xe075;" /></div>
+                                                        <span class="dotted-horizon"></span>
+                                                        <span class="vertical-line"></span>
+                                                        <span class="circle-outer"></span>
+                                                        <span class="circle-inner"></span>
+                                                    </div>
+                                                
+                                                    <div class="entry-body clearfix">                                                    
+                                                        <p  style="font-size:14px;">
+														
+														</p>
+                                                        <center><span class="quote-name">Henüz Yorum Yapılmamıştır</span></center>
+                                                        <header>
+                                                            <span class="entry-date"><span class="icon-clock-4 entry-icon" aria-hidden="true"></span><span></span></span>
+                                                            <span class="entry-comment"><span class="icon-bubbles-4 entry-icon" aria-hidden="true"></span><a href="#"></a></span>
+                                                        </header>
+                                                    </div>
+                                                    
+                                                </article><!--timeline-item-->';
+		}
+		
+		
+		
+		
+   
+		}
+		$data["pagetitle"]=$ioBlog_title;	
+	$data["parentid"]=$detid;
+$data["from"]="detailblog"; //blog
+$data["comment_speclist"]=$comment_bloglist;
+$data["details"]=$blogspecfull;
+$data["feromon"]=3; //slider category
+$this->load->view("header",$data);
+$this->load->view("all-blogs",$data);
+$this->load->view("footer",$data);
+
+}
+
 
 
 function loginPage()
@@ -751,6 +996,27 @@ $this->load->view("detail",$data);
 function detailblog()
 {
 
+$data["loginerror"]='';
+$email=$this->session->userdata('email');
+if($this->session->userdata('logged_in')){
+
+
+$data["loginSignupHtml"]='   <li id="features"> <a href="jobseekers"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
+      <div class="vc_menu-open-right vc_menu-2-v">
+        <ul class="clearfix">
+          <li> <a href="logout">Sign Out</a></li>
+          
+        </ul>
+      </div>
+    </li>';
+$data["login"]="";
+}else
+{
+$data["loginSignupHtml"]=$this->loginSignupHtml();	
+$data["email"]="Visitor";
+$data["logout"]="";
+$data["login"]="Login";
+}
 
 $detid=$this->input->get('id');
 
@@ -762,6 +1028,7 @@ $detailblogsql=$this->db->query("SELECT * FROM io_blog WHERE ioBlog_id='$detid' 
 	
 	
 			if($blogcount==1){
+				
 				foreach($detailblogsql->result_array() as $blogcount){
 		    // $blogcount=$detailblogsql->result_array(); 
 //print_r($blogcount);			 
@@ -771,31 +1038,68 @@ $detailblogsql=$this->db->query("SELECT * FROM io_blog WHERE ioBlog_id='$detid' 
 			 $ioBlog_link=$blogcount["ioBlog_link"];
 			 $ioBlog_view=$blogcount["ioBlog_view"];
 			 $ioBlog_date=$blogcount["ioBlog_date"];
-		  $ioBlog_view=$ioBlog_view+1;
+			 $ioBlog_day=substr($ioBlog_date, 8, 2);
+			 
+			 //Convert month number to 
+			 $monthNum=substr($ioBlog_date, 5, 2);
+             $dateObj   = DateTime::createFromFormat('!m', $monthNum);
+             $ioBlog_monthName = $dateObj->format('F'); // March
+			 
+			 //Extract the year from date string.
+			 $ioBlog_year=substr($ioBlog_date, 0, 4);
+			 
+		     $ioBlog_view=$ioBlog_view+1;
 			 $this->db->query("UPDATE io_blog SET ioBlog_view='$ioBlog_view' where ioBlog_id='$ioBlog_id'");
-			 $blogspecfull.='
-			                                                       <div class="entry-body clearfix">
-                                                        <div class="kp-thumb hover-effect">
-                                                            <div class="mask">
-                                                                <a class="link-detail" href="#" data-icon="&#xe0c2;"></a>
-                                                            </div>
-                                                            <img src="'.base_url().'images/blog_images/'.$ioBlog_id.'.jpg" alt="" />
-                                                        </div>
-                                                        <header>
-                                                            <h2 class="entry-title"><a href="#">'.$ioBlog_title.'</a></h2>
-                                                            <span class="entry-date"><span class="icon-clock-4 entry-icon" aria-hidden="true"></span><span>'.$ioBlog_date.'</span></span>
-                                                            <span class="entry-comment"><span class="icon-bubbles-4 entry-icon" aria-hidden="true"></span><a href="#">'.$ioBlog_view.'</a></span>
-                                                        </header>
-                                                           
-                                                        <p>
-														
-														'.$ioBlog_content.'
-														
-														</p>
-                                                        
-                                                    </div>
-			
-			
+			 $blogspecfull.='      <div class="vc_blog-list">
+              <div class="header">
+                <div class="entry-date">
+                  <div class="day">'.$ioBlog_day.'</div>
+                  <div class="month">'.$ioBlog_monthName.'</div>
+                </div>
+                <div class="title">
+                  <h3> <a href="#"> '.$ioBlog_title.'</a> </h3>
+                  <span class="year info"><i class="glyphicon glyphicon-calendar"></i>'.$ioBlog_year.'</span><span class="user info"> <i class="fa fa-user"> </i> <a href="#"> Admin</a> </span> <span class="comments info"> <i class="fa fa-comments"> </i> <a href="#comment-title">'.$ioBlog_view.'</a> </span> <span class="taxonomy info"> <i class="fa fa-tags"> </i> <a href="#"> itsilkroute </a> <a href="#">  </a> </span> </div>
+              </div>
+              <div class="clearfix"></div>
+              <article class="blog-row clearfix">
+                <div class="blog-left">
+                  <div class="vc_anim vc_anim-slide">
+				  <a style="max-height:752px; max-width:230px" href="#" class="vc_preview">
+				  <img alt="example image" src="'.base_url().'images/blog_images/'.$ioBlog_id.'.jpg"/>
+				  </a>
+                    <div class="vc_hover">
+                      <div class="hover-wrapper">
+                        <div class="icon-wrapper">
+                          <ul>
+                            <li class="vc_icon"> <a data-rel="prettyPhoto" href="'.base_url().'images/blog_images/'.$ioBlog_id.'.jpg" > <i class="fa fa-search-plus"> </i> </a> </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="blog-right clearfix">
+                  <div class="description">
+                    <p>  
+					'.$ioBlog_content.'
+                    </p>
+                  </div>
+                </div>
+              </article>
+              <div class="vc_share-post">
+              <div class="text">
+                <h4 class="vc_main-color"><i class="icon-share-alt"></i></h4>
+              </div>
+              <div class="widget"> 
+                <!-- AddThis Button BEGIN -->
+                <a class="addthis_button" href="http://www.addthis.com/bookmark.html?v=300&amp;pubid=ra-51f5ff9515d6d31e"><img alt="example image" src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" style="border:0"/></a>
+                <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+                <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-51f5ff9515d6d31e"></script>
+                <!-- AddThis Button END -->
+              </div>
+            
+              
+            
 			';
 			
 	
@@ -941,9 +1245,9 @@ $data["from"]="detailblog"; //blog
 $data["comment_speclist"]=$comment_bloglist;
 $data["details"]=$blogspecfull;
 $data["feromon"]=3; //slider category
+$this->load->view("header",$data);
 $this->load->view("detail",$data);
-
-
+$this->load->view("footer",$data);
 
 }
 
@@ -1540,9 +1844,7 @@ $this->form_validation->set_rules("contact-form-message","Message", "required");
 
 if($this->form_validation->run() == FALSE){
 
-
-echo "error";
-exit();
+redirect('contact');
 }
 
 else{
@@ -1561,19 +1863,17 @@ $config=array(
 $data["message"]="The e-mail has been successfuly send";
 $this->load->library("email");
 
-$this->email->from(set_value("contact-form-email"), set_value("fullName"));
-$this->email->to("sweedenibo@gmail.com");
-$this->email->subject("Message from out form");
-$this->email->message(set_value("contact-form-email"));
+$this->email->from(set_value("contact-form-email"),set_value("contact-form-name"));
+$this->email->to("info@itsilkroutellc.com");
+$this->email->subject(set_value("contact-form-subject"));
+$this->email->message(set_value("contact-form-message"));
 $this->email->send();
 
+$message='<div id="unexpected" class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                Success<strong></strong></div>';
 
-echo $this->email->print_debugger();
-
-$this->load->view("site_header");
-$this->load->view("site_nav");
-$this->load->view("content_contact",$data);
-$this->load->view("site_footer");
+$this->contact_result($message);
 
 }
 
@@ -1583,6 +1883,33 @@ $this->load->view("site_footer");
 }
 
 
+public function contact_result($message){
+	$data["loginerror"]='';
+$email=$this->session->userdata('email');
+if($this->session->userdata('logged_in')){
+
+
+$data["loginSignupHtml"]='   <li id="features"> <a href="jobseekers"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
+      <div class="vc_menu-open-right vc_menu-2-v">
+        <ul class="clearfix">
+          <li> <a href="logout">Sign Out</a></li>
+          
+        </ul>
+      </div>
+    </li>';
+$data["login"]="";
+}else
+{
+$data["loginSignupHtml"]=$this->loginSignupHtml();	
+$data["email"]="Visitor";
+$data["logout"]="";
+$data["login"]="Login";
+}
+$data["loginerror"]='';
+$this->load->view("header",$data);
+$this->load->view("contact",$data);
+
+}
 
 public function master(){
 
@@ -1679,36 +2006,114 @@ $answerThis=$this->input->get("comid");
 $deneme="nedir bu";
 $this->blog();
 }
+
+
+
 public function contact()
 {
-	$data["loginerror"]='';
+	
+$data['message']='';	
+$data["loginerror"]='';
 $email=$this->session->userdata('email');
-if($this->session->userdata('logged_in')){
+		if($this->session->userdata('logged_in')){
 
 
-$data["loginSignupHtml"]='   <li id="features"> <a href="jobseekers"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
-      <div class="vc_menu-open-right vc_menu-2-v">
-        <ul class="clearfix">
-          <li> <a href="logout">Sign Out</a></li>
-          
-        </ul>
-      </div>
-    </li>';
-$data["login"]="";
-}else
-{
-$data["loginSignupHtml"]=$this->loginSignupHtml();	
-$data["email"]="Visitor";
-$data["logout"]="";
-$data["login"]="Login";
-}
+		$data["loginSignupHtml"]='   <li id="features"> <a href="jobseekers"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
+			  <div class="vc_menu-open-right vc_menu-2-v">
+				<ul class="clearfix">
+				  <li> <a href="logout">Sign Out</a></li>
+				  
+				</ul>
+			  </div>
+			</li>';
+		$data["login"]="";
+		}else
+		{
+		$data["loginSignupHtml"]=$this->loginSignupHtml();	
+		$data["email"]="Visitor";
+		$data["logout"]="";
+		$data["login"]="Login";
+		}
+
+		if ($_SERVER['REQUEST_METHOD'] == 'POST')
+		{
+			$this->load->library("form_validation");
+
+			$this->form_validation->set_rules("contact-form-name","Full Name", "required");  //capital letter or lower case letter
+			$this->form_validation->set_rules("contact-form-email","E-mail", "required|valid_email");
+			$this->form_validation->set_rules("contact-form-subject","Subject", "required");
+			$this->form_validation->set_rules("contact-form-message","Message", "required");
+
+			if($this->form_validation->run() == FALSE){
+
+				$strMessage='<div id="contact-form-result">
+              <div id="success" class="alert alert-success hidden">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                We have <strong>successfully</strong> received your Message and will get back to you as soon as possible.</div>
+              <div id="error" class="alert alert-danger hidden">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+              </div>
+              <div id="empty" class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                Please <strong>Fill up</strong> all the Fields and Try Again.</div>
+              <div id="unexpected" class="alert alert-danger hidden">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                An <strong>unexpected error</strong> occured. Please Try Again later.</div>
+            </div>';
+			
+			$this->session->set_flashdata("success", $strMessage);
+            redirect("contact");
+			}
+
+			else
+			{
+			/*
+			$config=array(
+
+			'protokol'=>'smtp',
+			'smtp_host'=>'ssl://smtp.googlemail.com',
+			'smtp_port'=>465,
+			'smtp_user'=>'sweedenibo@gmail.com',
+			'smtp_pass'=>'24952495',
+			);
+
+			*/
+			
+			$this->load->library("email");
+
+			$this->email->from(set_value("contact-form-email"),set_value("contact-form-name"));
+			$this->email->to("info@itsilkroutellc.com");
+			$this->email->subject(set_value("contact-form-subject"));
+			$this->email->message(set_value("contact-form-message"));
+			$this->email->send();
+			$strMessage='<div id="contact-form-result">
+              <div id="success" class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                We have <strong>successfully</strong> received your Message and will get back to you as soon as possible.</div>
+              <div id="error" class="alert alert-danger hidden">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+              </div>
+              <div id="empty" class="alert alert-danger hidden">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                Please <strong>Fill up</strong> all the Fields and Try Again.</div>
+              <div id="unexpected" class="alert alert-danger hidden">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                An <strong>unexpected error</strong> occured. Please Try Again later.</div>
+            </div>';
+			
+			$this->session->set_flashdata("success", $strMessage);
+            redirect("contact");
+			
+			}		
+
+		}
+
+
 $data["loginerror"]='';
 $this->load->view("header",$data);
-$this->load->view("contact");
+$this->load->view("contact",$data);
+
 }
-
-
-
 
 
 public function commentAnswer()

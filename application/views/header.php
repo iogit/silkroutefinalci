@@ -1120,7 +1120,7 @@ function checkPass()
       <div class="row">
           <nav class="vc_menu"> 
           	<div class="logo">
-                <a href="index.html"> 
+                <a href="/"> 
                     <img  alt="logo" src="img/logo.png"> 
                 </a>
             </div>
@@ -1129,7 +1129,7 @@ function checkPass()
             </div>
             <div class="vc_primary-menu">
 				<ul>
-    <li id="home"> <a href="index"> Home  </a>
+    <li id="home"> <a href="/"> Home  </a>
    
     </li>
                   

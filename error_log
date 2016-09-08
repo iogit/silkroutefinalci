@@ -1,0 +1,3 @@
+[02-Sep-2016 15:33:47] PHP Parse error:  syntax error, unexpected T_STRING in /home6/itsilkro/public_html/system/core/CodeIgniter.php on line 2
+[07-Sep-2016 15:10:39 America/Denver] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home6/itsilkro/public_html/production/application/controllers/Ioc.php on line 1792
+[07-Sep-2016 15:46:26 America/Denver] PHP Parse error:  syntax error, unexpected ''</p>' (T_ENCAPSED_AND_WHITESPACE) in /home6/itsilkro/public_html/production/application/controllers/Ioc.php on line 869

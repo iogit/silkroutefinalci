@@ -30,21 +30,15 @@
           <div class="col-md-8">
             <h2>Leave us a<span class="vc_main-color"> message!</span></h2>
             <p> </p>
-            <div id="contact-form-result">
-              <div id="success" class="alert alert-success hidden">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                We have <strong>successfully</strong> received your Message and will get Back to you as soon as possible.</div>
-              <div id="error" class="alert alert-danger hidden">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-              </div>
-              <div id="empty" class="alert alert-danger hidden">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                Please <strong>Fill up</strong> all the Fields and Try Again.</div>
-              <div id="unexpected" class="alert alert-danger hidden">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                An <strong>unexpected error</strong> occured. Please Try Again later.</div>
-            </div>
-            <form id="contact" name="contact" action="send_email" method="post">
+			
+            <?php 
+					if($this->session->flashdata("success") !== FALSE)
+					{
+					echo $this->session->flashdata("success");
+					}
+
+			?>
+            <form id="contact" name="contact" action="contact" method="post">
               
               <div class="row">
                 <div class="col-md-4">

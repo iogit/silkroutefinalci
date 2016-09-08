@@ -1357,24 +1357,63 @@ echo $loginSignupHtml;
       <div id="empty" class="alert alert-danger hidden"><button type="button" class="close" data-dismiss="alert">&times;</button>Please <strong>Fill up</strong> all the Fields and Try Again.</div>
       <div id="unexpected" class="alert alert-danger hidden"><button type="button" class="close" data-dismiss="alert">&times;</button>An <strong>unexpected error</strong> occured. Please Try Again later.</div>                 
   </div>               
-  <form action="functions/quick-contact.html" method="post" id="contact-form-widget" name="contact-form-widget" role="form">
-    <input type="hidden" value="info@venmond.com" name="admin-email" id="admin-email">
-    <input type="hidden" value="Venmond, Inc." name="admin-name" id="admin-name">
-    <div class="form-group">
-        <input type="text" onfocus="if(this.value=='Name:') this.value='';" onblur="if(this.value=='') this.value='Name:';" value="Name:" size="35" class="required" id="contact-form-name" name="contact-form-name">
-    </div>
-    <div class="form-group">
-        <input type="email" onfocus="if(this.value=='E-mail:') this.value='';" onblur="if(this.value=='') this.value='E-mail:';" value="E-mail:" size="35" class="required email"  id="contact-form-email" name="contact-form-email">
-    </div>
-    <div class="form-group">
-        <textarea onfocus="if(this.value=='Message:') this.value='';" onblur="if(this.value=='') this.value='Message:';" class="required" id="contact-form-message" name="contact-form-message"  cols="32" rows="10">Message:</textarea>
-    </div>
-    <div class="form-group">
-        <input type="submit" value="Send Message" class="vc_btn" id="contact-form-submit" name="contact-form-submit">
-        <div id="contact-form-loader"> </div>                
-    </div>
-    
-  </form>
+            <p> </p>
+			
+            <?php 
+					if($this->session->flashdata("success") !== FALSE)
+					{
+					echo $this->session->flashdata("success");
+					}
+
+			?>
+            <form id="contact" name="contact" action="contact" method="post">
+              
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="control-label" for="contact-form-name">Name<span class="vc_red">*</span></label>
+                    <div class="controls">
+                      <input type="text" placeholder="" id="contact-form-name" name="contact-form-name" required />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="control-label" for="contact-form-email">Email<span class="vc_red">*</span></label>
+                    <div class="controls">
+                      <input type="email" placeholder="" id="contact-form-email" name="contact-form-email" required >
+                    </div>
+                  </div>
+                </div>
+                
+              </div> <!-- row -->
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                  	<label  for="contact-form-subject">Subject<span class="vc_red">*</span></label>                    
+                    <div class="controls">
+                      <input type="text" placeholder="" id="contact-form-subject" name="contact-form-subject" required />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                  	<label for="contact-form-message">Message<span class="vc_red">*</span></label>                   
+                    <div class="controls">
+                      <textarea  rows="10" cols="58" id="contact-form-message" name="contact-form-message" required ></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <button class="vc_btn" type="submit" id="contact-form-submit" name="contact-form-submit" value="submit">Send Message</button>
+                </div>
+              </div>
+            </form>
+          
 </div>          </div>
           <!--  #vc_blog-list-widget .col-md-4 --> 
         </div>
