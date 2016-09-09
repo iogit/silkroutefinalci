@@ -981,8 +981,11 @@ $data["logout"]="";
 $data["login"]="Login";
 }
 
-$detid=$this->input->get('id');
-
+//$detid=$this->input->get('id');
+$detid=$this->uri->segment(2);
+if (!ctype_digit($detid)) {
+	redirect('/');
+}
 
 $blogspecfull="";
 $detailblogsql=$this->db->query("SELECT * FROM io_blog WHERE ioBlog_id='$detid' LIMIT 1");
@@ -1070,15 +1073,8 @@ $detailblogsql=$this->db->query("SELECT * FROM io_blog WHERE ioBlog_id='$detid' 
 			
 	
 		}else{
-		echo '<script language="JavaScript"> 
-{
-window.alert("Beklenmeyen Bir hata Ile Karsilasildi: X090x106ILP, <br> ");
-window.location.href ="'.base_url().'";}';
-		
-		
-		
-		
-		exit();
+			
+			redirect('/');
 			}
 				 
 	$comment_bloglist="";
@@ -1301,7 +1297,7 @@ $jobsSql=$this->db->query("SELECT * FROM io_jobs");
                         <p>
 						'.$ioJob_description.'
                         </p>
-                        <p> <a class="vc_btn" href="#">Apply Now</a> </p>
+                        <p> <a class="vc_btn" href="#">Get In Touch </a> </p>
                       </div>
                       <div class="col-md-6">
                         <p class="vc_black"><strong>Qualifications:</strong></p>
@@ -2208,6 +2204,113 @@ $email=$this->session->userdata('email');
 $data["loginerror"]='';
 $this->load->view("header",$data);
 $this->load->view("contact",$data);
+
+}
+
+
+public function postresume()
+{
+	
+$data['message']='';	
+$data["loginerror"]='';
+$email=$this->session->userdata('email');
+		if($this->session->userdata('logged_in')){
+
+
+		$data["loginSignupHtml"]='   <li id="features"> <a href="jobseekers"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
+			  <div class="vc_menu-open-right vc_menu-2-v">
+				<ul class="clearfix">
+				  <li> <a href="logout">Sign Out</a></li>
+				  
+				</ul>
+			  </div>
+			</li>';
+		$data["login"]="";
+		}else
+		{
+		$data["loginSignupHtml"]=$this->loginSignupHtml();	
+		$data["email"]="Visitor";
+		$data["logout"]="";
+		$data["login"]="Login";
+		}
+
+		if ($_SERVER['REQUEST_METHOD'] == 'POST')
+		{
+			$this->load->library("form_validation");
+
+			$this->form_validation->set_rules("contact-form-name","Full Name", "required");  //capital letter or lower case letter
+			$this->form_validation->set_rules("contact-form-email","E-mail", "required|valid_email");
+			$this->form_validation->set_rules("contact-form-subject","Subject", "required");
+			$this->form_validation->set_rules("contact-form-message","Message", "required");
+
+			if($this->form_validation->run() == FALSE){
+
+				$strMessage='<div id="contact-form-result">
+              <div id="success" class="alert alert-success hidden">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                We have <strong>successfully</strong> received your Message and will get back to you as soon as possible.</div>
+              <div id="error" class="alert alert-danger hidden">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+              </div>
+              <div id="empty" class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                Please <strong>Fill up</strong> all the Fields and Try Again.</div>
+              <div id="unexpected" class="alert alert-danger hidden">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                An <strong>unexpected error</strong> occured. Please Try Again later.</div>
+            </div>';
+			
+			$this->session->set_flashdata("success", $strMessage);
+            redirect("contact");
+			}
+
+			else
+			{
+			/*
+			$config=array(
+
+			'protokol'=>'smtp',
+			'smtp_host'=>'ssl://smtp.googlemail.com',
+			'smtp_port'=>465,
+			'smtp_user'=>'sweedenibo@gmail.com',
+			'smtp_pass'=>'24952495',
+			);
+
+			*/
+			
+			$this->load->library("email");
+
+			$this->email->from(set_value("contact-form-email"),set_value("contact-form-name"));
+			$this->email->to("info@itsilkroutellc.com");
+			$this->email->subject(set_value("contact-form-subject"));
+			$this->email->message(set_value("contact-form-message"));
+			$this->email->send();
+			$strMessage='<div id="contact-form-result">
+              <div id="success" class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                We have <strong>successfully</strong> received your Message and will get back to you as soon as possible.</div>
+              <div id="error" class="alert alert-danger hidden">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+              </div>
+              <div id="empty" class="alert alert-danger hidden">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                Please <strong>Fill up</strong> all the Fields and Try Again.</div>
+              <div id="unexpected" class="alert alert-danger hidden">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                An <strong>unexpected error</strong> occured. Please Try Again later.</div>
+            </div>';
+			
+			$this->session->set_flashdata("success", $strMessage);
+            redirect("contact");
+			
+			}		
+
+		}
+
+
+$data["loginerror"]='';
+$this->load->view("header",$data);
+$this->load->view("post-resume",$data);
 
 }
 

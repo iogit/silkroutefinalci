@@ -131,7 +131,7 @@ $limit=0;
           <div class="hover-wrapper">
             <div class="icon-wrapper">
               <ul>
-                <li class="vc_icon"> <a  href="'.base_url().'detailblog?id='.$ioBlog_id.'" > <i class="fa fa-link"> </i> </a> </li>
+                <li class="vc_icon"> <a  href="'.base_url().'detailblog/'.$ioBlog_id.'" > <i class="fa fa-link"> </i> </a> </li>
               </ul>
             </div>
           </div>
@@ -139,10 +139,10 @@ $limit=0;
       </div>
     </div>
     <div class="blog-right clearfix">
-      <h3> <a href="'.base_url().'detailblog?id='.$ioBlog_id.'"> '.$ioBlog_title.' </a> </h3>
+      <h3> <a href="'.base_url().'detailblog/'.$ioBlog_id.'"> '.$ioBlog_title.' </a> </h3>
       <span class="date"> '.$ioBlog_date.'</span>  <span class="taxonomy"> <i class="fa fa-tags"> </i> Source: USCIS  </span>
       <div class="description">
-        <p> '.$ioBlog_view.' <a href="'.base_url().'detailblog?id='.$ioBlog_id.'" class="vc_read-more"> read more </a> </p>
+        <p> '.$ioBlog_view.' <a href="'.base_url().'detailblog/'.$ioBlog_id.'" class="vc_read-more"> read more </a> </p>
       </div>
     </div>
   </article>
@@ -670,7 +670,7 @@ $counterrecentposts=0;
           <div class="hover-wrapper">
             <div class="icon-wrapper">
               <ul>
-                <li class="vc_icon"> <a  href="'.base_url().'detailblog?id='.$ioBlog_id.'" > <i class="fa fa-link"> </i> </a> </li>
+                <li class="vc_icon"> <a  href="'.base_url().'detailblog/'.$ioBlog_id.'" > <i class="fa fa-link"> </i> </a> </li>
               </ul>
             </div>
           </div>
@@ -678,10 +678,10 @@ $counterrecentposts=0;
       </div>
     </div>
     <div class="blog-right clearfix">
-      <h3> <a href="'.base_url().'detailblog?id='.$ioBlog_id.'"> '.$ioBlog_title.' </a> </h3>
+      <h3> <a href="'.base_url().'detailblog/'.$ioBlog_id.'"> '.$ioBlog_title.' </a> </h3>
       <span class="date"> '.$ioBlog_date.'</span>  <span class="taxonomy"> <i class="fa fa-tags"> </i> Source: USCIS  </span>
       <div class="description">
-        <p> '.$ioBlog_contentsub.' <a href="'.base_url().'detailblog?id='.$ioBlog_id.'" class="vc_read-more"> read more </a> </p>
+        <p> '.$ioBlog_contentsub.' <a href="'.base_url().'detailblog/'.$ioBlog_id.'" class="vc_read-more"> read more </a> </p>
       </div>
     </div>
   </article>
@@ -692,7 +692,7 @@ $counterrecentposts=0;
 			  $lastpostedblog.='
 			  
 			                              <li>
-                            		<a title="" href="'.base_url().'detailblog?id='.$ioBlog_id.'">'.$ioBlog_titlesub.'</a>
+                            		<a title="" href="'.base_url().'detailblog/'.$ioBlog_id.'">'.$ioBlog_titlesub.'</a>
                                     <span class="post-date"> | '.$ioBlog_date.'</span>
                                 </li>
 

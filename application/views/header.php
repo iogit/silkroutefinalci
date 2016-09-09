@@ -32,7 +32,7 @@ $limit=0;
 	$realCount++;
 	$slider.='
     <li>
-                                                    <img src="'.base_url().'placeholders/slider/'.$ioSlider_id.'.jpg" alt="" />
+                                                    <img src="<?php echo base_url();?>'.base_url().'placeholders/slider/'.$ioSlider_id.'.jpg" alt="" />
                                                     <div class="ei-title">
                                                         <h2><a href="'.base_url().'detailslider?id='.$ioSlider_id.'&feromon=1">'.$ioSlider_title.'</a></h2>
                                                         <h3>'.$ioSlider_text.'</h3>
@@ -126,7 +126,7 @@ $limit=0;
 	$realCount++;
 	$blog_list_new.='  <article class="blog-row clearfix">
     <div class="blog-left">
-      <div class="vc_anim vc_anim-slide"> <a href="portfolio-single-project.html" class="vc_preview"> <img alt="example image" src="'.$url.'images/blog_images/'.$ioBlog_id.'.jpg"  /> </a>
+      <div class="vc_anim vc_anim-slide"> <a href="portfolio-single-project.html" class="vc_preview"> <img alt="example image" src="<?php echo base_url();?>'.$url.'images/blog_images/'.$ioBlog_id.'.jpg"  /> </a>
         <div class="vc_hover">
           <div class="hover-wrapper">
             <div class="icon-wrapper">
@@ -152,7 +152,7 @@ $limit=0;
 		if($ioBlog_answer!="")  //if answer is not empty add answer too.
 	{
 	 $blog_list_new.='<div class="parent child">
-            <figure class="img-circle blog-fleft"><img id="newimg" src="'.$url.'img/mark.jpg" alt="" class="img-circle"></figure>
+            <figure class="img-circle blog-fleft"><img id="newimg" src="<?php echo base_url();?>'.$url.'img/mark.jpg" alt="" class="img-circle"></figure>
             <div class="parent-sub-img"></div>
             <h2><a href="#">ioComment</a></h2>
             <span></span> <a class="reply" href="all#contact-form">Yorum Gönder</a>
@@ -233,7 +233,7 @@ $limit=0;
 
    <li>
                                             <article class="clearfix">
-                                                <a href="#" class="entry-thumb"><img src="'.$url.'images/blog_images/'.$ioBlog_id.'.jpg" alt="" /></a>
+                                                <a href="#" class="entry-thumb"><img src="<?php echo base_url();?>'.$url.'images/blog_images/'.$ioBlog_id.'.jpg" alt="" /></a>
                                                 <div class="entry-content">
                                                     <h4 class="entry-title"><a href="'.base_url().'detailblog?id='.$ioBlog_id.'">'.$ioBlog_title.'</a></h4>
                                                     <span class="entry-date"><span class="icon-clock-4 entry-icon" aria-hidden="true"></span><span>'.$ioBlog_date.'</span></span>
@@ -256,7 +256,7 @@ $limit=0;
 		if($ioComment_answer!="")  //if answer is not empty add answer too.
 	{
 	 $comment_list_popular.='<div class="parent child">
-            <figure class="img-circle blog-fleft"><img id="newimg" src="'.$url.'img/mark.jpg" alt="" class="img-circle"></figure>
+            <figure class="img-circle blog-fleft"><img id="newimg" src="<?php echo base_url();?>'.$url.'img/mark.jpg" alt="" class="img-circle"></figure>
             <div class="parent-sub-img"></div>
             <h2><a href="#">ioComment</a></h2>
             <span></span> <a class="reply" href="all#contact-form">Yorum Gönder</a>
@@ -338,7 +338,7 @@ $limit=0;
 
    <li>
                                             <article class="clearfix">
-                                                <a href="#" class="entry-thumb"><img src="'.$url.'images/blog_images/'.$ioBlog_id.'.jpg" alt="" /></a>
+                                                <a href="#" class="entry-thumb"><img src="<?php echo base_url();?>'.$url.'images/blog_images/'.$ioBlog_id.'.jpg" alt="" /></a>
                                                 <div class="entry-content">
                                                     <h4 class="entry-title"><a href="'.base_url().'detailblog?id='.$ioBlog_id.'">'.$ioBlog_title.'</a></h4>
                                                     <span class="entry-date"><span class="icon-clock-4 entry-icon" aria-hidden="true"></span><span>'.$ioBlog_date.'</span></span>
@@ -361,7 +361,7 @@ $limit=0;
 		if($ioComment_answer!="")  //if answer is not empty add answer too.
 	{
 	 $comment_list_popular.='<div class="parent child">
-            <figure class="img-circle blog-fleft"><img id="newimg" src="'.$url.'img/mark.jpg" alt="" class="img-circle"></figure>
+            <figure class="img-circle blog-fleft"><img id="newimg" src="<?php echo base_url();?>'.$url.'img/mark.jpg" alt="" class="img-circle"></figure>
             <div class="parent-sub-img"></div>
             <h2><a href="#">ioComment</a></h2>
             <span></span> <a class="reply" href="all#contact-form">Yorum Gönder</a>
@@ -456,7 +456,7 @@ $randomzerotofour = rand (0,4);
 
    <li>
                                             <article class="clearfix">
-                                                <a href="#" class="entry-thumb"><img src="'.$url.'images/blog_images'.$ioComment_id.'.jpg" alt="" /></a>
+                                                <a href="#" class="entry-thumb"><img src="<?php echo base_url();?>'.$url.'images/blog_images'.$ioComment_id.'.jpg" alt="" /></a>
                                                 <div class="entry-content">
                                                     <h4 class="entry-title"><a href="'.base_url().'comment?comid='.$ioComment_id.'">'.$ioComment_titlesub2.'...</a></h4>
                                                     <span class="entry-date"><span class="icon-clock-4 entry-icon" aria-hidden="true"></span><span>'.$ioComment_date.'</span></span>
@@ -479,7 +479,7 @@ $randomzerotofour = rand (0,4);
 		if($ioComment_answer!="")  //if answer is not empty add answer too.
 	{
 	 $comment_list.='<div class="parent child">
-            <figure class="img-circle blog-fleft"><img id="newimg" src="'.$url.'img/mark.jpg" alt="" class="img-circle"></figure>
+            <figure class="img-circle blog-fleft"><img id="newimg" src="<?php echo base_url();?>'.$url.'img/mark.jpg" alt="" class="img-circle"></figure>
             <div class="parent-sub-img"></div>
             <h2><a href="#">ioComment</a></h2>
             <span></span> <a class="reply" href="all#contact-form">Yorum Gönder</a>
@@ -502,7 +502,7 @@ $randomzerotofour = rand (0,4);
 			  
 			                        <li>
                                 <article class="clearfix">
-                                    <a class="entry-thumb" href="#"><img alt="" src="'.base_url().'placeholders/60x60/'.$randomzerotofour.'.jpg" /></a>
+                                    <a class="entry-thumb" href="#"><img alt="" src="<?php echo base_url();?>'.base_url().'placeholders/60x60/'.$randomzerotofour.'.jpg" /></a>
                                     <div class="entry-content clearfix">
                                         <a class="comment-name" href="'.base_url().'comment?comid='.$ioComment_id.'">'.$ioComment_name.' der ki :</a>
                                         <p>'.$ioComment_commentsub.'...</p>
@@ -665,7 +665,7 @@ $counterrecentposts=0;
 			  $viewblog.=' <article class="blog-row clearfix">
     <div class="blog-left">
       <div class="vc_anim vc_anim-slide"> 
-	    <a href="portfolio-single-project.html" class="vc_preview"> <img alt="example image" src="'.$url.'images/blog_images/'.$ioBlog_id.'.jpg"  /> </a>
+	    <a href="portfolio-single-project.html" class="vc_preview"> <img alt="example image" src="<?php echo base_url();?>'.$url.'images/blog_images/'.$ioBlog_id.'.jpg"  /> </a>
         <div class="vc_hover">
           <div class="hover-wrapper">
             <div class="icon-wrapper">
@@ -747,7 +747,7 @@ if($productCount>0)
                                                                 <p></p>
                                                             </div>
                                                         </div>
-                                                        <img style="width:260px; height:auto;" src="'.base_url().'images/gallerypics_images/'.$iogallerypic_id.'.jpg" alt="" />
+                                                        <img style="width:260px; height:auto;" src="<?php echo base_url();?>'.base_url().'images/gallerypics_images/'.$iogallerypic_id.'.jpg" alt="" />
                                                     </article><!--element-->	  ';
 	
 	}
@@ -797,7 +797,7 @@ $videocounter=0;
 															<div class="entry">
 															<!-- display: block; max-width:300px; max-height:120px; width: auto;  height: auto;-->
 															
-                                                            <img style="" src="'.base_url().'images/galleryvids_images/'.$iogalleryvid_id.'.jpg" alt="" />
+                                                            <img style="" src="<?php echo base_url();?>'.base_url().'images/galleryvids_images/'.$iogalleryvid_id.'.jpg" alt="" />
 															'.$iogalleryvid_title.'
                                                             </li>';*/
 															
@@ -806,7 +806,7 @@ $videocounter=0;
 								$viewgalleryvids.='							 <li>
                                         <article>
                                             <div class="bwWrapper">
-                                                <img src="'.base_url().'images/galleryvids_images/'.$iogalleryvid_id.'.jpg" alt="" />
+                                                <img src="<?php echo base_url();?>'.base_url().'images/galleryvids_images/'.$iogalleryvid_id.'.jpg" alt="" />
                                                 
 												<a href="'.$iogalleryvid_link.'" rel="prettyPhoto" class="kp-pf-detail" data-icon="&#xe022;"><span></span></a>
                                             </div>
@@ -876,25 +876,25 @@ $videocounter=0;
     <!-- CSS -->
        
     <!-- Bootstrap & FontAwesome CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url();?>css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url();?>css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!--[if IE 7]><link type="text/css" rel="stylesheet" href="css/font-awesome-ie7.min.css"><![endif]-->
 
     <!-- Fonts CSS -->
-    <link href="css/fonts.css"  rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url();?>css/fonts.css"  rel="stylesheet" type="text/css">
                
     <!-- Plugin CSS -->
-    <link href="plugins/prettyPhoto-plugin/css/prettyPhoto.css" rel="stylesheet" type="text/css">
-    <link href="plugins/isotope-plugin/css/isotope.css" rel="stylesheet" type="text/css">
-    <link href="plugins/rs-plugin/css/settings.css" media="screen" rel="stylesheet" type="text/css">
-	<link href="plugins/google-code-prettify/prettify.css" rel="stylesheet" type="text/css">  
-	<link href="css/animate.min.css" rel="stylesheet" type="text/css"> 
+    <link href="<?php echo base_url();?>plugins/prettyPhoto-plugin/css/prettyPhoto.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url();?>plugins/isotope-plugin/css/isotope.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url();?>plugins/rs-plugin/css/settings.css" media="screen" rel="stylesheet" type="text/css">
+	<link href="<?php echo base_url();?>plugins/google-code-prettify/prettify.css" rel="stylesheet" type="text/css">  
+	<link href="<?php echo base_url();?>css/animate.min.css" rel="stylesheet" type="text/css"> 
  
     <!-- Theme CSS -->
-    <link href="css/theme.css" rel="stylesheet" type="text/css">
-    <!--[if IE]> <link href="css/ie.css" rel="stylesheet" > <![endif]-->
-    <link href="css/chrome.css" rel="stylesheet" type="text/chrome"> <!-- chrome only css -->
-    <link href="css/header/header-1.css" rel="stylesheet">
+    <link href="<?php echo base_url();?>css/theme.css" rel="stylesheet" type="text/css">
+    <!--[if IE]> <link href="<?php echo base_url();?>css/ie.css" rel="stylesheet" > <![endif]-->
+    <link href="<?php echo base_url();?>css/chrome.css" rel="stylesheet" type="text/chrome"> <!-- chrome only css -->
+    <link href="<?php echo base_url();?>css/header/header-1.css" rel="stylesheet">
 
 	<!-- Specific Page CSS -->
 	
@@ -905,30 +905,56 @@ $videocounter=0;
 
         
     <!-- Responsive CSS -->
-        	<link href="css/theme-responsive.css" rel="stylesheet" type="text/css"> 
-    	<link href="css/header/header-1-responsive.css" rel="stylesheet" type="text/css"> 
+        	<link href="<?php echo base_url();?><?php echo base_url();?>css/theme-responsive.css" rel="stylesheet" type="text/css"> 
+    	<link href="<?php echo base_url();?>css/header/header-1-responsive.css" rel="stylesheet" type="text/css"> 
         <link id="link-header-mode-r" href="css/mode/mode-1-header-responsive.css" rel="stylesheet" type="text/css"> 
         <link id="link-footer-mode-r" href="css/mode/mode-1-footer-responsive.css" rel="stylesheet" type="text/css">
     	<link id="link-color" href="css/color/color-blue-responsive.css" rel="stylesheet" type="text/css">        
-		              
-	  
+		           
     
     
     <!-- Custom CSS -->
-    <link href="custom/custom.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url();?>custom/custom.css" rel="stylesheet" type="text/css">
 
 
     <!-- Head SCRIPTS -->
-    <script type="text/javascript" src="js/modernizr.js"></script> 
+    <script type="text/javascript" src="<?php echo base_url();?>js/modernizr.js"></script> 
     
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script type="text/javascript" src="js/html5shiv.js"></script>
-      <script type="text/javascript" src="js/respond.min.js"></script>
+      <script type="text/javascript" src="<?php echo base_url();?>js/html5shiv.js"></script>
+      <script type="text/javascript" src="<?php echo base_url();?>js/respond.min.js"></script>
     <![endif]-->
 	
 	<link href="https://fonts.googleapis.com/css?family=Courgette|Damion" rel="stylesheet">
- <style>  
+	
+ <style> 
+
+// Phone text input start
+
+/*Phone Number Input "hack"*/
+.phone-number .col-xs-3::after{
+ content: "-";
+ position:absolute;
+    right: 5px;
+    color: black;
+    border: 0px solid;
+    top: 5px;
+}
+
+.phone-number .col-xs-4{
+	width:25%;
+}
+
+.phone-number .col-xs-3, .phone-number .col-xs-4{
+
+	padding-left:0;
+}
+// Phone text input end
+
+
+
+ 
    .homepage-hero-module {
   border-right: none;
   border-left: none;
@@ -1121,7 +1147,7 @@ function checkPass()
           <nav class="vc_menu"> 
           	<div class="logo">
                 <a href="/"> 
-                    <img  alt="logo" src="img/logo.png"> 
+                    <img  alt="logo" src="<?php echo base_url();?>img/logo.png"> 
                 </a>
             </div>
             <div class="vc_btn-navbar">

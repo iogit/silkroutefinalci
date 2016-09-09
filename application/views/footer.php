@@ -34,16 +34,16 @@
 
 <!-- Javascript =============================================== --> 
 <!-- Placed at the end of the document so the pages load faster --> 
-<script type="text/javascript" src="js/jquery.js"></script> 
-<script type="text/javascript" src="js/bootstrap.min.js"></script> 
-<script type="text/javascript" src="js/tinyscrollbar.js"></script> 
-<script type="text/javascript" src="js/caroufredsel.js"></script> 
-<script type="text/javascript" src="js/plugins.js"></script>
-<script type="text/javascript" src="plugins/prettyPhoto-plugin/js/jquery.prettyPhoto.js"></script> 
-<script type="text/javascript" src="plugins/isotope-plugin/js/jquery.isotope.min.js"></script> 
-<script type="text/javascript" src="functions/twitter/jquery.tweet.js"></script>
-<script type="text/javascript" src="js/theme.js"></script>
-<script type="text/javascript" src="custom/custom.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>js/jquery.js"></script> 
+<script type="text/javascript" src="<?php echo base_url();?>js/bootstrap.min.js"></script> 
+<script type="text/javascript" src="<?php echo base_url();?>js/tinyscrollbar.js"></script> 
+<script type="text/javascript" src="<?php echo base_url();?>js/caroufredsel.js"></script> 
+<script type="text/javascript" src="<?php echo base_url();?>js/plugins.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>plugins/prettyPhoto-plugin/js/jquery.prettyPhoto.js"></script> 
+<script type="text/javascript" src="<?php echo base_url();?>plugins/isotope-plugin/js/jquery.isotope.min.js"></script> 
+<script type="text/javascript" src="<?php echo base_url();?>functions/twitter/jquery.tweet.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>js/theme.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>custom/custom.js"></script>
 
 
 
