@@ -19,7 +19,7 @@
              <h3 style="font-family: 'Courgette', cursive; line-height:60px;">Take a look at our current job listings.</h3>
  <h6 style="font-family: 'Courgette', cursive; line-height:30px;">I.T. Silk Route seeks a diverse range of professionals to deliver specialized services and solutions to clients across all industries.<span class="vc_black">Web Design</span>, <span class="vc_black">Development</span>, <span class="vc_black">Marketing and Branding</span> services,<br/>
             we can take your business to the next level</h6>
-			<a class="vc_btn">Post your resume</a>
+			<a href="<?php echo  base_url(); ?>postresume" class="vc_btn">Post your resume</a>
 			<p></p>
             <div id="vc_accordion-widget" class="panel-group">
             

@@ -34,7 +34,7 @@
 			?>
 			
 			 
-            <form id="contact" name="contact" action="uploadresume" method="post">
+            <form id="contact" name="contact" action="updateResume" method="post">
               
               <div class="row">
                 <div class="col-md-6">
@@ -47,9 +47,9 @@
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label class="control-label" for="contact-form-email">Last Name<span class="vc_red">*</span></label>
+                    <label class="control-label" for="contact-form-lastname">Last Name<span class="vc_red">*</span></label>
                     <div class="controls">
-                      <input type="email" placeholder="" id="contact-form-email" name="contact-form-email" required >
+                      <input type="text" placeholder="" id="contact-form-lastname" name="contact-form-lastname" required >
                     </div>
                   </div>
                 </div>
@@ -66,7 +66,7 @@
                 </div>
 				<div class="col-md-6">
                   <div class="form-group">
-                  	  <label class="control-label" for="contact-form-email">Phone<span class="vc_red">*</span></label>
+                  	  <label class="control-label" for="contact-form-phone">Phone<span class="vc_red">*</span></label>
                     <div class="controls">
                     <!--  <input type="email" placeholder="" id="contact-form-email" name="contact-form-email" required > -->
 					  <input id="contact-form-phone" type="tel" name="contact-form-phone" placeholder="(###) ###-####" pattern="\d{10}" class="masked" title="Phone number" required>
@@ -79,17 +79,17 @@
 			  <div class="row">
                 <div class="col-md-8">
                   <div class="form-group">
-                  	<label  for="contact-form-subject">City<span class="vc_red">*</span></label>                    
+                  	<label  for="contact-form-city">City<span class="vc_red">*</span></label>                    
                     <div class="controls">
-                      <input type="text" placeholder="" id="contact-form-subject" name="contact-form-subject" required />
+                      <input type="text" placeholder="" id="contact-form-city" name="contact-form-city" required />
                     </div>
                   </div>
                 </div> 
 				<div class="col-md-4">
                   <div class="form-group">
-                  	<label  for="contact-form-subject">Zip code<span class="vc_red">*</span></label>                    
+                  	<label  for="contact-form-zipcode">Zip code<span class="vc_red">*</span></label>                    
                     <div class="controls">
-                      <input id="contact-form-phone" type="tel" name="contact-form-zipcode" placeholder="#####" pattern="\d{5}" class="masked" title="Zip Code" required>
+                      <input id="contact-form-zipcode" type="tel" name="contact-form-zipcode" placeholder="#####" pattern="\d{5}" class="masked" title="Zip Code" required>
                     </div>
                   </div>
                 </div>
@@ -98,10 +98,10 @@
 			    <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                  	<label  for="contact-form-subject">Country<span class="vc_red">*</span></label>                    
+                  	<label  for="contact-form-country">Country<span class="vc_red">*</span></label>                    
                     <div class="controls">
                      
-					      <select class="input-medium bfh-countries" data-country="US"></select>
+					      <select id="contact-form-country" name="contact-form-country" class="input-medium bfh-countries" data-country="US"></select>
 					 
                     </div>
                   </div>
@@ -111,9 +111,9 @@
 			  <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                  	<label  for="contact-form-subject">Employment Eligibility<span class="vc_red">*</span></label>                    
+                  	<label for="contact-form-eligibility">Employment Eligibility<span class="vc_red">*</span></label>                    
                     <div class="controls">
-                     
+                          <input type="hidden" value="true" name="contact-form-eligibility">
 					      <input type="radio"  name="gender" value="male" required> Require citizenship to work in US.<br>
 						  <input type="radio" name="gender" value="female"> Authorized to work in US for any employer.<br>
 						  <input type="radio" name="gender" value="female"> Authorized to work in US solely for current employer<br>
@@ -126,9 +126,9 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                  	<label for="contact-form-message"> Copy and paste your resume <span class="vc_red">*</span></label>                   
+                  	<label for="contact-form-resume"> Copy and paste your resume <span class="vc_red">*</span></label>                   
                     <div class="controls">
-                       <textarea id="editor" name="editor"></textarea>
+                       <textarea id="editor" name="editor" name="contact-form-resume" ></textarea>
                     </div>
                   </div>
                 </div>
@@ -145,7 +145,7 @@
               </div>
               <div class="row">
                 <div class="col-md-12">
-                  <button class="vc_btn" type="submit" id="contact-form-submit" name="contact-form-submit" value="submit">Send Message</button>
+                  <button class="vc_btn" type="submit" id="contact-form-submit" name="contact-form-submit" value="submit"> Send </button>
                 </div>
               </div>
 			
