@@ -453,43 +453,6 @@ $this->load->view("job-seekers",$data);
 
 }
 
-function jobs()
-{
-	$data["loginerror"]='';
-$email=$this->session->userdata('email');
-if($this->session->userdata('logged_in')){
-
-
-$data["loginSignupHtml"]='   <li id="features"> <a href="jobseekers"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
-      <div class="vc_menu-open-right vc_menu-2-v">
-        <ul class="clearfix">
-          <li> <a href="logout">Sign Out</a></li>
-          
-        </ul>
-      </div>
-    </li>';
-$data["login"]="";
-}else
-{
-$data["loginSignupHtml"]=$this->loginSignupHtml();	
-$data["email"]="Visitor";
-$data["logout"]="";
-$data["login"]="Login";
-}
-$data["ok"]="";
-$data["popup2"]="";
-$data["message2"]="";
-$data["message"]="";
-$data["popup"]="";
-$data["loginerror"]='';
-$this->load->view("header",$data);
-$this->load->view("jobs",$data);
-//$this->home();
-
-}
-
-
-
 function blog()
 {
 	$data["loginerror"]='';
@@ -1251,6 +1214,139 @@ $this->load->view("footer",$data);
 
 }
 
+
+
+function jobs()
+{
+
+$division=$this->uri->segment(2);
+if ( !in_array($division, array('it','accounting','healthcare','law'), true ) )
+{
+	redirect('/');
+}
+
+$data["loginerror"]='';
+$email=$this->session->userdata('email');
+if($this->session->userdata('logged_in')){
+
+
+$data["loginSignupHtml"]='   <li id="features"> <a href="jobseekers"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
+      <div class="vc_menu-open-right vc_menu-2-v">
+        <ul class="clearfix">
+          <li> <a href="logout">Sign Out</a></li>
+          
+        </ul>
+      </div>
+    </li>';
+$data["login"]="";
+}else
+{
+$data["loginSignupHtml"]=$this->loginSignupHtml();	
+$data["email"]="Visitor";
+$data["logout"]="";
+$data["login"]="Login";
+}
+
+//$detid=$this->input->get('id');
+$detid=1;  //temporary $detid value to prevent undefined variable error
+
+
+$jobs="";
+$jobsSql=$this->db->query("SELECT * FROM io_jobs");
+
+	$jobcount=$jobsSql->num_rows();
+	
+	
+			if($jobcount>=1){
+				foreach($jobsSql->result_array() as $jobcount){
+		    // $blogcount=$detailblogsql->result_array(); 
+//print_r($blogcount);			 
+			 $ioJob_id=$jobcount['ioJob_id'];
+			 $ioJob_title=$jobcount["ioJob_title"];
+			 $ioJob_location=$jobcount["ioJob_location"];
+			 $ioJob_division=$jobcount["ioJob_division"];
+			 $ioJob_description=$jobcount["ioJob_description"];
+			 $ioJob_qualification=$jobcount["ioJob_qualification"];
+			 $ioJob_addDate=$jobcount["ioJob_addDate"];
+			// $ioBlog_day=substr($ioJob_date, 8, 2);
+			 
+			 //Convert month number to 
+			// $monthNum=substr($ioBlog_date, 5, 2);
+            // $dateObj   = DateTime::createFromFormat('!m', $monthNum);
+            // $ioBlog_monthName = $dateObj->format('F'); // March
+			 
+			 //Extract the year from date string.
+			// $ioBlog_year=substr($ioBlog_date, 0, 4);
+			 
+		    // $ioBlog_view=$ioBlog_view+1;
+			 //$this->db->query("UPDATE io_blog SET ioBlog_view='$ioBlog_view' where ioBlog_id='$ioBlog_id'");
+			 $jobs.='
+			 
+			   <div class="panel panel-default">
+                <div class="panel-heading"> 
+                <a href="#collapseOne" data-parent="#vc_accordion-widget" data-toggle="collapse" class="accordion-toggle"> 
+                	<h4 class="panel-title">
+                		<i class="fa fa-fw fa-laptop"></i> '.$ioJob_title.'
+                    </h4>
+                    
+                  	<span class="subtitle"><span class="item">Location: <strong>'.$ioJob_location.'</strong></span><span class="item"> Division: <strong>'.$ioJob_division.'</strong></span></span> 
+                </a> 
+                  
+                </div>
+                <div class="panel-collapse collapse" id="collapseOne">
+                  <div class="panel-body">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <p class="vc_black"><strong>Description:</strong></p>
+                        <p>
+						'.$ioJob_description.'
+                        </p>
+                        <p> <a class="vc_btn" href="#">Apply Now</a> </p>
+                      </div>
+                      <div class="col-md-6">
+                        <p class="vc_black"><strong>Qualifications:</strong></p>
+                        <ul class="vc_li">
+                          <li>
+						  '.$ioJob_qualification.'
+						  </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            
+			';
+			
+	
+				}
+			
+	
+		}else{
+			
+		echo '<script language="JavaScript"> 
+{
+window.alert("Beklenmeyen Bir hata Ile Karsilasildi: X090x106ILP, <br> ");
+window.location.href ="'.base_url().'";}';
+		
+		
+		
+		redirect('/');
+		exit();
+			}
+
+
+$data["pagetitle"]=$ioJob_title;	
+$data["parentid"]=$detid;
+
+$data["jobs"]=$jobs;
+$data["feromon"]=3; //slider category
+$this->load->view("header",$data);
+$this->load->view("jobs",$data);
+$this->load->view("footer",$data);
+
+}
 
 
 function admintest()

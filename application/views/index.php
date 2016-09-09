@@ -1136,10 +1136,10 @@ function checkPass()
     <li id="features"> <a href="jobseekers"> Job Seekers <i class="fa fa-caret-down"> </i> </a>
       <div class="vc_menu-open-right vc_menu-2-v">
         <ul class="clearfix">
-          <li> <a href="jobs">Technology Jobs</a></li>
-          <li> <a href="jobs"> Accounting Jobs </a> </li>
-         <li> <a href="jobs"> Healthcare Jobs </a> </li>
-           <li> <a href="jobs"> Law Jobs </a> </li>
+          <li> <a href="jobs/it">Technology Jobs</a></li>
+          <li> <a href="jobs/accounting"> Accounting Jobs </a> </li>
+         <li> <a href="jobs/healthcare"> Healthcare Jobs </a> </li>
+           <li> <a href="jobs/law"> Law Jobs </a> </li>
         </ul>
       </div>
     </li>
