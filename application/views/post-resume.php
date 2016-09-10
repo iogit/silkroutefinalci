@@ -41,7 +41,7 @@
                   <div class="form-group">
                     <label class="control-label" for="contact-form-name">First Name<span class="vc_red">*</span></label>
                     <div class="controls">
-                      <input type="text" placeholder="" id="contact-form-name" name="contact-form-name" required />
+                      <input type="text" placeholder="" id="contact-form-name" value="<?php echo $name;?>" name="contact-form-name" required />
                     </div>
                   </div>
                 </div>
@@ -49,7 +49,7 @@
                   <div class="form-group">
                     <label class="control-label" for="contact-form-lastname">Last Name<span class="vc_red">*</span></label>
                     <div class="controls">
-                      <input type="text" placeholder="" id="contact-form-lastname" name="contact-form-lastname" required >
+                      <input type="text" placeholder="" id="contact-form-lastname" value="<?php echo $lastname;?>" name="contact-form-lastname" required >
                     </div>
                   </div>
                 </div>
@@ -60,7 +60,7 @@
                   <div class="form-group">
                   	  <label class="control-label" for="contact-form-email">Email<span class="vc_red">*</span></label>
                     <div class="controls">
-                      <input type="email" placeholder="" id="contact-form-email" name="contact-form-email" required >
+                      <input type="email" placeholder="" value="<?php echo $email;?>" id="contact-form-email" name="contact-form-email" required disabled>
                     </div>
                   </div>
                 </div>
@@ -69,7 +69,7 @@
                   	  <label class="control-label" for="contact-form-phone">Phone<span class="vc_red">*</span></label>
                     <div class="controls">
                     <!--  <input type="email" placeholder="" id="contact-form-email" name="contact-form-email" required > -->
-					  <input id="contact-form-phone" type="tel" name="contact-form-phone" placeholder="(###) ###-####" pattern="\d{10}" class="masked" title="Phone number" required>
+					  <input id="contact-form-phone" type="tel" value="<?php echo $phone;?>" name="contact-form-phone" placeholder="(###) ###-####" pattern="\d{10}" class="masked" title="Phone number" required>
 					  
                     </div>
                   </div>
@@ -81,7 +81,7 @@
                   <div class="form-group">
                   	<label  for="contact-form-city">City<span class="vc_red">*</span></label>                    
                     <div class="controls">
-                      <input type="text" placeholder="" id="contact-form-city" name="contact-form-city" required />
+                      <input type="text" value="<?php echo $city;?>" placeholder="" id="contact-form-city" name="contact-form-city" required />
                     </div>
                   </div>
                 </div> 
@@ -89,7 +89,7 @@
                   <div class="form-group">
                   	<label  for="contact-form-zipcode">Zip code<span class="vc_red">*</span></label>                    
                     <div class="controls">
-                      <input id="contact-form-zipcode" type="tel" name="contact-form-zipcode" placeholder="#####" pattern="\d{5}" class="masked" title="Zip Code" required>
+                      <input id="contact-form-zipcode" value="<?php echo $zipcode;?>" type="tel" name="contact-form-zipcode" placeholder="#####" pattern="\d{5}" class="masked" title="Zip Code" required>
                     </div>
                   </div>
                 </div>
@@ -114,10 +114,10 @@
                   	<label for="contact-form-eligibility">Employment Eligibility<span class="vc_red">*</span></label>                    
                     <div class="controls">
                           <input type="hidden" value="true" name="contact-form-eligibility">
-					      <input type="radio"  name="gender" value="male" required> Require citizenship to work in US.<br>
-						  <input type="radio" name="gender" value="female"> Authorized to work in US for any employer.<br>
-						  <input type="radio" name="gender" value="female"> Authorized to work in US solely for current employer<br>
-						  <input type="radio" name="gender" value="other"> Other
+					      <input type="radio" name="contact-form-eligibility" <?php echo ($eligibility=='Require citizenship to work in US')?'checked':'' ?> name="gender" value="Require citizenship to work in US" required> Require citizenship to work in US<br>
+						  <input type="radio" name="contact-form-eligibility" <?php echo ($eligibility=='Authorized to work in US for any employer')?'checked':'' ?> name="gender" value="Authorized to work in US for any employer"> Authorized to work in US for any employer<br>
+						  <input type="radio" name="contact-form-eligibility" <?php echo ($eligibility=='Authorized to work in US solely for current employer')?'checked':'' ?> name="gender" value="Authorized to work in US solely for current employer"> Authorized to work in US solely for current employer<br>
+						  <input type="radio"  name="contact-form-eligibility" <?php echo ($eligibility=='Other')?'checked':'' ?> name="gender" value="Other"> Other
 											 
                     </div>
                   </div>
@@ -128,7 +128,7 @@
                   <div class="form-group">
                   	<label for="contact-form-resume"> Copy and paste your resume <span class="vc_red">*</span></label>                   
                     <div class="controls">
-                       <textarea id="editor" name="editor" name="contact-form-resume" ></textarea>
+                       <textarea id="editor" name="editor" name="contact-form-resume" ><?php echo $resume;?></textarea>
                     </div>
                   </div>
                 </div>

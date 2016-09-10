@@ -2236,9 +2236,10 @@ $email=$this->session->userdata('email');
 
 		if ($_SERVER['REQUEST_METHOD'] == 'POST')
 		{
-			$this->load->library("form_validation");
-
-			$this->form_validation->set_rules("contact-form-name","Name", "required");  //capital letter or lower case letter
+			//$this->load->library("form_validation");
+ 
+             // No need for validation of resume form
+			/*$this->form_validation->set_rules("contact-form-name","Name", "required");  //capital letter or lower case letter
 			$this->form_validation->set_rules("contact-form-lastname","Last Name", "required");  //capital letter or lower case letter
 			$this->form_validation->set_rules("contact-form-email","E-mail", "required|valid_email");
 			$this->form_validation->set_rules("contact-form-phone","Phone", "required");
@@ -2266,12 +2267,48 @@ $email=$this->session->userdata('email');
 			
 			$this->session->set_flashdata("success", $strMessage);
             redirect("postresume");
-			}
+			*/
 
-			else
-			{
 			
-			/* Put Update code here */
+	$usr_sql=$this->db->query("SELECT usr_id FROM usr_tbl WHERE usr_email='$email' LIMIT 1");
+	foreach ($usr_sql->result() as $row)
+   {
+    $usr_id=$row->usr_id; // rerplace the fieldname with a real field/column name of your database
+    }
+	
+	$url=base_url();
+	$name=($_POST['contact-form-name']);
+	$lastname=($_POST['contact-form-lastname']);
+	//$email=($_POST['contact-form-email']);
+	$phone=($_POST['contact-form-phone']);
+	$city=($_POST['contact-form-city']);
+	$zipcode=($_POST['contact-form-zipcode']);
+	$country=($_POST['contact-form-country']);
+	$eligibility=($_POST['contact-form-eligibility']);
+	
+	$resume=($_POST['editor']);
+	
+    $url=base_url();
+    
+	
+	
+	//see if that product name is an identical match to another product in the system
+	
+	
+	$this->db->query("UPDATE usr_tbl SET usr_name='$name', usr_lastName='$lastname', usr_phone='$phone', usr_city='$city', usr_zipCode='$zipcode', usr_country='$country', usr_eligibility='$eligibility', usr_resume='$resume' where usr_id='$usr_id'");
+
+	if($_FILES['fileField']['tmp_name']!=""){
+	
+	//place image in the folder
+	//$newname="$pid.jpg";
+	$newname = $_FILES['file']['name'];
+	move_uploaded_file($_FILES['fileField']['tmp_name'],"images/user_files/$email/$newname");
+   
+	}
+	 redirect("postresume");  //to prevent to sending same data to database when the page refreshed.
+	
+	exit();
+
 			
 			$strMessage='<div id="contact-form-result">
               <div id="success" class="alert alert-success">
@@ -2291,14 +2328,11 @@ $email=$this->session->userdata('email');
 			$this->session->set_flashdata("success", $strMessage);
             redirect("contact");
 			
-			}		
+					
 
 		}
 
-
-$data["loginerror"]='';
-$this->load->view("header",$data);
-$this->load->view("contact",$data);
+redirect('postresume');
 	
 	
 }
@@ -2312,7 +2346,7 @@ $email=$this->session->userdata('email');
 		if($this->session->userdata('logged_in')){
 
 
-		$data["loginSignupHtml"]='   <li id="features"> <a href="jobseekers"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
+		$data["loginSignupHtml"]='   <li id="features"> <a href="postresume"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
 			  <div class="vc_menu-open-right vc_menu-2-v">
 				<ul class="clearfix">
 				  <li> <a href="logout">Sign Out</a></li>
@@ -2329,79 +2363,48 @@ $email=$this->session->userdata('email');
 		$data["login"]="Login";
 		redirect('loginPage');
 		}
+		
+    $usr_sql=$this->db->query("SELECT usr_id FROM usr_tbl WHERE usr_email='$email' LIMIT 1");
+	foreach ($usr_sql->result() as $row)
+   {
+    $usr_id=$row->usr_id; // rerplace the fieldname with a real field/column name of your database
+    }
+
+	$sql=$this->db->query("SELECT * FROM usr_tbl where usr_id='$usr_id' LIMIT 1");  //or ASC
+	$productCount=$sql->num_rows(); //count output amount
+	if($productCount>0)
+	{
+	foreach($sql->result() as $row)
+	{
+	
+	$data['name']=$row->usr_name;
+	$data['lastname']=$row->usr_lastName;
+	$data['email']=$row->usr_email;
+	$data['phone']=$row->usr_phone;
+	$data['city']=$row->usr_city;
+	$data['zipcode']=$row->usr_zipCode;
+	$data['country']=$row->usr_country;
+	$data['eligibility']=$row->usr_eligibility;
+	
+	$data['resume']=$row->usr_resume;
+		
+	}}
+		
+		
+		
 
 		if ($_SERVER['REQUEST_METHOD'] == 'POST')
 		{
-			$this->load->library("form_validation");
-
-			$this->form_validation->set_rules("contact-form-name","Full Name", "required");  //capital letter or lower case letter
-			$this->form_validation->set_rules("contact-form-email","E-mail", "required|valid_email");
-			$this->form_validation->set_rules("contact-form-subject","Subject", "required");
-			$this->form_validation->set_rules("contact-form-message","Message", "required");
-
-			if($this->form_validation->run() == FALSE){
-
-				$strMessage='<div id="contact-form-result">
-              <div id="success" class="alert alert-success hidden">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                We have <strong>successfully</strong> received your Message and will get back to you as soon as possible.</div>
-              <div id="error" class="alert alert-danger hidden">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-              </div>
-              <div id="empty" class="alert alert-danger">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                Please <strong>Fill up</strong> all the Fields and Try Again.</div>
-              <div id="unexpected" class="alert alert-danger hidden">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                An <strong>unexpected error</strong> occured. Please Try Again later.</div>
-            </div>';
-			
-			$this->session->set_flashdata("success", $strMessage);
-            redirect("contact");
+			redirect('postresume');
 			}
 
 			else
 			{
-			/*
-			$config=array(
-
-			'protokol'=>'smtp',
-			'smtp_host'=>'ssl://smtp.googlemail.com',
-			'smtp_port'=>465,
-			'smtp_user'=>'sweedenibo@gmail.com',
-			'smtp_pass'=>'24952495',
-			);
-
-			*/
-			
-			$this->load->library("email");
-
-			$this->email->from(set_value("contact-form-email"),set_value("contact-form-name"));
-			$this->email->to("info@itsilkroutellc.com");
-			$this->email->subject(set_value("contact-form-subject"));
-			$this->email->message(set_value("contact-form-message"));
-			$this->email->send();
-			$strMessage='<div id="contact-form-result">
-              <div id="success" class="alert alert-success">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                We have <strong>successfully</strong> received your Message and will get back to you as soon as possible.</div>
-              <div id="error" class="alert alert-danger hidden">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-              </div>
-              <div id="empty" class="alert alert-danger hidden">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                Please <strong>Fill up</strong> all the Fields and Try Again.</div>
-              <div id="unexpected" class="alert alert-danger hidden">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                An <strong>unexpected error</strong> occured. Please Try Again later.</div>
-            </div>';
-			
-			$this->session->set_flashdata("success", $strMessage);
-            redirect("contact");
+	
 			
 			}		
 
-		}
+		
 
 
 $data["loginerror"]='';
@@ -2668,7 +2671,7 @@ $newdata = array(
 $this->session->set_userdata($newdata);  
 
 
-redirect('/');
+redirect('postresume');
 }
 }
 
@@ -2851,7 +2854,7 @@ $data["loginerror"]='
       </div>
     </li>';
 $this->load->view('header',$data);
-$this->load->view('registration-page',$data);
+$this->load->view('postresume',$data);
 /*
 //email confirmation 
 $this->load->library('email');

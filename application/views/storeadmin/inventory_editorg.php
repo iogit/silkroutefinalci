@@ -110,6 +110,7 @@ if(isset($_POST['product_name'])){
 	
 	$sql=mysql_query("UPDATE prdcts_tbl SET prdct_name='$product_name', ctgry_id='$ctgry_id', brnd_id='$brnd_id', prdct_shortDesc='$shortDesc', units_inStock='$units_inStock',prdct_available='$prdct_available' , prdct_longDesc='$longDesc', prdct_unitPrice='$unitPrice', prdct_discount='$discount'  ,dscnt_available='$discount_available', prdct_shipping='$shipping', prdct_addDate=now() where prdct_id='$pid'");
 
+	
 	if($_FILES['fileField']['tmp_name']!=""){
 	
 	//place image in the folder
