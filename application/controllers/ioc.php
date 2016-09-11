@@ -25,7 +25,7 @@ $email=$this->session->userdata('email');
 if($this->session->userdata('logged_in')){
 
 
-$data["loginSignupHtml"]='   <li id="features"> <a href="jobseekers"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
+$data["loginSignupHtml"]='   <li id="features"> <a href="postresume"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
       <div class="vc_menu-open-right vc_menu-2-v">
         <ul class="clearfix">
           <li> <a href="logout">Sign Out</a></li>
@@ -59,7 +59,7 @@ function about()
 $email=$this->session->userdata('email');
 if($this->session->userdata('logged_in'))
 {
-$data["loginSignupHtml"]='   <li id="features"> <a href="jobseekers"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
+$data["loginSignupHtml"]='   <li id="features"> <a href="postresume"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
       <div class="vc_menu-open-right vc_menu-2-v">
         <ul class="clearfix">
           <li> <a href="logout">Sign Out</a></li>
@@ -96,7 +96,7 @@ $email=$this->session->userdata('email');
 if($this->session->userdata('logged_in')){
 
 
-$data["loginSignupHtml"]='   <li id="features"> <a href="jobseekers"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
+$data["loginSignupHtml"]='   <li id="features"> <a href="postresume"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
       <div class="vc_menu-open-right vc_menu-2-v">
         <ul class="clearfix">
           <li> <a href="logout">Sign Out</a></li>
@@ -340,7 +340,7 @@ $email=$this->session->userdata('email');
 if($this->session->userdata('logged_in')){
 
 
-$data["loginSignupHtml"]='   <li id="features"> <a href="jobseekers"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
+$data["loginSignupHtml"]='   <li id="features"> <a href="postresume"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
       <div class="vc_menu-open-right vc_menu-2-v">
         <ul class="clearfix">
           <li> <a href="logout">Sign Out</a></li>
@@ -370,7 +370,7 @@ $email=$this->session->userdata('email');
 if($this->session->userdata('logged_in')){
 
 
-$data["loginSignupHtml"]='   <li id="features"> <a href="jobseekers"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
+$data["loginSignupHtml"]='   <li id="features"> <a href="postresume"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
       <div class="vc_menu-open-right vc_menu-2-v">
         <ul class="clearfix">
           <li> <a href="logout">Sign Out</a></li>
@@ -425,7 +425,7 @@ function jobseekers()
 $email=$this->session->userdata('email');
 if($this->session->userdata('logged_in')){
 
-$data["loginSignupHtml"]='   <li id="features"> <a href="jobseekers"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
+$data["loginSignupHtml"]='   <li id="features"> <a href="postresume"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
       <div class="vc_menu-open-right vc_menu-2-v">
         <ul class="clearfix">
           <li> <a href="logout">Sign Out</a></li>
@@ -460,7 +460,7 @@ $email=$this->session->userdata('email');
 if($this->session->userdata('logged_in')){
 
 
-$data["loginSignupHtml"]='   <li id="features"> <a href="jobseekers"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
+$data["loginSignupHtml"]='   <li id="features"> <a href="postresume"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
       <div class="vc_menu-open-right vc_menu-2-v">
         <ul class="clearfix">
           <li> <a href="logout">Sign Out</a></li>
@@ -964,7 +964,7 @@ $email=$this->session->userdata('email');
 if($this->session->userdata('logged_in')){
 
 
-$data["loginSignupHtml"]='   <li id="features"> <a href="jobseekers"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
+$data["loginSignupHtml"]='   <li id="features"> <a href="postresume"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
       <div class="vc_menu-open-right vc_menu-2-v">
         <ul class="clearfix">
           <li> <a href="logout">Sign Out</a></li>
@@ -1226,7 +1226,7 @@ $email=$this->session->userdata('email');
 if($this->session->userdata('logged_in')){
 
 
-$data["loginSignupHtml"]='   <li id="features"> <a href="jobseekers"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
+$data["loginSignupHtml"]='   <li id="features"> <a href="postresume"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
       <div class="vc_menu-open-right vc_menu-2-v">
         <ul class="clearfix">
           <li> <a href="logout">Sign Out</a></li>
@@ -1981,7 +1981,7 @@ $email=$this->session->userdata('email');
 if($this->session->userdata('logged_in')){
 
 
-$data["loginSignupHtml"]='   <li id="features"> <a href="jobseekers"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
+$data["loginSignupHtml"]='   <li id="features"> <a href="postresume"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
       <div class="vc_menu-open-right vc_menu-2-v">
         <ul class="clearfix">
           <li> <a href="logout">Sign Out</a></li>
@@ -2110,7 +2110,7 @@ $email=$this->session->userdata('email');
 		if($this->session->userdata('logged_in')){
 
 
-		$data["loginSignupHtml"]='   <li id="features"> <a href="jobseekers"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
+		$data["loginSignupHtml"]='   <li id="features"> <a href="postresume"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
 			  <div class="vc_menu-open-right vc_menu-2-v">
 				<ul class="clearfix">
 				  <li> <a href="logout">Sign Out</a></li>
@@ -2209,7 +2209,10 @@ $this->load->view("contact",$data);
 
 public function updateResume()
 {
-	
+	if($_FILES['fileUploadDocuments']['size'] > 500000){
+    die('File uploaded exceeds maximum upload size.');
+}
+
 	
 $data['message']='';	
 $data["loginerror"]='';
@@ -2217,7 +2220,7 @@ $email=$this->session->userdata('email');
 		if($this->session->userdata('logged_in')){
 
 
-		$data["loginSignupHtml"]='   <li id="features"> <a href="jobseekers"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
+		$data["loginSignupHtml"]='   <li id="features"> <a href="postresume"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
 			  <div class="vc_menu-open-right vc_menu-2-v">
 				<ul class="clearfix">
 				  <li> <a href="logout">Sign Out</a></li>
@@ -2277,43 +2280,77 @@ $email=$this->session->userdata('email');
     }
 	
 	$url=base_url();
-	$name=($_POST['contact-form-name']);
-	$lastname=($_POST['contact-form-lastname']);
-	//$email=($_POST['contact-form-email']);
-	$phone=($_POST['contact-form-phone']);
-	$city=($_POST['contact-form-city']);
-	$zipcode=($_POST['contact-form-zipcode']);
-	$country=($_POST['contact-form-country']);
-	$eligibility=($_POST['contact-form-eligibility']);
+	$name=$this->input->post('contact-form-name');
+	$lastname=$this->input->post('contact-form-lastname');
+	//$email=$this->input->post('contact-form-email');
+	$phone=$this->input->post('contact-form-phone');
+	$city=$this->input->post('contact-form-city');
+	$zipcode=$this->input->post('contact-form-zipcode');
+	$country=$this->input->post('contact-form-country');
+	$eligibility=$this->input->post('contact-form-eligibility');
 	
-	$resume=($_POST['editor']);
+	
+	//$resume=($_POST['editor']);
+    $resume=$this->db->escape($_POST['editor']);
+   
+	
+	if(strlen($resume)>100000) {
+		$strMessage='<div id="contact-form-result">
+              <div id="unexpected" class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                Please use less characters in resume section <br/> <strong></strong></div>
+            </div>';
+		$this->session->set_flashdata("success", $strMessage);
+        redirect("postresume");
+	}
 	
     $url=base_url();
     
 	
-	
 	//see if that product name is an identical match to another product in the system
+	$sql="UPDATE usr_tbl SET usr_name=?, usr_lastName=?, usr_phone=?, usr_city=?, usr_zipCode=?, usr_country=?, usr_eligibility=?, usr_resume=? where usr_id=?";
 	
+	//$sql = "SELECT * FROM some_table WHERE id = ? AND status = ? AND author = ?";
+    $this->db->query($sql, array('$name', '$lastname', '$phone', '$city','$zipcode', '$country', '$eligibility', '$resume', '$usr_id')); 
 	
-	$this->db->query("UPDATE usr_tbl SET usr_name='$name', usr_lastName='$lastname', usr_phone='$phone', usr_city='$city', usr_zipCode='$zipcode', usr_country='$country', usr_eligibility='$eligibility', usr_resume='$resume' where usr_id='$usr_id'");
+	//$this->db->query("UPDATE usr_tbl SET usr_name='$name', usr_lastName='$lastname', usr_phone='$phone', usr_city='$city', usr_zipCode='$zipcode', usr_country='$country', usr_eligibility='$eligibility', usr_resume='$resume' where usr_id='$usr_id'");
 
-	if($_FILES['fileField']['tmp_name']!=""){
+
+    // File within size restrictions
+    
+			
 	
+	if($_FILES['fileUploadDocuments']['tmp_name']!=""){
 	//place image in the folder
 	//$newname="$pid.jpg";
-	$newname = $_FILES['file']['name'];
-	move_uploaded_file($_FILES['fileField']['tmp_name'],"images/user_files/$email/$newname");
+	// Check file size, should be < 500kb 
+	
+	//Check file types
+	$allowed =  array('jpeg','png','jpg','doc','docx','pdf','zip','rar');
+	$filename = $_FILES['fileUploadDocuments']['name'];
+	$ext = pathinfo($filename, PATHINFO_EXTENSION);
+	
+	if(!in_array($ext,$allowed) ) {
+		$strMessage='<div id="contact-form-result">
+              <div id="unexpected" class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                Please upload one of the following file types : <br/> <strong> jpeg, png, jpg, doc, docx, pdf, zip, rar </strong></div>
+            </div>';
+		$this->session->set_flashdata("success", $strMessage);
+        redirect("postresume");
+	}
+
+	$newname = $_FILES['fileUploadDocuments']['name'];
+	move_uploaded_file($_FILES['fileUploadDocuments']['tmp_name'],"user_files/$email/$newname");
    
 	}
-	 redirect("postresume");  //to prevent to sending same data to database when the page refreshed.
-	
-	exit();
+	 
 
 			
 			$strMessage='<div id="contact-form-result">
               <div id="success" class="alert alert-success">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
-                We have <strong>successfully</strong> received your Message and will get back to you as soon as possible.</div>
+                You profile <strong>updated</strong></div>
               <div id="error" class="alert alert-danger hidden">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
               </div>
@@ -2326,13 +2363,15 @@ $email=$this->session->userdata('email');
             </div>';
 			
 			$this->session->set_flashdata("success", $strMessage);
-            redirect("contact");
+            redirect("postresume");  //to prevent to sending same data to database when the page refreshed.
 			
 					
 
 		}
-
-redirect('postresume');
+		else{
+			
+			redirect('postresume');
+		}
 	
 	
 }
@@ -2395,6 +2434,22 @@ $email=$this->session->userdata('email');
 
 		if ($_SERVER['REQUEST_METHOD'] == 'POST')
 		{
+					$strMessageUpdated='<div id="contact-form-result">
+              <div id="success" class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                We have <strong>successfully</strong> received your Message and will get back to you as soon as possible.</div>
+              <div id="error" class="alert alert-danger hidden">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+              </div>
+              <div id="empty" class="alert alert-danger hidden">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                Please <strong>Fill up</strong> all the Fields and Try Again.</div>
+              <div id="unexpected" class="alert alert-danger hidden">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                An <strong>unexpected error</strong> occured. Please Try Again later.</div>
+            </div>';
+			
+			$this->session->set_flashdata("success_update", $strMessageUpdated);
 			redirect('postresume');
 			}
 
@@ -2404,7 +2459,6 @@ $email=$this->session->userdata('email');
 			
 			}		
 
-		
 
 
 $data["loginerror"]='';
@@ -2517,7 +2571,7 @@ $email=$this->session->userdata('email');
 if($this->session->userdata('logged_in')){
 
 
-$data["loginSignupHtml"]='   <li id="features"> <a href="jobseekers"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
+$data["loginSignupHtml"]='   <li id="features"> <a href="postresume"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
       <div class="vc_menu-open-right vc_menu-2-v">
         <ul class="clearfix">
           <li> <a href="logout">Sign Out</a></li>
@@ -2533,7 +2587,7 @@ $email=$this->session->userdata('email');
 if($this->session->userdata('logged_in')){
 
 
-$data["loginSignupHtml"]='   <li id="features"> <a href="jobseekers"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
+$data["loginSignupHtml"]='   <li id="features"> <a href="postresume"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
       <div class="vc_menu-open-right vc_menu-2-v">
         <ul class="clearfix">
           <li> <a href="logout">Sign Out</a></li>
@@ -2717,7 +2771,7 @@ $email=$this->session->userdata('email');
 if($this->session->userdata('logged_in')){
 
 
-$data["loginSignupHtml"]='   <li id="features"> <a href="jobseekers"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
+$data["loginSignupHtml"]='   <li id="features"> <a href="postresume"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
       <div class="vc_menu-open-right vc_menu-2-v">
         <ul class="clearfix">
           <li> <a href="logout">Sign Out</a></li>
@@ -2745,7 +2799,7 @@ $email=$this->session->userdata('email');
 if($this->session->userdata('logged_in')){
 
 
-$data["loginSignupHtml"]='   <li id="features"> <a href="jobseekers"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
+$data["loginSignupHtml"]='   <li id="features"> <a href="postresume"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
       <div class="vc_menu-open-right vc_menu-2-v">
         <ul class="clearfix">
           <li> <a href="logout">Sign Out</a></li>
@@ -2821,18 +2875,20 @@ $this->load->view('registration-page',$data);
 //everything is good = process the form = write the data into the registration
 
 
-$username="null";
-$name="null";
-$lastName="null";
+$username="";
+$name="";
+$lastName="";
 $email=$this->input->post("email");
 $password=$this->input->post("pass1");
 
-$activation_code="null";
+$activation_code="";
 
 $this->load->model('user/user_model');
 $this->user_model->register_user($username, $name, $lastName, $password, $email, $activation_code);
 
-
+if (!file_exists('user_files/'.$email.'')) {
+    mkdir('user_files/'.$email.'', 0777, true);
+}
 
 $newdata = array(  
        'email'  => $email,  
@@ -2845,7 +2901,7 @@ $data["loginerror"]='
                 Your account has been successfully created.<strong></strong></div>';
 
 				
-				$data["loginSignupHtml"]='   <li id="features"> <a href="jobseekers"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
+				$data["loginSignupHtml"]='   <li id="features"> <a href="postresume"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
       <div class="vc_menu-open-right vc_menu-2-v">
         <ul class="clearfix">
           <li> <a href="logout">Sign Out</a></li>
@@ -2854,7 +2910,7 @@ $data["loginerror"]='
       </div>
     </li>';
 $this->load->view('header',$data);
-$this->load->view('postresume',$data);
+redirect('postresume');
 /*
 //email confirmation 
 $this->load->library('email');
