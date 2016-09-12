@@ -1,8 +1,4 @@
 
-
-
-
-
 <!-- Middle Content Start -->
   <div class="vc_banner-title background-14 block">
     <div class="wrapper">
@@ -26,15 +22,17 @@
             <p> </p>
 			
             <?php 
+			
 					if($this->session->flashdata("success") !== FALSE)
 					{
 					echo $this->session->flashdata("success");
 					}
+					
 
 			?>
 			
 			 
-            <form id="contact" name="contact" action="updateResume" method="post">
+            <form id="contact" name="contact" action="updateResume" method="post" enctype="multipart/form-data">
               
               <div class="row">
                 <div class="col-md-6">
@@ -128,7 +126,7 @@
                   <div class="form-group">
                   	<label for="contact-form-resume"> Copy and paste your resume <span class="vc_red">*</span></label>                   
                     <div class="controls">
-                       <textarea id="editor" name="editor" name="contact-form-resume" ><?php echo $resume;?></textarea>
+                       <textarea style="resize:vertical; max-height:600px; min-height:400px;" id="editor2" name="editor" name="contact-form-resume" ><?php echo $resume;?></textarea>
                     </div>
                   </div>
                 </div>
@@ -138,6 +136,7 @@
                   <div class="form-group">
                   	<label for="contact-form-message">Upload Resume or Documents<span class="vc_red"></span></label>                   
                     <div class="controls">
+				
                       <input class="btn btn-large" type="file" name="fileUploadDocuments" id="fileUploadDocuments" />
                     </div>
                   </div>
@@ -145,7 +144,7 @@
               </div>
               <div class="row">
                 <div class="col-md-12">
-                  <button class="vc_btn" type="submit" id="contact-form-submit" name="contact-form-submit" value="submit"> Send </button>
+                  <button class="vc_btn" type="submit" id="contact-form-submit" name="contact-form-submit" value="submit" disabled> Send </button>
                 </div>
               </div>
 			
@@ -294,7 +293,41 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
 </script>
+<script type="text/javascript">
+var _onload = window.onload || function()
+{
+  document.getElementById('contact-form-submit').disabled = false;
+}
 
+_onload();
+</script>
+
+<script>
+
+document.getElementById('fileUploadDocuments').addEventListener('change', checkFile, false);
+fileUploadDocuments.addEventListener('change', checkFile, false);
+
+function checkFile(e) {
+
+    var file_list = e.target.files;
+
+    for (var i = 0, file; file = file_list[i]; i++) {
+        var sFileName = file.name;
+        var sFileExtension = sFileName.split('.')[sFileName.split('.').length - 1].toLowerCase();
+        var iFileSize = file.size;
+        var iConvert = (file.size / 10485760).toFixed(2);
+
+        if (!(sFileExtension === "pdf" || sFileExtension === "doc"|| sFileExtension === "docx"|| sFileExtension === "jpeg"|| sFileExtension === "png"|| sFileExtension === "jpg"|| sFileExtension === "zip"|| sFileExtension === "rar") || iFileSize > 10485760) {
+           // txt = "File type : " + sFileExtension + "\n\n";
+           // txt += "Size: " + iConvert + " MB \n\n";
+            txt = "Please make sure your file is in jpeg, png, jpg, doc, docx, pdf, zip, rar format and less than 10 MB.\n\n";
+            alert(txt);
+			document.getElementById("fileUploadDocuments").value = "";
+        }
+    }
+}
+
+</script>
 
 </body>
 </html>
