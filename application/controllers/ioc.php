@@ -2292,8 +2292,7 @@ $email=$this->session->userdata('email');
 	
 	//$resume=($_POST['editor']);
     $resume=$this->db->escape($_POST['editor']);
-   
-	
+
 	if(strlen($resume)>100000) {
 		$strMessage='<div id="contact-form-result">
               <div id="unexpected" class="alert alert-danger">
@@ -2305,13 +2304,25 @@ $email=$this->session->userdata('email');
 	}
 	
     $url=base_url();
-    
+    $data = array(
+        'usr_name' => $name,
+        'usr_lastName' => $lastname,
+        'usr_phone' => $phone,
+        'usr_city' => $city,
+        'usr_zipCode' => $zipcode,
+        'usr_country' => $country,
+        'usr_eligibility' => $eligibility,
+        'usr_resume' => htmlentities($resume)
+);
+
+    $this->db->where('usr_id', $usr_id);
+    $this->db->update('usr_tbl', $data);
 	
 	//see if that product name is an identical match to another product in the system
-	$sql="UPDATE usr_tbl SET usr_name=?, usr_lastName=?, usr_phone=?, usr_city=?, usr_zipCode=?, usr_country=?, usr_eligibility=?, usr_resume=? where usr_id=?";
+	//$sql="UPDATE usr_tbl SET usr_name=?, usr_lastName=?, usr_phone=?, usr_city=?, usr_zipCode=?, usr_country=?, usr_eligibility=?, usr_resume=? where usr_id=?";
 	
 	//$sql = "SELECT * FROM some_table WHERE id = ? AND status = ? AND author = ?";
-    $this->db->query($sql, array('$name', '$lastname', '$phone', '$city','$zipcode', '$country', '$eligibility', '$resume', '$usr_id')); 
+    //$this->db->query($sql, array('$name', '$lastname', '$phone', '$city','$zipcode', '$country', '$eligibility', '$resume', '$usr_id')); 
 	
 	//$this->db->query("UPDATE usr_tbl SET usr_name='$name', usr_lastName='$lastname', usr_phone='$phone', usr_city='$city', usr_zipCode='$zipcode', usr_country='$country', usr_eligibility='$eligibility', usr_resume='$resume' where usr_id='$usr_id'");
 
@@ -2330,6 +2341,8 @@ $email=$this->session->userdata('email');
 	$filename = $_FILES['fileUploadDocuments']['name'];
 	$ext = pathinfo($filename, PATHINFO_EXTENSION);
 	
+
+	
 	if(!in_array($ext,$allowed) ) {
 		$strMessage='<div id="contact-form-result">
               <div id="unexpected" class="alert alert-danger">
@@ -2339,6 +2352,17 @@ $email=$this->session->userdata('email');
 		$this->session->set_flashdata("success", $strMessage);
         redirect("postresume");
 	}
+	
+		if (file_exists('user_files/'.$email.'/'.$filename.'')) {
+
+    	$strMessage='<div id="contact-form-result">
+              <div id="unexpected" class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                This file is already exist, please rename your file before upload. <br/> <strong> </strong></div>
+            </div>';
+		$this->session->set_flashdata("success", $strMessage);
+        redirect("postresume");
+    }
 
 	$newname = $_FILES['fileUploadDocuments']['name'];
 	move_uploaded_file($_FILES['fileUploadDocuments']['tmp_name'],"user_files/$email/$newname");
@@ -2350,7 +2374,7 @@ $email=$this->session->userdata('email');
 			$strMessage='<div id="contact-form-result">
               <div id="success" class="alert alert-success">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
-                You profile <strong>updated</strong></div>
+                Your profile <strong>updated</strong></div>
               <div id="error" class="alert alert-danger hidden">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
               </div>
@@ -2458,14 +2482,68 @@ $email=$this->session->userdata('email');
 	
 			
 			}		
+$data['allUserUploadedFiles']="";
+if ($handle = opendir('user_files/'.$email.'')) {
 
+    while (false !== ($entry = readdir($handle))) {
 
+        if ($entry != "." && $entry != "..") {
+
+          $data['allUserUploadedFiles'].="<br/><a href='deleteFile/$entry'>$entry\n</a>";
+        }
+    }
+
+    closedir($handle);
+}
 
 $data["loginerror"]='';
 $this->load->view("header",$data);
 $this->load->view("post-resume",$data);
 
 }
+
+
+public function deleteFile()
+{
+
+$filename=$this->uri->segment(2);
+$filename=urldecode($filename);
+
+$data["loginerror"]='';
+$email=$this->session->userdata('email');
+if($this->session->userdata('logged_in')){
+
+
+$data["loginSignupHtml"]='   <li id="features"> <a href="postresume"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
+      <div class="vc_menu-open-right vc_menu-2-v">
+        <ul class="clearfix">
+          <li> <a href="logout">Sign Out</a></li>
+          
+        </ul>
+      </div>
+    </li>';
+$data["login"]="";
+}else
+{
+$data["loginSignupHtml"]=$this->loginSignupHtml();	
+$data["email"]="Visitor";
+$data["logout"]="";
+$data["login"]="Login";
+}
+
+if (!unlink('user_files/'.$email.'/'.$filename.''))
+  {
+  echo ("Error deleting $filename");
+  
+  }
+else
+  {
+  echo ("Deleted $filename");
+  }
+
+
+}
+
 
 
 public function commentAnswer()

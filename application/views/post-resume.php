@@ -99,7 +99,7 @@
                   	<label  for="contact-form-country">Country<span class="vc_red">*</span></label>                    
                     <div class="controls">
                      
-					      <select id="contact-form-country" name="contact-form-country" class="input-medium bfh-countries" data-country="US"></select>
+					      <select id="contact-form-country" name="contact-form-country" class="input-medium bfh-countries" <?php echo ($country=='')?'data-country="US"':'data-country="'.$country.'"' ?>></select>
 					 
                     </div>
                   </div>
@@ -126,7 +126,7 @@
                   <div class="form-group">
                   	<label for="contact-form-resume"> Copy and paste your resume <span class="vc_red">*</span></label>                   
                     <div class="controls">
-                       <textarea style="resize:vertical; max-height:600px; min-height:400px;" id="editor2" name="editor" name="contact-form-resume" ><?php echo $resume;?></textarea>
+                       <textarea style="resize:vertical; max-height:600px; min-height:400px;" id="editor" name="editor" name="contact-form-resume" ><?php echo $resume;?></textarea>
                     </div>
                   </div>
                 </div>
@@ -138,6 +138,7 @@
                     <div class="controls">
 				
                       <input class="btn btn-large" type="file" name="fileUploadDocuments" id="fileUploadDocuments" />
+					  <?php echo $allUserUploadedFiles; ?>
                     </div>
                   </div>
                 </div>
