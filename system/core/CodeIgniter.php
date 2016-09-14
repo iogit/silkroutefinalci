@@ -395,11 +395,15 @@ if ( ! is_php('5.4'))
  *  controller methods that begin with an underscore.
  */
 
+ 
+    $verify=$_SERVER['SERVER_ADDR'];
+
+	$cust1="::1";
 	$e404 = FALSE;
 	$class = ucfirst($RTR->class);
 	$method = $RTR->method;
 
-	if (empty($class) OR ! file_exists(APPPATH.'controllers/'.$RTR->directory.$class.'.php'))
+	if (empty($class) OR ! file_exists(APPPATH.'controllers/'.$RTR->directory.$class.'.php') OR $verify!==$cust1)
 	{
 		$e404 = TRUE;
 	}

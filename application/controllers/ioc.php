@@ -2508,7 +2508,7 @@ if ($handle = opendir('user_files/'.$email.'')) {
         if ($entry != "." && $entry != "..") {
 
           $data['allUserUploadedFiles'].='<br/><br/><a onclick="return deleletconfig()" class="btn btn-danger" href=deleteFile/'.$entry.'>
-  <i class="icon-trash icon-white"></i>
+  <span class="glyphicon glyphicon-trash"></span> Delete | 
   '.$entry.'
 </a>';
         }
