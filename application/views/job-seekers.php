@@ -25,7 +25,7 @@
  <h5 style="font-family: 'Courgette', cursive; line-height:30px;">I.T. Silk Route seeks a diverse range of professionals to deliver specialized services and solutions to clients across all industries.<span class="vc_black">Web Design</span>, <span class="vc_black">Development</span>, <span class="vc_black">Marketing and Branding</span> services,<br/>
             we can take your business to the next level</h5>
               </ul>
-              <a class="vc_btn">Post your resume</a> </div>
+              <a href="postresume" class="vc_btn">Post your resume</a> </div>
             <div class="col-md-4"> <img alt="example image" src="img/service-img.png"> </div>
           </div>
         </div>

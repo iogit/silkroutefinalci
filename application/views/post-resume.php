@@ -139,6 +139,7 @@
 				
                       <input class="btn btn-large" type="file" name="fileUploadDocuments" id="fileUploadDocuments" />
 					  <?php echo $allUserUploadedFiles; ?>
+					  
                     </div>
                   </div>
                 </div>
@@ -328,6 +329,20 @@ function checkFile(e) {
     }
 }
 
+</script>
+
+
+<script>
+    function deleletconfig(){
+
+    var del=confirm("Are you sure you want to delete this file?");
+    if (del==true){
+      
+    }else{
+     
+    }
+    return del;
+    }
 </script>
 
 </body>

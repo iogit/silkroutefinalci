@@ -1120,7 +1120,7 @@ function checkPass()
       <div class="row">
           <nav class="vc_menu"> 
           	<div class="logo">
-                <a href="index.html"> 
+                <a href="/"> 
                     <img  alt="logo" src="img/logo.png"> 
                 </a>
             </div>
@@ -1169,7 +1169,7 @@ echo $loginSignupHtml;
 </script>
 <!--
 <gcse:searchbox-only></gcse:searchbox-only>-->
-<div class="gcse-searchbox-only" data-resultsUrl="pages-search-result.html" data-queryParameterName="q" ></div>			</div> 
+<div class="gcse-searchbox-only" data-resultsUrl="pages-search-result" data-queryParameterName="q" ></div>			</div> 
             
             <div class="vc_menu-search-wrapper pull-right">
         
@@ -1260,7 +1260,7 @@ echo $loginSignupHtml;
             </div>
           </div>
           <div class="col-md-3">
-            <div class="vc_button pull-left"> <a href="about.html" class="vc_btn "> Learn More </a> </div>
+            <div class="vc_button pull-left"> <a href="about" class="vc_btn "> Learn More </a> </div>
             <div class="border"> </div>
           </div>
         </div>
@@ -1452,7 +1452,7 @@ echo $loginSignupHtml;
               </div>
               <div class=" col-sm-12 col-md-6">
                 <div class="menu pull-right"> 
-                	<a href="contact.html"> Contact </a>                </div>
+                	<a href="contact"> Contact </a>                </div>
               </div>
             </div>
           </div>

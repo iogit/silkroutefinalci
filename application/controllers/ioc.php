@@ -2292,7 +2292,7 @@ $email=$this->session->userdata('email');
 	
 	//$resume=($_POST['editor']);
     $resume=$this->db->escape($_POST['editor']);
-
+    
 	if(strlen($resume)>100000) {
 		$strMessage='<div id="contact-form-result">
               <div id="unexpected" class="alert alert-danger">
@@ -2303,6 +2303,8 @@ $email=$this->session->userdata('email');
         redirect("postresume");
 	}
 	
+	$resume=stripslashes($resume);
+	$resume=str_replace("'''","",$resume);
     $url=base_url();
     $data = array(
         'usr_name' => $name,
@@ -2339,6 +2341,9 @@ $email=$this->session->userdata('email');
 	//Check file types
 	$allowed =  array('jpeg','png','jpg','doc','docx','pdf','zip','rar');
 	$filename = $_FILES['fileUploadDocuments']['name'];
+	
+	$filename=$this->seoUrl($filename);
+
 	$ext = pathinfo($filename, PATHINFO_EXTENSION);
 	
 
@@ -2364,8 +2369,7 @@ $email=$this->session->userdata('email');
         redirect("postresume");
     }
 
-	$newname = $_FILES['fileUploadDocuments']['name'];
-	move_uploaded_file($_FILES['fileUploadDocuments']['tmp_name'],"user_files/$email/$newname");
+	move_uploaded_file($_FILES['fileUploadDocuments']['tmp_name'],"user_files/$email/$filename");
    
 	}
 	 
@@ -2399,6 +2403,20 @@ $email=$this->session->userdata('email');
 	
 	
 }
+
+
+function seoUrl($string) {
+    //Lower case everything
+    $string = strtolower($string);
+    //Make alphanumeric (removes all other characters) except "." need for filetype
+    $string = preg_replace("/[^.a-z0-9_\s-]/", "", $string);
+    //Clean up multiple dashes or whitespaces
+    $string = preg_replace("/[\s-]+/", " ", $string);
+    //Convert whitespaces and underscore to dash
+    $string = preg_replace("/[\s_]/", "-", $string);
+    return $string;
+}
+
 
 public function postresume()
 {
@@ -2489,7 +2507,10 @@ if ($handle = opendir('user_files/'.$email.'')) {
 
         if ($entry != "." && $entry != "..") {
 
-          $data['allUserUploadedFiles'].="<br/><a href='deleteFile/$entry'>$entry\n</a>";
+          $data['allUserUploadedFiles'].='<br/><br/><a onclick="return deleletconfig()" class="btn btn-danger" href=deleteFile/'.$entry.'>
+  <i class="icon-trash icon-white"></i>
+  '.$entry.'
+</a>';
         }
     }
 
@@ -2507,7 +2528,7 @@ public function deleteFile()
 {
 
 $filename=$this->uri->segment(2);
-$filename=urldecode($filename);
+//$filename=urldecode($filename);
 
 $data["loginerror"]='';
 $email=$this->session->userdata('email');
@@ -2531,14 +2552,25 @@ $data["logout"]="";
 $data["login"]="Login";
 }
 
-if (!unlink('user_files/'.$email.'/'.$filename.''))
+if (!unlink("user_files/$email/$filename"))
   {
-  echo ("Error deleting $filename");
-  
+    $strMessage='<div id="contact-form-result">
+              <div id="unexpected" class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                '.$filename.' has not been deleted. Unexpected Error. <br/> <strong> </strong></div>
+            </div>';
+		$this->session->set_flashdata("success", $strMessage);
+        redirect("postresume");
   }
 else
   {
-  echo ("Deleted $filename");
+       $strMessage='<div id="contact-form-result">
+               <div id="success" class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                '.$filename.' is successfully deleted <br/> <strong> </strong></div>
+            </div>';
+		$this->session->set_flashdata("success", $strMessage);
+        redirect("postresume");
   }
 
 
