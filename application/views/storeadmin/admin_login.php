@@ -177,7 +177,7 @@ exit();
 			
 		
 			
-			<h1>Admin Giriş</h1>
+			<h1>Admin Login</h1>
 			
 			
 			
@@ -187,11 +187,11 @@ exit();
             <div class="row-fluid">
                 <div class="input-prepend">
                     <span class="add-on"><i class="icon-user"></i></span>
-                    <?php echo form_input(array('name'=> 'username','id'=> 'username', 'value'=>'', 'placeholder'=>'Kullanıcı ID', 'class'=>'validate[required]', 'name'=>'username'));?>
+                    <?php echo form_input(array('name'=> 'username','id'=> 'username', 'value'=>'', 'placeholder'=>'Username', 'class'=>'validate[required]', 'name'=>'username'));?>
                 </div>                                                 
                 <div class="input-prepend">
                     <span class="add-on"><i class="icon-exclamation-sign"></i></span>
-              <?php echo form_input(array('name'=> 'password','id'=> 'password', 'value'=>'', 'placeholder'=>'Şifre', 'class'=>'validate[required]', 'name'=>'password'));?>
+              <?php echo form_input(array('name'=> 'password','id'=> 'password', 'value'=>'', 'placeholder'=>'Password', 'class'=>'validate[required]', 'name'=>'password'));?>
                 </div>          
                 <div class="dr"><span></span></div>                                
             </div>                
@@ -200,7 +200,7 @@ exit();
                                  
                 </div>
                 <div class="span4    TAR">
-                      <?php echo form_submit(array('name'=> 'submit', 'class'=>'btn btn-block btn-primary'), 'Giriş');?> 
+                      <?php echo form_submit(array('name'=> 'submit', 'class'=>'btn btn-block btn-primary'), 'Enter');?> 
                 </div>
             </div>
 			
@@ -223,10 +223,10 @@ echo validation_errors();?>
             <div class="dr"><span></span></div>
             <div class="row-fluid">
                 <div class="span8">                    
-                    <button class="btn btn-block" onClick="loginBlock('#login');">Şifremi Unuttum</button>
+                    <button class="btn btn-block" onClick="loginBlock('#login');" disabled>Forgot my password</button>
                 </div>
                 <div class="span4">
-                    <button class="btn btn-warning btn-block" onClick="loginBlock('#login');">Kayıt</button>
+                    <button class="btn btn-warning btn-block" onClick="loginBlock('#login');" disabled>Kayıt</button>
                 </div>
             </div>            
         </div>

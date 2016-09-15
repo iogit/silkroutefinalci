@@ -56,7 +56,7 @@ if(isset($_GET['deleteid'])){
 $message='<SCRIPT language="JavaScript">
 
 {
-    var hi= confirm("Bu Siparisi Gercekten Silmek Istiyormusun  ?");
+    var hi= confirm("Please confirm the deletion");
     if (hi== true){
        window.location.href ="'.$url.'inventory?yesdelete='.$_GET['deleteid'].'";
     }else{
@@ -102,7 +102,7 @@ if(isset($_GET['blog_id_to_remove'])){
 $message='<SCRIPT language="JavaScript">
 
 {
-    var hi= confirm("Bu Makaleyi Gercekten Silmek Istiyormusun  ?");
+    var hi= confirm("Please confirm the deletion");
     if (hi== true){
        window.location.href ="'.$url.'inventory?ioBlog_id='.$_GET['blog_id_to_remove'].'";
     }else{
@@ -150,7 +150,7 @@ if(isset($_GET['commentDeleteid'])){
 $message='<SCRIPT language="JavaScript">
 
 {
-    var hi= confirm("Bu Yorumu Gercekten Silmek Istiyormusun  ?");
+    var hi= confirm("Please confirm the deletion");
     if (hi== true){
        window.location.href ="'.$url.'inventory?commentYesDelete='.$_GET['commentDeleteid'].'";
     }else{
@@ -283,30 +283,30 @@ $product_list.='<table cellpadding="0" cellspacing="0" width="100%" class="table
                         <thead>
                             <tr>
                                 <th width="25%">
-                                   AD/SOYAD
+                                   Name/Lastname
                                 </th>
                                 <th width="25%">
-                                   TELEFON
+                                   Phone
                                 </th>
                                 <th width="25%">
-                                   Rezerv. Sayi
+                                   Rezervation number
                                 </th>
                                 <th width="25%">
-                                   Rezerv. Tarihi
+                                   Rezerv. date
                                 </th>
 								<th width="25%">
-                                  Rezerv. Saat
+                                  Rezerv. hour
                                 </th>
 								<th width="25%">
-                                   Açıklama
+                                   Description
                                 </th>
 								<th width="25%">
-                                   TARİH
+                                   Date
                                 </th>
 								<th width="25%">
-                                  Rezerv. DURUMU
+                                  Rezerv. status
                                 </th><th width="25%">
-                                   DÜZENLE
+                                   Edit
                                 </th>
                             </tr>
                         </thead>
@@ -363,8 +363,8 @@ $product_list.='<table cellpadding="0" cellspacing="0" width="100%" class="table
 	
 	
 	$product_list.="<td> <div id='admin_edit'><a href='".$url."orderOk?pid=$ioOrder_id'><div style='background-color:#eee;'><button class='btn btn-primary btn-block'>Rezerv. Yap</button></div></a> 
-	<a href='".$url."orderNo?pid=$ioOrder_id'><div style='background-color:#eee;'><button class='btn btn-primary btn-block'>Beklemeye Al</button></div></a>
-	</a>&nbsp; <div id='admin_delete'><a href='".$url."inventory?deleteid=$ioOrder_id'><div style='background-color:#eee;'><button class='btn btn-primary btn-block'>Sil</button></div></a></div></td>";
+	<a href='".$url."orderNo?pid=$ioOrder_id'><div style='background-color:#eee;'><button class='btn btn-primary btn-block'>Suspend</button></div></a>
+	</a>&nbsp; <div id='admin_delete'><a href='".$url."inventory?deleteid=$ioOrder_id'><div style='background-color:#eee;'><button class='btn btn-primary btn-block'>Delete</button></div></a></div></td>";
 $product_list.='<tr>';
 	}
 	
@@ -401,28 +401,28 @@ if($productCount>0)
                         <thead>
                             <tr>
                                 <th width="25%">
-                                   AD/SOYAD
+                                   Name/Lastname
                                 </th>
                                 <th width="25%">
-                                   E-MAIL
+                                   E-mail
                                 </th>
                                 <th width="25%">
-                                   KONU BAŞLIĞI
+                                   Title
                                 </th>
                                 <th width="25%">
-                                   YORUM/SORU
+                                   Comment/Question
                                 </th>
 								<th width="25%">
-                                   CEVAP
+                                   Answer
                                 </th>
 								<th width="25%">
-                                   TARİH
+                                   Date
                                 </th>
 								<th width="25%">
-                                   YAYINDA
+                                   Status
                                 </th>
 								<th width="25%">
-                                   DÜZENLE
+                                   Edit
                                 </th>
                             </tr>
                         </thead>
@@ -476,10 +476,10 @@ if($productCount>0)
 	$comment_list.='	
 	<td style="color:'.$color.'">
 	<div style="width:100px;" id="admin_edit">
-	<a href="'.$url.'commentOk?pid='.$ioComment_id.'"><button class="btn btn-primary btn-block">Yayınla</button></a> 
-	<a href="'.$url.'commentNo?pid='.$ioComment_id.'"><button class="btn btn-primary btn-block">Yayından Kaldır</button></a>
-	<a href="'.$url.'commentAnswer?pid='.$ioComment_id.'"><button class="btn btn-primary btn-block">Yorumu Cevapla</button></a>
-	</a>&nbsp; <div id="admin_delete"><a href="'.$url.'inventory?commentDeleteid='.$ioComment_id.'"><button class="btn btn-primary btn-block">Sil</button></a></div></td>';
+	<a href="'.$url.'commentOk?pid='.$ioComment_id.'"><button class="btn btn-primary btn-block">Publish</button></a> 
+	<a href="'.$url.'commentNo?pid='.$ioComment_id.'"><button class="btn btn-primary btn-block">Withdraw</button></a>
+	<a href="'.$url.'commentAnswer?pid='.$ioComment_id.'"><button class="btn btn-primary btn-block">Answer</button></a>
+	</a>&nbsp; <div id="admin_delete"><a href="'.$url.'inventory?commentDeleteid='.$ioComment_id.'"><button class="btn btn-primary btn-block">Delete</button></a></div></td>';
 $comment_list.='<tr>';
 	}
 	$comment_list.='</tbody>   </table>';
@@ -509,25 +509,25 @@ if($productCount>0)
                         <thead>
                             <tr>
                                 <th width="25%">
-                                   RESİM
+                                   Image
                                 </th>
                                 <th width="25%">
-                                   BAŞLIK
+                                   Title
                                 </th>
                                 <th width="25%">
-                                   IÇERIK
+                                   Content
                                 </th>
 								<th width="5%">
-                                   GÖRÜNTÜLENME
+                                   Views
                                 </th> 
 								<th width="25%">
-                                   TARİH
+                                   Date
                                 </th>
                                 <th width="25%">
-                                   GÖNDERİLME DURUMU
+                                   Status
                                 </th>
 								<th width="25%">
-                                   DÜZENLE
+                                   Settings
                                 </th>
 							
                         </thead>
@@ -582,10 +582,10 @@ if($productCount>0)
 
 	$blog_list.="<td>
 	<div style='width: 100px;' id='admin_edit'>
-	<a href='".$url."blogOk?bid=$ioBlog_id'><button class='btn btn-primary btn-block'>Yayınla</button></a>
-	<a href='".$url."blogNo?bid=$ioBlog_id'><button class='btn btn-primary btn-block'>Yayından Kaldır</button></a>
+	<a href='".$url."blogOk?bid=$ioBlog_id'><button class='btn btn-primary btn-block'>Publish</button></a>
+	<a href='".$url."blogNo?bid=$ioBlog_id'><button class='btn btn-primary btn-block'>Withdraw</button></a>
 	
-	</a>&nbsp; <div id='admin_delete'><a href='".$url."inventory?blog_id_to_remove=$ioBlog_id'><button class='btn btn-primary btn-block'>Sil</button></a></div></td>";
+	</a>&nbsp; <div id='admin_delete'><a href='".$url."inventory?blog_id_to_remove=$ioBlog_id'><button class='btn btn-primary btn-block'>Delete</button></a></div></td>";
 $blog_list.='<tr>';
 	}
 	
@@ -623,22 +623,22 @@ $news_list.='<table cellpadding="0" cellspacing="0" width="100%" class="table-ho
                         <thead>
                             <tr>
                                 <th width="25%">
-                                   RESİM
+                                   Image
                                 </th><th width="25%">
-                                   BAŞLIK
+                                   Title
                                 </th>
                                 <th width="25%">
-                                   İÇERİK
+                                   Content
                                 </th>
                                 <th width="25%">
-                                   YOUTUBE LİNK
+                                   Youtube link
                                 </th>
                                 <th width="25%">
-                                   TARİH
+                                   Date
                                 </th>
 								
 								<th width="25%">
-                                   DÜZENLE
+                                   Settings
                                 </th>
                             </tr>
                         </thead>
@@ -680,7 +680,7 @@ $news_list.='<table cellpadding="0" cellspacing="0" width="100%" class="table-ho
 	
 	$news_list.="<td> <div id='admin_edit'>
 	
-	</a>&nbsp; <div id='admin_delete'><a href='".$url."inventory?deleteNewsId=$ioNews_id'><div style='background-color:#eee;'><button class='btn btn-primary btn-block'>Sil</button></div></a></div></td>";
+	</a>&nbsp; <div id='admin_delete'><a href='".$url."inventory?deleteNewsId=$ioNews_id'><div style='background-color:#eee;'><button class='btn btn-primary btn-block'>Delete</button></div></a></div></td>";
 $news_list.='<tr>';
 	}
 	
@@ -713,20 +713,20 @@ $slider_list.='<table cellpadding="0" cellspacing="0" width="100%" class="table-
                         <thead>
                             <tr>
                                 <th width="25%">
-                                   RESİM
+                                   Image
                                 </th><th width="25%">
-                                   BAŞLIK
+                                   Title
                                 </th>
                                 <th width="25%" style="overflow-x:scroll;">
-                                   İÇERİK
+                                   Content
                                 </th>
                                
                                 <th width="25%">
-                                   TARİH
+                                   Date
                                 </th>
 								
 								<th width="25%">
-                                   DÜZENLE
+                                   Settings
                                 </th>
                             </tr>
                         </thead>
@@ -766,7 +766,7 @@ $slider_list.='<table cellpadding="0" cellspacing="0" width="100%" class="table-
 	
 	$slider_list.="<td> <div id='admin_edit'>
 	
-	</a>&nbsp; <div id='admin_delete'><a href='".$url."inventory?deleteSliderId=$ioSlider_id'><div style='background-color:#eee;'><button class='btn btn-primary btn-block'>Sil</button></div></a></div></td>";
+	</a>&nbsp; <div id='admin_delete'><a href='".$url."inventory?deleteSliderId=$ioSlider_id'><div style='background-color:#eee;'><button class='btn btn-primary btn-block'>Delete</button></div></a></div></td>";
 $slider_list.='<tr>';
 	}
 	
@@ -799,7 +799,7 @@ if(isset($_GET['deleteNewsId'])){
 $message='<SCRIPT language="JavaScript">
 
 {
-    var hi= confirm("Bu Haberi Gercekten Silmek Istiyormusun  ?");
+    var hi= confirm("Please confirm the deletion");
     if (hi== true){
        window.location.href ="'.$url.'inventory?yesdeleteNews='.$_GET['deleteNewsId'].'";
     }else{
@@ -845,7 +845,7 @@ if(isset($_GET['deleteSliderId'])){
 $message='<SCRIPT language="JavaScript">
 
 {
-    var hi= confirm("Bu Slideri Gercekten Silmek Istiyormusun  ?");
+    var hi= confirm("Please confirm the deletion of this slider");
     if (hi== true){
        window.location.href ="'.$url.'inventory?yesdeleteSlider='.$_GET['deleteSliderId'].'";
     }else{
@@ -894,18 +894,18 @@ if($productCount>0)
                         <thead>
                             <tr>
                                 <th width="25%">
-                                   RESİM
+                                   Image
                                 </th>
                                 <th width="25%">
-                                   BAŞLIK
+                                   Title
                                 </th>
                               
 								<th width="25%">
-                                   TARİH
+                                   Date
                                 </th>
                                 
 								<th width="25%">
-                                   DÜZENLE
+                                   Settings
                                 </th>
 							
                         </thead>
@@ -948,7 +948,7 @@ if($productCount>0)
 	<div style='width: 100px;' id='admin_edit'>
 	
 	
-	</a>&nbsp; <div id='admin_delete'><a href='".$url."inventory?picture_id_to_remove=$iogallerypic_id'><button class='btn btn-primary btn-block'>Sil</button></a></div></td>";
+	</a>&nbsp; <div id='admin_delete'><a href='".$url."inventory?picture_id_to_remove=$iogallerypic_id'><button class='btn btn-primary btn-block'>Delete</button></a></div></td>";
 $picture_list.='<tr>';
 	}
 	
@@ -974,7 +974,7 @@ if(isset($_GET['picture_id_to_remove'])){
 $message='<SCRIPT language="JavaScript">
 
 {
-    var hi= confirm("Bu Resmi Gercekten Silmek Istiyormusun  ?");
+    var hi= confirm("Please confirm the deletion of this image");
     if (hi== true){
        window.location.href ="'.$url.'inventory?yesdeletepic='.$_GET['picture_id_to_remove'].'";
     }else{
@@ -1024,17 +1024,17 @@ if($productCount>0)
                             <tr>
                                 
                                 <th width="25%">
-                                   BAŞLIK
+                                   Title
                                 </th>
                               <th width="25%">
-                                   LINK
+                                   Link
                                 </th>
 								<th width="25%">
-                                   TARİH
+                                   Date
                                 </th>
                                 
 								<th width="25%">
-                                   DÜZENLE
+                                   Settings
                                 </th>
 							
                         </thead>
@@ -1078,7 +1078,7 @@ if($productCount>0)
 	<div style='width: 100px;' id='admin_edit'>
 	
 	
-	</a>&nbsp; <div id='admin_delete'><a href='".$url."inventory?video_id_to_remove=$iogalleryvid_id'><button class='btn btn-primary btn-block'>Sil</button></a></div></td>";
+	</a>&nbsp; <div id='admin_delete'><a href='".$url."inventory?video_id_to_remove=$iogalleryvid_id'><button class='btn btn-primary btn-block'>Delete</button></a></div></td>";
 $video_list.='<tr>';
 	}
 	
@@ -1111,19 +1111,19 @@ if($messageCount>0)
                             <tr>
                                 
                                 <th width="25%">
-                                   ISIM
+                                   Name
                                 </th>
                               <th width="25%">
-                                   EMAIL
+                                   E-mail
                                 </th> <th width="25%">
-                                   MESAJ
+                                   Message
                                 </th>
 								<th width="25%">
-                                   TARİH
+                                   Date
                                 </th>
                                 
 								<th width="25%">
-                                   DÜZENLE
+                                   Settings
                                 </th>
 							
                         </thead>
@@ -1171,7 +1171,7 @@ if($messageCount>0)
 	<div style='width: 100px;' id='admin_edit'>
 	
 	
-	</a>&nbsp; <div id='admin_delete'><a href='".$url."inventory?message_id_to_remove=$messageid'><button class='btn btn-primary btn-block'>Sil</button></a></div></td>";
+	</a>&nbsp; <div id='admin_delete'><a href='".$url."inventory?message_id_to_remove=$messageid'><button class='btn btn-primary btn-block'>Delete</button></a></div></td>";
 $message_list.='<tr>';
 	}
 	
@@ -1197,7 +1197,7 @@ if(isset($_GET['message_id_to_remove'])){
 $message='<SCRIPT language="JavaScript">
 
 {
-    var hi= confirm("Bu Messaji Gercekten Silmek Istiyormusun  ?");
+    var hi= confirm("Please confirm the deletion of this message");
     if (hi== true){
        window.location.href ="'.$url.'inventory?yesdeletemes='.$_GET['message_id_to_remove'].'";
     }else{
@@ -1244,7 +1244,7 @@ if(isset($_GET['video_id_to_remove'])){
 $message='<SCRIPT language="JavaScript">
 
 {
-    var hi= confirm("Bu Videoyu Gercekten Silmek Istiyormusun  ?");
+    var hi= confirm("Please confirm the deletion of this video");
     if (hi== true){
        window.location.href ="'.$url.'inventory?yesdeletevid='.$_GET['video_id_to_remove'].'";
     }else{
@@ -1414,8 +1414,8 @@ exit();
     <div class="navigation">
 
         <ul class="main">
-           <li><a href="<?php echo base_url();?>master"><span class="icom-screen"></span><span class="text">Ana Sayfa</span></a></li>
-            <li><a href="<?php echo base_url();?>inventory_add"><span class="icom-box-add"></span><span class="text">Ekle</span></a></li>	
+           <li><a href="<?php echo base_url();?>master"><span class="icom-screen"></span><span class="text">Main page</span></a></li>
+            <li><a href="<?php echo base_url();?>inventory_add"><span class="icom-box-add"></span><span class="text">Add</span></a></li>	
 		<!--	<li><a href="<?php echo base_url();?>inventory_edit"><span class="icom-pencil3"></span><span class="text">Düzenle</span></a></li>      -->          
         </ul>
         
@@ -1432,23 +1432,23 @@ exit();
                     <div class="name">Hoşgeldin <?php echo $manager;?></div>
                                   
 				   <ul class="menuList">
-                        <li><a href="#"><span class="icon-cog"></span>Ayarlar</a></li>
-                        <li><a href="#tabs-2"><span class="icon-comment"></span> Mesajlar (<?php echo $messageCount;?>)<strong> <!--(<?php echo $messagecount;?>)--></strong></a></li>
-                        <li><a href="<?php echo base_url();?>killAdmin?killID=<?php echo $managerID;?>"><span class="icon-share-alt"></span> Çıkış</a></li>                        
+                        <li><a href="#"><span class="icon-cog"></span>Settings</a></li>
+                        <li><a href="#tabs-2"><span class="icon-comment"></span> Messages (<?php echo $messageCount;?>)<strong> <!--(<?php echo $messagecount;?>)--></strong></a></li>
+                        <li><a href="<?php echo base_url();?>killAdmin?killID=<?php echo $managerID;?>"><span class="icon-share-alt"></span>Exit</a></li>                        
                     </ul>
                     <div class="text">
-                        Hoşgeldiniz ! Son Ziyaretiniz: <?php echo $admn_logDate; ?>
+                        Welcome ! Last visit: <?php echo $admn_logDate; ?>
                     </div>
                 </div>
                 
                 <div class="widget-fluid TAC">
                     <div class="epc mini">
                         <div class="epcm-red" data-percent="80"><span>0.0</span>%</div>
-                        <div class="label label-important">Yüzdelik</div>
+                        <div class="label label-important">Percentage</div>
                     </div>                    
                     <div class="epc mini">
                         <div class="epcm-green" data-percent="80"><span>0000</span>/0000</div>
-                        <div class="label label-success">Sayaç</div>
+                        <div class="label label-success">Counter</div>
                     </div>                             
                 </div>                
                 <div class="dr"><span></span></div>
@@ -1494,18 +1494,18 @@ exit();
         </div>
 		<div class="tabs">                    
                         <ul>
-                           <li><a href="#tabs-1">HABERLER</a></li>
-                            <li><a href="#tabs-3">MAKALELER</a></li>
-                            <li><a href="#tabs-2">YORUMLAR</a></li>
-                            <li><a href="#tabs-4">RESIMLER</a></li>
-                            <li><a href="#tabs-5">VIDEOLAR</a></li>
-                            <li><a href="#tabs-6">MESAJLAR</a></li>
-                            <li><a href="#tabs-7">SLİDER</a></li>
+                         <!--  <li><a href="#tabs-1">HABERLER</a></li>-->
+                            <li><a href="#tabs-3">BLOG</a></li>
+                            <li><a href="#tabs-2">Comments</a></li>
+                            <li><a href="#tabs-4">Images</a></li>
+                            <li><a href="#tabs-5">Videos</a></li>
+                            <li><a href="#tabs-6">Messages</a></li>
+                            <li><a href="#tabs-7">Slider</a></li>
                         </ul>                        
 
                        
 																		<!--######Siparis Listesi Begin######\-->
-										   <div id="tabs-1">
+										<!--   <div id="tabs-1">
 										<div id="invList">
 										<div class="prodList">
 										   <h1>&nbsp;</h1>
@@ -1530,7 +1530,7 @@ exit();
 															   
 																	 <?php echo $news_list; ?>   
 															   
-														</div></div></div></div>    
+														</div></div></div></div>    -->
 										  
 													<!--#####Siparis listesi End###########-->
                                             
@@ -1619,7 +1619,7 @@ exit();
 														   <div class="widget">
 																		<div class="head dark">
 																			<div class="icon"><span class="icos-paragraph-justify"></span></div>
-																			<h2>Resimler</h2>                    
+																			<h2>Picture</h2>                    
 																		</div>                
 																		<div class="block-fluid">
 																		 
@@ -1649,7 +1649,7 @@ exit();
 														   <div class="widget">
 																		<div class="head dark">
 																			<div class="icon"><span class="icos-paragraph-justify"></span></div>
-																			<h2>Videolar</h2>                    
+																			<h2>Video</h2>                    
 																		</div>                
 																		<div class="block-fluid">
 																		 
@@ -1677,7 +1677,7 @@ exit();
 														   <div class="widget">
 																		<div class="head dark">
 																			<div class="icon"><span class="icos-paragraph-justify"></span></div>
-																			<h2>Mesajlar</h2>                    
+																			<h2>Message</h2>                    
 																		</div>                
 																		<div class="block-fluid">
 																		 
@@ -1762,10 +1762,10 @@ exit();
     <div class="footer">
         <div class="left">
             <div class="btn-group dropup">                
-                <button class="btn dropdown-toggle" data-toggle="dropdown"><span class="icon-cog"></span> Navigasyon</button>
+                <button class="btn dropdown-toggle" data-toggle="dropdown"><span class="icon-cog"></span> Navigation</button>
                 <ul class="dropdown-menu">
-                    <li><a href="#" id="fixedNav">Göster</a></li>
-                    <li><a href="#" id="collapsedNav">Gizle</a></li>                    
+                    <li><a href="#" id="fixedNav">Show</a></li>
+                    <li><a href="#" id="collapsedNav">Hide</a></li>                    
                 </ul>
             </div>
                     
