@@ -141,6 +141,51 @@ exit();
 
 
 
+<?php 
+//delete item question to admin 
+$url=base_url();
+if(isset($_GET['job_id_to_remove'])){
+
+$message='<SCRIPT language="JavaScript">
+
+{
+    var hi= confirm("Please confirm the deletion");
+    if (hi== true){
+       window.location.href ="'.$url.'inventory?job_id='.$_GET['job_id_to_remove'].'";
+    }else{
+        window.location.href ="'.$url.'inventory";
+    }
+}
+ </SCRIPT>';
+/*$message=''.$_GET['deleteid'].' Numarali Urunu Gercekten Silmek Istiyormusun ? <a href="'.$url.'inventory?yesdelete='.$_GET['deleteid'].'">Yes</a>|<a href="'.$url.'inventory">No</a>';*/
+
+echo $message;
+
+exit();
+
+}
+if(isset($_GET['job_id'])){
+//remove item form system and delete its picture
+//delete from database first
+$job_id_to_delete=$_GET['job_id'];
+$sql=$this->db->query("DELETE FROM io_jobs where ioJob_id='$job_id_to_delete' LIMIT 1") or die(mysql_error);
+
+//unlink the picture
+//$pictodelete=("images/blog_images/$blogid_to_delete.jpg");
+//if(file_exists($pictodelete)){
+	
+	//unlink($pictodelete);
+	//}
+
+  redirect("inventory");
+exit();
+
+}
+
+
+
+?>
+
 
 <?php 
 //delete item question to admin 
@@ -552,10 +597,10 @@ if($productCount>0)
 	
 	if($ioBlog_live==0)
 	{	$color="red";
-	    $ioBlog_statusx="Beklemede";
+	    $ioBlog_statusx="On hold";
 	}else
 	{	$color="";
-	  $ioBlog_statusx="Arandı";
+	  $ioBlog_statusx="Called";
 	}
 	
 	
@@ -604,9 +649,242 @@ $blog_list.='<tr>';
 }
 ?>
 
+<?php
+$color="#333";
+//this block grabs the whole list for viewing job postings
+$job_list="";
+if($job_list==""){
+$sql=$this->db->query("SELECT * FROM io_jobs ORDER BY ioJob_addDate DESC");  //or ASC
+$productCount=$sql->num_rows(); //count output amount
+$url=base_url();
+if($productCount>0)
+{
+ $job_list='<table cellpadding="0" cellspacing="0" width="100%" class="table-hover">
+                        <thead>
+                            <tr>
+                                <th width="10%">
+                                   Title
+                                </th>
+                                <th width="10%">
+                                   Location
+                                </th>
+                                <th width="10%">
+                                   Division
+                                </th>
+								<th width="35%">
+                                   Description
+                                </th> 
+								<th width="35%">
+                                   Qualification
+                                </th>
+                                <th width="10%">
+                                   Date
+                                </th>
+								<th width="10%">
+                                   Settings
+                                </th>
+							
+                        </thead>
+                        <tbody>';
+	foreach($sql->result_array() as $row)
+	{
+	
+	$ioJob_id=$row["ioJob_id"];
+	$ioJob_title=$row["ioJob_title"];
+	$ioJob_location=$row["ioJob_location"];
+	$ioJob_division=$row["ioJob_division"];
+	$ioJob_description=$row["ioJob_description"];
+	$ioJob_qualification=$row["ioJob_qualification"];
+	
+	
+	$ioJob_addDate=$row["ioJob_addDate"];
+/*
+	$ioBlog_contentsub = substr($ioBlog_content, 0, 125);
+	$ioBlog_contentsub.='...';
+	
+	//$prdct_addDate=strftime("%b %d %Y %X",strtotime($row["prdct_addDate"]));
+	
+	if($ioBlog_live==0)
+	{	$color="red";
+	    $ioBlog_statusx="On hold";
+	}else
+	{	$color="";
+	  $ioBlog_statusx="Called";
+	}
+	
+	*/
+	$job_list.='     <tr>
+                                <td style="color:'.$color.'" height:"20%">
+                                    '.$ioJob_title.'
+                             </td>
+							   <td style="color:'.$color.'" height:"20%">
+                                    '.$ioJob_location.'
+                               </td>
+							   <td style="color:'.$color.'" height:"20%">
+                                    '.$ioJob_division.'
+                               </td>
+							   <td style="color:'.$color.'">
+                                    <div contenteditable="true" style="max-height:300px; overflow:auto">  '.$ioJob_description.' </div>
+                                </td><td style="color:'.$color.'" height:"20%">
+                                   <div contenteditable="true" style="max-height:300px; overflow:auto">  '.$ioJob_qualification.' </div>
+                                </td><td style="color:'.$color.'" height:"20%">
+                                    '.$ioJob_addDate.'
+                                 </td>
+                              
+                            ';
 
 
+	$job_list.="<td>
+	<div style='width: 100px;' id='admin_edit'>
+	
+	
+	</a>&nbsp; <div id='admin_delete'><a href='".$url."inventory?job_id_to_remove=$ioJob_id'><button class='btn btn-primary btn-block'>Delete</button></a></div></td>";
+$job_list.='<tr>';
+	}
+	
+	$job_list.='</tbody>
+                    </table>';
+	
+	
+		
+	}else
+	
+	{
+	$job_list="No jobs found";	
+		
+		}
 
+}
+?>
+
+<?php
+//this block grabs the whole users for viewing
+$color="#333333";
+$user_list="";
+if($user_list==""){
+$sql=$this->db->query("SELECT * FROM usr_tbl ORDER BY usr_name DESC");  //or ASC
+$productCount=$sql->num_rows(); //count output amount
+$url=base_url();
+if($productCount>0)
+{
+ $user_list='<table cellpadding="0" cellspacing="0" width="100%" class="table-hover">
+                        <thead>
+                            <tr>
+                                <th width="25%">
+                                   Name
+                                </th>
+                                <th width="25%">
+                                   Last name
+                                </th>
+                                <th width="100%">
+                                   Phone
+                                </th>
+								<th width="5%">
+                                   E-mail
+                                </th> 
+								<th width="25%">
+                                   City
+                                </th>
+                                <th width="25%">
+                                   Zipcode
+                                </th>
+								<th width="25%">
+                                   Country
+                                </th>
+								<th width="25%">
+                                   Files
+                                </th>
+							
+                        </thead>
+                        <tbody>';
+	foreach($sql->result_array() as $row)
+	{
+	
+	$usr_id=$row["usr_id"];
+	$usr_name=$row["usr_name"];
+	$usr_lastName=$row["usr_lastName"];
+	$usr_phone=$row["usr_phone"];
+	$usr_email=$row["usr_email"];
+	$usr_city=$row["usr_city"];
+	$usr_zipCode=$row["usr_zipCode"];
+	$usr_country=$row["usr_country"];
+	
+	/*
+	$ioBlog_date=$row["ioBlog_date"];
+
+	$ioBlog_contentsub = substr($ioBlog_content, 0, 125);
+	$ioBlog_contentsub.='...';
+	
+	//$prdct_addDate=strftime("%b %d %Y %X",strtotime($row["prdct_addDate"]));
+	
+	if($ioBlog_live==0)
+	{	$color="red";
+	    $ioBlog_statusx="Beklemede";
+	}else
+	{	$color="";
+	  $ioBlog_statusx="Arandı";
+	}
+	*/
+	$allUserUploadedFiles="";
+  if ($handle = opendir('user_files/'.$usr_email.'')) {
+
+    while (false !== ($entry = readdir($handle))) {
+
+        if ($entry != "." && $entry != "..") {
+
+          $allUserUploadedFiles.='<br/><br/><a style="color:#fff" onclick="//return deleletconfig()" class="btn btn-success" download="itsilkroutellc.com/'.$entry.'" href="user_files/'.$usr_email.'/'.$entry.'" target="_blank">
+  <span class="glyphicon glyphicon-trash"></span>
+  '.$entry.'
+</a>';
+        }
+    }
+
+    closedir($handle);
+     }
+	 
+	 
+	$user_list.='     <tr>
+                                <td style="color:'.$color.'">
+                                      '.$usr_name.'
+                             </td><td style="color:'.$color.'">
+                                    '.$usr_lastName.'
+                               </td>
+							   <td style="color:'.$color.'">
+                                    '.$usr_phone.'
+                               </td>
+							   <td style="color:'.$color.'">
+                                    '.$usr_email.'
+                               </td>
+							   <td style="color:'.$color.'">
+                                    '.$usr_city.'
+                                </td>
+								<td style="color:'.$color.'">
+                                    '.$usr_zipCode.'
+                                 </td>
+								 <td style="color:'.$color.'">
+                                    '.$usr_country.'
+                                 </td> 
+								 <td style="color:'.$color.'">
+                                    '.$allUserUploadedFiles.'
+                                 </td>
+                              
+                            ';
+	}
+	
+	$user_list.='</tbody>
+                    </table>';
+	
+	
+		
+	}else
+	
+	{
+	$user_list="No users found";	
+		
+		}
+
+}
+?>
 
 
 
@@ -1494,8 +1772,9 @@ exit();
         </div>
 		<div class="tabs">                    
                         <ul>
-                         <!--  <li><a href="#tabs-1">HABERLER</a></li>-->
-                            <li><a href="#tabs-3">BLOG</a></li>
+                            <li><a href="#tabs-1">Users</a></li>
+                            <li><a href="#tabs-8">Jobs</a></li>
+                            <li><a href="#tabs-3">Blog</a></li>
                             <li><a href="#tabs-2">Comments</a></li>
                             <li><a href="#tabs-4">Images</a></li>
                             <li><a href="#tabs-5">Videos</a></li>
@@ -1505,7 +1784,7 @@ exit();
 
                        
 																		<!--######Siparis Listesi Begin######\-->
-										<!--   <div id="tabs-1">
+									  <div id="tabs-1">
 										<div id="invList">
 										<div class="prodList">
 										   <h1>&nbsp;</h1>
@@ -1523,14 +1802,44 @@ exit();
 										   <div class="widget">
 														<div class="head dark">
 															<div class="icon"><span class="icos-paragraph-justify"></span></div>
-															<h2> Kayıtlı Haberler </h2>                    
+															<h2> Users </h2>                    
 														</div>                
 														<div class="block-fluid">
 														
 															   
-																	 <?php echo $news_list; ?>   
+																	 <?php echo $user_list; ?>   
 															   
-														</div></div></div></div>    -->
+														</div></div></div></div>   
+										  
+													<!--#####Siparis listesi End###########-->
+                                            
+																		<!--######Siparis Listesi Begin######\-->
+									  <div id="tabs-8">
+										<div id="invList">
+										<div class="prodList">
+										   <h1>&nbsp;</h1>
+										 </div>
+									
+											
+										 <form id="search_formInv" method="post" action="<?= site_url('site/search_inventory');?>">
+											<div class="invNav">
+												<label for="phrase"></label>
+											  
+											</div>
+											   
+											</form>
+										
+										   <div class="widget">
+														<div class="head dark">
+															<div class="icon"><span class="icos-paragraph-justify"></span></div>
+															<h2> Jobs </h2>                    
+														</div>                
+														<div class="block-fluid">
+														
+															   
+																	 <?php echo $job_list; ?>   
+															   
+														</div></div></div></div>   
 										  
 													<!--#####Siparis listesi End###########-->
                                             

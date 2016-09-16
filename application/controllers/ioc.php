@@ -1292,7 +1292,7 @@ $jobsSql=$this->db->query("SELECT * FROM io_jobs");
                         <p>
 						'.$ioJob_description.'
                         </p>
-                        <p> <a class="vc_btn" href="#">Get In Touch </a> </p>
+                        <p> <a class="vc_btn" href="'.base_url().'contact">Get In Touch </a> </p>
                       </div>
                       <div class="col-md-6">
                         <p class="vc_black"><strong>Qualifications:</strong></p>

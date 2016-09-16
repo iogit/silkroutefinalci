@@ -45,7 +45,7 @@ exit();
 	{
 		
 	$url=base_url();
-		echo '&nbsp;&nbsp;&nbsp;Girdiğiniz Bilgiler Hatalı, Tekrar Deneyin <a href="'.$url.'ioc/intro"> Yenile </a>';
+		echo '&nbsp;&nbsp;&nbsp;Wrong credentials, Please try again <a href="'.$url.'ioc/intro"> Refresh </a>';
 		//exit();
 		//echo '<p style="color:red;">&nbsp; Girdiğiniz Bilgiler Hatalı Lütfen Tekrar Deneyin </p>  ';
 		}}

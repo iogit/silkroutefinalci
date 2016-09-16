@@ -314,6 +314,41 @@ if(isset($_POST['ioNews_title'])){
 ?>
 
 
+
+<?php 
+//add jobs to the database
+
+
+
+if(isset($_POST['ioJob_title'])){
+	$ioJob_title=$this->db->escape($_POST['ioJob_title']);
+	$ioJob_location=$this->db->escape($_POST['ioJob_location']);
+	$ioJob_division=$this->db->escape($_POST['ioJob_division']);
+	$ioJob_description=$this->db->escape($_POST['ioJob_description']);
+	$ioJob_qualification=$this->db->escape($_POST['ioJob_qualification']);
+
+	
+
+	
+	//see if that product name is an identical match to another product in the system
+		
+	
+	//add this product into the database
+
+	$sql=$this->db->query("INSERT INTO io_jobs (ioJob_title, ioJob_location, ioJob_division, ioJob_description, ioJob_qualification, ioJob_addDate) VALUES($ioJob_title, $ioJob_location, $ioJob_division, $ioJob_description, $ioJob_qualification, now())") or die(mysql_error());
+	
+	$Jobid=$this->db->insert_id();
+	$url=base_url();
+	//place image in the folder
+	
+    redirect("inventory"); //to prevent to sending same data to database when the page refreshed.
+	
+	exit();
+}
+
+?>
+
+
 <?php 
 //parse the from data and add inventory item to the system
 
@@ -1006,7 +1041,7 @@ if(isset($_POST['iogalleryvid_title'])){
         </div>
 		<div class="tabs">                    
                         <ul>
-                          
+                           <li><a href="#tabs-8">Add jobs</a></li>
 						     <li><a href="#tabs-1">Add article</a></li>
 						     <li><a href="#tabs-2">Add news</a></li>
 						     
@@ -1016,7 +1051,102 @@ if(isset($_POST['iogalleryvid_title'])){
                             <li><a href="#tabs-5">Add slider</a></li>
                         </ul>                        
 
-                       
+                <!--#######################################Jobs Add Start################################################################################-->  
+  <div id="tabs-8">
+										<div id="invList">
+										<div class="prodList">
+										   <h1>&nbsp;</h1>
+										 </div>
+									
+										
+										
+										 <div class="widget">
+													<div id="invAddForm">
+									<form action="<?php echo base_url(); ?>inventory_add" enctype="multipart/form-data" name="myForm" id="myForm" method="post">
+										<table width="800" border="0">
+												<div class="newProductTitle"></div>
+												  <tr>
+												
+													   <tr>
+													 <td width="274">Job title <br/>(i.e Java developer)</td>
+													 <td width="1293"><label><input name="ioJob_title" type="text" id="ioJob_title" size="50"/> </label></td>
+												   </tr>
+ <tr>
+													 <td width="174">Location </td>
+													 <td width="1293"><label><input name="ioJob_location" type="text" id="ioJob_location" size="50"/> </label></td>
+												   </tr>
+
+												   <tr>
+													 <td width="174">Division</td>
+													 <td width="1293"><label>
+													 <select name="ioJob_division" id="ioJob_division">
+														  <option value="it">IT</option>
+														  <option value="accounting">Accounting</option>
+														  <option value="healthcare">Healthcare</option>
+														  <option value="law">Law</option>
+														</select>
+													 
+													 </label></td>
+												   </tr>
+												   
+												   		<tr><td>Description </td>
+											<td><label>
+											      <div class="widget">
+                    <div class="head dark">
+                        <div class="icon"><i class="icos-pencil"></i></div>
+                        <h2>Description</h2>
+                    </div>
+                    <div class="block-fluid editor">
+                        
+                        <textarea id="wysiwyg" name="ioJob_description" style="height: 300px;">
+                           
+                        </textarea>
+                        
+                    </div>
+                   
+                </div>  
+									</label></td>		
+											</tr>
+
+
+	   		<tr><td>Qualification </td>
+											<td><label>
+											      <div class="widget">
+                    <div class="head dark">
+                        <div class="icon"><i class="icos-pencil"></i></div>
+                        <h2>Qualification</h2>
+                    </div>
+                    <div class="block-fluid editor">
+                        
+                        <textarea id="wysiwyg" name="ioJob_qualification" style="height: 300px;">
+                           
+                        </textarea>
+                        
+                    </div>
+                   
+                </div>  
+									</label></td>		
+											</tr>
+												   
+												   
+																				         
+								
+											</tr>
+												
+												
+												
+											   </tr>
+										  <tr>
+												 <td>&nbsp;</td>
+												 <td><label><input class="btn btn-warning btn-block" type="submit" name="button" id="button" value="Add job"/></label></td>
+											   </tr>
+
+										  </table>
+										  </form>
+										  </div>	</div></div></div>  
+
+
+<!--#######################################Jobs Add Stop################################################################################-->         
 <!--#######################################Blog Add Start################################################################################-->  
   <div id="tabs-1">
 										<div id="invList">
@@ -1356,4 +1486,4 @@ if(isset($_POST['iogalleryvid_title'])){
     </div>    
     
 </body>
-</html>
+</html>
