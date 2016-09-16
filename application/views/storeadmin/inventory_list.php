@@ -1555,7 +1555,7 @@ exit();
 												   <div class="widget">
 																<div class="head dark">
 																	<div class="icon"><span class="icos-paragraph-justify"></span></div>
-																	<h2>Yorumlar</h2>                    
+																	<h2>Comments</h2>                    
 																</div>                
 																<div class="block-fluid">
 															  
@@ -1588,7 +1588,7 @@ exit();
 														   <div class="widget">
 																		<div class="head dark">
 																			<div class="icon"><span class="icos-paragraph-justify"></span></div>
-																			<h2>Makale Bilgileri</h2>                    
+																			<h2>Articles</h2>                    
 																		</div>                
 																		<div class="block-fluid">
 																		 

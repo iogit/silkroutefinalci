@@ -899,24 +899,24 @@ $videocounter=0;
 	<!-- Specific Page CSS -->
 	
     <!-- Design Mode CSS -->
-    <link id="link-header-mode" href="css/mode/mode-1-header.css" rel="stylesheet" type="text/css"> 
-    <link id="link-footer-mode" href="css/mode/mode-1-footer.css" rel="stylesheet" type="text/css">    
-    <link id="link-color" href="css/color/color-blue.css" rel="stylesheet" type="text/css">
+    <link id="link-header-mode" href="<?php echo base_url();?>css/mode/mode-1-header.css" rel="stylesheet" type="text/css"> 
+    <link id="link-footer-mode" href="<?php echo base_url();?>css/mode/mode-1-footer.css" rel="stylesheet" type="text/css">    
+    <link id="link-color" href="<?php echo base_url();?>css/color/color-blue.css" rel="stylesheet" type="text/css">
 
         
     <!-- Responsive CSS -->
-        	<link href="<?php echo base_url();?><?php echo base_url();?>css/theme-responsive.css" rel="stylesheet" type="text/css"> 
+        	<link href="<?php echo base_url();?>css/theme-responsive.css" rel="stylesheet" type="text/css"> 
     	<link href="<?php echo base_url();?>css/header/header-1-responsive.css" rel="stylesheet" type="text/css"> 
-        <link id="link-header-mode-r" href="css/mode/mode-1-header-responsive.css" rel="stylesheet" type="text/css"> 
-        <link id="link-footer-mode-r" href="css/mode/mode-1-footer-responsive.css" rel="stylesheet" type="text/css">
-    	<link id="link-color" href="css/color/color-blue-responsive.css" rel="stylesheet" type="text/css">        
+        <link id="link-header-mode-r" href="<?php echo base_url();?>css/mode/mode-1-header-responsive.css" rel="stylesheet" type="text/css"> 
+        <link id="link-footer-mode-r" href="<?php echo base_url();?>css/mode/mode-1-footer-responsive.css" rel="stylesheet" type="text/css">
+    	<link id="link-color" href="<?php echo base_url();?>css/color/color-blue-responsive.css" rel="stylesheet" type="text/css">        
 		           
     
     
     <!-- Custom CSS -->
     <link href="<?php echo base_url();?>custom/custom.css" rel="stylesheet" type="text/css">
 
-
+<script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
     <!-- Head SCRIPTS -->
     <script type="text/javascript" src="<?php echo base_url();?>js/modernizr.js"></script> 
     
@@ -1045,7 +1045,7 @@ $( document ).ready(function() {
         scaleBannerVideoSize('.video-container video');
     });
 
-});
+})
 
 /** Reusable Functions **/
 /********************************************************************/
@@ -1155,24 +1155,24 @@ function checkPass()
             </div>
             <div class="vc_primary-menu">
 				<ul>
-    <li id="home"> <a href="/"> Home  </a>
+    <li id="home"> <a href="<?php echo base_url();?>"> Home  </a>
    
     </li>
                   
-    <li id="features"> <a href="jobseekers"> Job Seekers <i class="fa fa-caret-down"> </i> </a>
+    <li id="features"> <a href="<?php echo base_url();?>jobseekers"> Job Seekers <i class="fa fa-caret-down"> </i> </a>
       <div class="vc_menu-open-right vc_menu-2-v">
         <ul class="clearfix">
-          <li> <a href="jobs/it">Technology Jobs</a></li>
-          <li> <a href="jobs/accounting"> Accounting Jobs </a> </li>
-         <li> <a href="jobs/healthcare"> Healthcare Jobs </a> </li>
-           <li> <a href="jobs/law"> Law Jobs </a> </li>
+          <li> <a href="<?php echo base_url();?>jobs/it">Technology Jobs</a></li>
+          <li> <a href="<?php echo base_url();?>jobs/accounting"> Accounting Jobs </a> </li>
+         <li> <a href="<?php echo base_url();?>jobs/healthcare"> Healthcare Jobs </a> </li>
+           <li> <a href="<?php echo base_url();?>jobs/law"> Law Jobs </a> </li>
         </ul>
       </div>
     </li>
-    <li id="portfolios"> <a href="loginPage"> Employee Portal <i class="fa fa-caret-down"> </i> </a>    </li>
- <li id="about"> <a href="about"> About Us </a> </li>
+    <li id="portfolios"> <a href="<?php echo base_url();?>loginPage"> Employee Portal <i class="fa fa-caret-down"> </i> </a>    </li>
+ <li id="about"> <a href="<?php echo base_url();?>about"> About Us </a> </li>
 
-    <li id="contact"> <a href="contact"> Contact Us </a> </li>
+    <li id="contact"> <a href="<?php echo base_url();?>contact"> Contact Us </a> </li>
 <?php 
 echo $loginSignupHtml;
 ?>
@@ -1194,7 +1194,7 @@ echo $loginSignupHtml;
 </script>
 <!--
 <gcse:searchbox-only></gcse:searchbox-only>-->
-<div class="gcse-searchbox-only" data-resultsUrl="pages-search-result.html" data-queryParameterName="q" ></div>			</div> 
+<div class="gcse-searchbox-only" data-resultsUrl="#" data-queryParameterName="q" ></div>			</div> 
             
             <div class="vc_menu-search-wrapper pull-right">
         

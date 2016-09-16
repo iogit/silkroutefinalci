@@ -377,30 +377,30 @@ $product_list.='<table cellpadding="0" cellspacing="0" width="100%" class="table
                         <thead>
                             <tr>
                                 <th width="25%">
-                                   AD/SOYAD
+                                   Name/Lastname
                                 </th>
                                 <th width="25%">
-                                   TELEFON
+                                   Phone
                                 </th>
                                 <th width="25%">
-                                   Rezerv. Sayi
+                                   Rezerv. Number
                                 </th>
                                 <th width="25%">
-                                   Rezerv. Tarihi
+                                   Rezerv. Date
                                 </th>
 								<th width="25%">
-                                  Rezerv. Saat
+                                  Rezerv. Hour
                                 </th>
 								<th width="25%">
-                                   Açıklama
+                                   Description
                                 </th>
 								<th width="25%">
-                                   TARİH
+                                   Date
                                 </th>
 								<th width="25%">
-                                  Rezerv. DURUMU
+                                  Rezerv. Status
                                 </th><th width="25%">
-                                   DÜZENLE
+                                   Settings
                                 </th>
                             </tr>
                         </thead>
@@ -495,28 +495,28 @@ if($productCount>0)
                         <thead>
                             <tr>
                                 <th width="25%">
-                                   AD/SOYAD
+                                   Name/Lastname
                                 </th>
                                 <th width="25%">
-                                   E-MAIL
+                                   E-mail
                                 </th>
                                 <th width="25%">
-                                   KONU BAŞLIĞI
+                                   Title
                                 </th>
                                 <th width="25%">
-                                   YORUM/SORU
+                                   Comment/Question
                                 </th>
 								<th width="25%">
-                                   CEVAP
+                                   Answer
                                 </th>
 								<th width="25%">
-                                   TARİH
+                                   Date
                                 </th>
 								<th width="25%">
-                                   YAYINDA
+                                   Status
                                 </th>
 								<th width="25%">
-                                   DÜZENLE
+                                   Settings
                                 </th>
                             </tr>
                         </thead>
@@ -603,25 +603,25 @@ if($productCount>0)
                         <thead>
                             <tr>
                                 <th width="25%">
-                                   RESİM
+                                   Image
                                 </th>
                                 <th width="25%">
-                                   BAŞLIK
+                                   Title
                                 </th>
                                 <th width="25%">
-                                   IÇERIK
+                                   Content
                                 </th>
 								<th width="5%">
-                                   GÖRÜNTÜLENME
+                                   View
                                 </th> 
 								<th width="25%">
-                                   TARİH
+                                   Date
                                 </th>
                                 <th width="25%">
-                                   GÖNDERİLME DURUMU
+                                   Status
                                 </th>
 								<th width="25%">
-                                   DÜZENLE
+                                   Settings
                                 </th>
 							
                         </thead>
@@ -909,13 +909,13 @@ if(isset($_POST['iogalleryvid_title'])){
                 <div class="label"><span class="icos-cog"></span></div>
                 <div class="body" style="width: 160px;">
                     <div class="itemLink">
-                        <a href="#"><span class="icon-cog icon-white"></span> Ayarlar</a>
+                        <a href="#"><span class="icon-cog icon-white"></span> Settings</a>
                     </div>
                     <div class="itemLink">
-                        <a href="#tabs-2"><span class="icon-comment icon-white"></span> Mesajlar</a>
+                        <a href="#tabs-2"><span class="icon-comment icon-white"></span> Messages</a>
                     </div>                    
                     <div class="itemLink">
-                        <a href="<?php echo base_url();?>killAdmin"><span class="icon-off icon-white"></span> Çıkış</a>
+                        <a href="<?php echo base_url();?>killAdmin"><span class="icon-off icon-white"></span> Exit</a>
                     </div>                                        
                 </div>                
             </div>
@@ -942,11 +942,11 @@ if(isset($_POST['iogalleryvid_title'])){
                     <div class="image">
                         <img src="<?php echo base_url();?>img/adm/user.png" class="img-polaroid"/>
                     </div>              
-                    <div class="name">Hoşgeldin <?php echo $manager;?></div>
+                    <div class="name">Welcome <?php echo $manager;?></div>
                     <ul class="menuList">
-                        <li><a href="#"><span class="icon-cog"></span>Ayarlar</a></li>
-                        <li><a href="#tabs-2"><span class="icon-comment"></span> Mesajlar<strong><!-- (<?php echo $messagecount;?>)--></strong></a></li>
-                        <li><a href="<?php echo base_url();?>killAdmin"><span class="icon-share-alt"></span> Çıkış</a></li>                        
+                        <li><a href="#"><span class="icon-cog"></span>Settings</a></li>
+                        <li><a href="#tabs-2"><span class="icon-comment"></span> Messages<strong><!-- (<?php echo $messagecount;?>)--></strong></a></li>
+                        <li><a href="<?php echo base_url();?>killAdmin"><span class="icon-share-alt"></span> Exit</a></li>                        
                     </ul>
                     <div class="text">
                         Welcom back! Your last visit: 24.10.2012 in 19:55
@@ -955,12 +955,12 @@ if(isset($_POST['iogalleryvid_title'])){
                 
                 <div class="widget-fluid TAC">
                     <div class="epc mini">
-                        <div class="epcm-red" data-percent="80"><span>0.0</span>%</div>
-                        <div class="label label-important">Yüzdelik</div>
+                        <div class="epcm-red" data-percent="35"><span>0.35</span>%</div>
+                        <div class="label label-important">Percentage</div>
                     </div>                    
                     <div class="epc mini">
-                        <div class="epcm-green" data-percent="80"><span>0000</span>/0000</div>
-                        <div class="label label-success">Sayaç</div>
+                        <div class="epcm-green" data-percent="80"><span>80</span>/100</div>
+                        <div class="label label-success">Counter</div>
                     </div>                             
                 </div>                
                 <div class="dr"><span></span></div>
@@ -1007,13 +1007,13 @@ if(isset($_POST['iogalleryvid_title'])){
 		<div class="tabs">                    
                         <ul>
                           
-						     <li><a href="#tabs-1">MAKALE EKLE</a></li>
-						     <li><a href="#tabs-2">GÜNCEL HABER EKLE</a></li>
+						     <li><a href="#tabs-1">Add article</a></li>
+						     <li><a href="#tabs-2">Add news</a></li>
 						     
 						  
-                            <li><a href="#tabs-3">RESİM EKLE</a></li>
-                            <li><a href="#tabs-4">VİDEO EKLE</a></li>
-                            <li><a href="#tabs-5">SLİDER EKLE</a></li>
+                            <li><a href="#tabs-3">Add image</a></li>
+                            <li><a href="#tabs-4">Add video</a></li>
+                            <li><a href="#tabs-5">Add slider</a></li>
                         </ul>                        
 
                        
@@ -1034,16 +1034,16 @@ if(isset($_POST['iogalleryvid_title'])){
 												  <tr>
 												
 													   <tr>
-													 <td width="174">Makale Başlığı</td>
+													 <td width="174">Blog title</td>
 													 <td width="1293"><label><input name="ioBlog_title" type="text" id="ioBlog_title" size="50"/> </label></td>
 												   </tr>
 												   
-												   		<tr><td>Makale İçerik  </td>
+												   		<tr><td>Content </td>
 											<td><label>
 											      <div class="widget">
                     <div class="head dark">
                         <div class="icon"><i class="icos-pencil"></i></div>
-                        <h2>Makale Içeriği</h2>
+                        <h2>Content</h2>
                     </div>
                     <div class="block-fluid editor">
                         
@@ -1060,7 +1060,7 @@ if(isset($_POST['iogalleryvid_title'])){
 												   
 																				         
 											<tr>
-													 <td>Makale Resim</td>
+													 <td>Image</td>
 													 <td><label class="btn btn-large btn-block  disabled"><input class="btn btn-large " type="file" name="fileFieldBlog" id="fileFieldBlog" /></label></td>
 												   </tr>
 
@@ -1075,7 +1075,7 @@ if(isset($_POST['iogalleryvid_title'])){
 											   </tr>
 										  <tr>
 												 <td>&nbsp;</td>
-												 <td><label><input class="btn btn-warning btn-block" type="submit" name="button" id="button" value="Makale Ekle"/></label></td>
+												 <td><label><input class="btn btn-warning btn-block" type="submit" name="button" id="button" value="Add article"/></label></td>
 											   </tr>
 
 										  </table>
@@ -1102,7 +1102,7 @@ if(isset($_POST['iogalleryvid_title'])){
 												  <tr>
 												
 													   <tr>
-													 <td width="174">Haber Başlığı</td>
+													 <td width="174">Title</td>
 													 <td width="1293"><label><input name="ioNews_title" type="text" id="ioNews_title" size="50"/> </label></td>
 												   </tr>
 											
@@ -1118,7 +1118,7 @@ if(isset($_POST['iogalleryvid_title'])){
 													<td><label><textarea name="ioNews_content" id="ioNews_content" size="64" rows="5"></textarea>
 													</label></td></tr>			-->							         
 											<tr>
-													 <td>Haber Resmi</td>
+													 <td>News image</td>
 													 <td><label class="btn btn-large btn-block  disabled"><input class="btn btn-large " type="file" name="fileFieldNews" id="fileFieldNews" /></label></td>
 												   </tr>
 
@@ -1127,12 +1127,12 @@ if(isset($_POST['iogalleryvid_title'])){
 													 <td width="1293"><label><input name="ioNews_link" type="text" id="ioNews_link" size="50"/> </label></td>
 												   </tr>
 										
-													<tr><td>Haber İçerik  </td>
+													<tr><td>News content  </td>
 											<td><label>
 											      <div class="widget">
                     <div class="head dark">
                         <div class="icon"><i class="icos-pencil"></i></div>
-                        <h2>Haber Içeriği</h2>
+                        <h2>News content</h2>
                     </div>
                     <div class="block-fluid editor">
                         
@@ -1150,7 +1150,7 @@ if(isset($_POST['iogalleryvid_title'])){
 											   </tr>
 										  <tr>
 												 <td>&nbsp;</td>
-												 <td><label><input class="btn btn-warning btn-block" type="submit" name="button" id="button" value="Haber Ekle"/></label></td>
+												 <td><label><input class="btn btn-warning btn-block" type="submit" name="button" id="button" value="Add news"/></label></td>
 											   </tr>
 
 										  </table>
@@ -1188,12 +1188,12 @@ if(isset($_POST['iogalleryvid_title'])){
 												  <tr>
 												
 													  <tr>
-													 <td width="174">Resim Başlığı</td>
+													 <td width="174">Image title</td>
 													 <td width="1293"><label><input name="iogallerypic_title" type="text" id="iogallerypic_title" size="50"/> </label></td>
 												   </tr> 
 																				         
 											<tr>
-													 <td>Resim Ekle</td>
+													 <td>Add image</td>
 													 <td><label class="btn btn-large btn-block  disabled"><input class="btn btn-large " type="file" name="fileFieldGalleryPic" id="fileFieldGalleryPic" /></label></td>
 												   </tr>
 
@@ -1205,7 +1205,7 @@ if(isset($_POST['iogalleryvid_title'])){
 											   </tr>
 										  <tr>
 												 <td>&nbsp;</td>
-												 <td><label><input class="btn btn-warning btn-block" type="submit" name="button" id="button" value="Resim Ekle"/></label></td>
+												 <td><label><input class="btn btn-warning btn-block" type="submit" name="button" id="button" value="Add image"/></label></td>
 											   </tr>
 
 										  </table>
@@ -1230,7 +1230,7 @@ if(isset($_POST['iogalleryvid_title'])){
 												  <tr>
 												
 													  <tr>
-													 <td width="174">Video Başlığı</td>
+													 <td width="174">Video title</td>
 													 <td width="1293"><label><input name="iogalleryvid_title" type="text" id="iogalleryvid_title" size="50"/> </label></td>
 												   </tr>
 
@@ -1240,9 +1240,9 @@ if(isset($_POST['iogalleryvid_title'])){
 												   </tr> 
 																				         
 										<tr>
-													 <td>Önizleme Resmi Ekle</td>
+													 <td>Thumbnail image</td>
 													 <td>
-													  <div style="color:#110000;">* Resmi 268 x 162 Boyutlarında Yükleyiniz<div>
+													  <div style="color:#110000;">* Upload 268 x 162 dimensions images<div>
 													 <label class="btn btn-large btn-block  disabled"><input class="btn btn-large " type="file" name="fileFieldGalleryVid" id="fileFieldGalleryVid" /></label></td>
 												   </tr>
 
@@ -1254,7 +1254,7 @@ if(isset($_POST['iogalleryvid_title'])){
 											   </tr>
 										  <tr>
 												 <td>&nbsp;</td>
-												 <td><label><input class="btn btn-warning btn-block" type="submit" name="button" id="button" value="Video Ekle"/></label></td>
+												 <td><label><input class="btn btn-warning btn-block" type="submit" name="button" id="button" value="Add video"/></label></td>
 											   </tr>
 
 										  </table>
@@ -1281,20 +1281,20 @@ if(isset($_POST['iogalleryvid_title'])){
 												  <tr>
 												
 													  <tr>
-													 <td width="174">Slider Başlığı</td>
+													 <td width="174">Slider title</td>
 													 <td width="1293"><label><input name="ioslider_title" type="text" id="ioslider_title" size="50"/> </label></td>
 												   </tr>
 
 												   <tr>
-													 <td width="174">Slider İçerik </td>
+													 <td width="174">Slider content </td>
 													 <td width="1293"><label><textarea name="ioslider_content" type="text" id="ioslider_content" style="height:200px" size="50"/> </textarea></label></td>
 												   </tr> 
 																				         
 										<tr>
-													 <td>Slider Resmi Ekle</td>
+													 <td>Slider image</td>
 													 <td>
-													  <div style="color:#110000;">* Resmi 795 x 413 Boyutlarında Yükleyiniz<div>
-													  <div style="color:#110000;">* Son 4 Resim Görüntülenir<div>
+													  <div style="color:#110000;">* Image should be 795 x 413 <div>
+													  <div style="color:#110000;">* Last 4 image will be displayed in the slider<div>
 													 <label class="btn btn-large btn-block  disabled"><input class="btn btn-large " type="file" name="fileFieldSlider" id="fileFieldSlider" /></label></td>
 												   </tr>
 
@@ -1306,7 +1306,7 @@ if(isset($_POST['iogalleryvid_title'])){
 											   </tr>
 										  <tr>
 												 <td>&nbsp;</td>
-												 <td><label><input class="btn btn-warning btn-block" type="submit" name="button" id="button" value="Slider Ekle"/></label></td>
+												 <td><label><input class="btn btn-warning btn-block" type="submit" name="button" id="button" value="Add slider"/></label></td>
 											   </tr>
 
 										  </table>
@@ -1342,10 +1342,10 @@ if(isset($_POST['iogalleryvid_title'])){
     <div class="footer">
         <div class="left">
             <div class="btn-group dropup">                
-                <button class="btn dropdown-toggle" data-toggle="dropdown"><span class="icon-cog"></span> Navigasyon</button>
+                <button class="btn dropdown-toggle" data-toggle="dropdown"><span class="icon-cog"></span> Navigation</button>
                 <ul class="dropdown-menu">
-                    <li><a href="#" id="fixedNav">Göster</a></li>
-                    <li><a href="#" id="collapsedNav">Gizle</a></li>                    
+                    <li><a href="#" id="fixedNav">Show</a></li>
+                    <li><a href="#" id="collapsedNav">Hide</a></li>                    
                 </ul>
             </div>
                     

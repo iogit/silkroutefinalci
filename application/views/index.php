@@ -1129,24 +1129,24 @@ function checkPass()
             </div>
             <div class="vc_primary-menu">
 				<ul>
-    <li id="home"> <a href="index"> Home  </a>
+    <li id="home"> <a href="<?php echo base_url();?>"> Home  </a>
    
     </li>
                   
-    <li id="features"> <a href="jobseekers"> Job Seekers <i class="fa fa-caret-down"> </i> </a>
+    <li id="features"> <a href="<?php echo base_url();?>jobseekers"> Job Seekers <i class="fa fa-caret-down"> </i> </a>
       <div class="vc_menu-open-right vc_menu-2-v">
         <ul class="clearfix">
-          <li> <a href="jobs/it">Technology Jobs</a></li>
-          <li> <a href="jobs/accounting"> Accounting Jobs </a> </li>
-         <li> <a href="jobs/healthcare"> Healthcare Jobs </a> </li>
-           <li> <a href="jobs/law"> Law Jobs </a> </li>
+          <li> <a href="<?php echo base_url();?>jobs/it">Technology Jobs</a></li>
+          <li> <a href="<?php echo base_url();?>jobs/accounting"> Accounting Jobs </a> </li>
+         <li> <a href="<?php echo base_url();?>jobs/healthcare"> Healthcare Jobs </a> </li>
+           <li> <a href="<?php echo base_url();?>jobs/law"> Law Jobs </a> </li>
         </ul>
       </div>
     </li>
-    <li id="portfolios"> <a href="loginPage"> Employee Portal <i class="fa fa-caret-down"> </i> </a>    </li>
- <li id="about"> <a href="about"> About Us </a> </li>
+    <li id="portfolios"> <a href="<?php echo base_url();?>loginPage"> Employee Portal <i class="fa fa-caret-down"> </i> </a>    </li>
+ <li id="about"> <a href="<?php echo base_url();?>about"> About Us </a> </li>
 
-    <li id="contact"> <a href="contact"> Contact Us </a> </li>
+    <li id="contact"> <a href="<?php echo base_url();?>contact"> Contact Us </a> </li>
 	
 <?php 
 echo $loginSignupHtml;
@@ -1260,7 +1260,7 @@ echo $loginSignupHtml;
             </div>
           </div>
           <div class="col-md-3">
-            <div class="vc_button pull-left"> <a href="about" class="vc_btn "> Learn More </a> </div>
+            <div class="vc_button pull-left"> <a href="<?php echo base_url();?>about" class="vc_btn "> Learn More </a> </div>
             <div class="border"> </div>
           </div>
         </div>
@@ -1452,7 +1452,7 @@ echo $loginSignupHtml;
               </div>
               <div class=" col-sm-12 col-md-6">
                 <div class="menu pull-right"> 
-                	<a href="contact"> Contact </a>                </div>
+                	<a href="<?php echo base_url();?>contact"> Contact </a>                </div>
               </div>
             </div>
           </div>

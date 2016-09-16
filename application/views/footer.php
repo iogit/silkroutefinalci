@@ -48,8 +48,8 @@
 
 
 <!-- Specific Page Scripts Put Here -->
-<script src="js/specific/metro-slider.js" type="text/javascript"></script>
-<script src="js/specific/quick-contact.js"  type="text/javascript"></script>
+<script src="<?php echo base_url();?>js/specific/metro-slider.js" type="text/javascript"></script>
+<script src="<?php echo base_url();?>js/specific/quick-contact.js"  type="text/javascript"></script>
 
 
 

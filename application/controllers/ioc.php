@@ -151,7 +151,7 @@ $detailblogsql=$this->db->query("SELECT * FROM io_blog");
 
 			 <article class="blog-row clearfix">
                 <div class="blog-left">
-                  <div class="vc_anim vc_anim-slide"> <a href="'.base_url().'detailblog?id='.$ioBlog_id.'" class="vc_preview"> <img style="max-height:752px; max-width:230px" alt="example image" src="'.base_url().'images/blog_images/'.$ioBlog_id.'.jpg"  /> </a>
+                  <div class="vc_anim vc_anim-slide"> <a href="'.base_url().'detailblog/'.$ioBlog_id.'" class="vc_preview"> <img style="max-height:752px; max-width:230px" alt="example image" src="'.base_url().'images/blog_images/'.$ioBlog_id.'.jpg"  /> </a>
                     <div class="vc_hover">
                       <div class="hover-wrapper">
                         <div class="icon-wrapper">
@@ -172,10 +172,10 @@ $detailblogsql=$this->db->query("SELECT * FROM io_blog");
                     <div class="month">'.$ioBlog_monthName.'</div>
                   </div>
                   <div class="title">
-                    <h3> <a href="'.base_url().'detailblog?id='.$ioBlog_id.'"> '.$ioBlog_title.' </a> </h3>
+                    <h3> <a href="'.base_url().'detailblog/'.$ioBlog_id.'"> '.$ioBlog_title.' </a> </h3>
                     <span class="comments"> <i class="icon-comments"> </i> '.$ioBlog_view.' </span> <span class="taxonomy"> <i class="icon-tags"> </i> <a href="#"> itsilkroute </a> <a href="#">  </a> </span> </div>
                   <div class="description">
-                    <p> '.$ioBlog_contentShort.'<a href="'.base_url().'detailblog?id='.$ioBlog_id.'" class="vc_read-more"> read more </a> </p>
+                    <p> '.$ioBlog_contentShort.'<a href="'.base_url().'detailblog/'.$ioBlog_id.'" class="vc_read-more"> read more </a> </p>
                   </div>
                 </div>
               </article>
@@ -319,6 +319,7 @@ $randomzerotofour = rand (0,4);
 		
    
 		}
+		
 		$data["pagetitle"]=$ioBlog_title;	
 	$data["parentid"]=$detid;
 $data["from"]="detailblog"; //blog
@@ -1056,13 +1057,7 @@ $detailblogsql=$this->db->query("SELECT * FROM io_blog WHERE ioBlog_id='$detid' 
               <div class="text">
                 <h4 class="vc_main-color"><i class="icon-share-alt"></i></h4>
               </div>
-              <div class="widget"> 
-                <!-- AddThis Button BEGIN -->
-                <a class="addthis_button" href="http://www.addthis.com/bookmark.html?v=300&amp;pubid=ra-51f5ff9515d6d31e"><img alt="example image" src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" style="border:0"/></a>
-                <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
-                <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-51f5ff9515d6d31e"></script>
-                <!-- AddThis Button END -->
-              </div>
+           
             
               
             
