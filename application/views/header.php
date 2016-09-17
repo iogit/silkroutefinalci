@@ -1169,7 +1169,7 @@ function checkPass()
         </ul>
       </div>
     </li>
-    <li id="portfolios"> <a href="<?php echo base_url();?>loginPage"> Employee Portal <i class="fa fa-caret-down"> </i> </a>    </li>
+    <li id="portfolios"> <a href="<?php echo base_url();?>blogs"> Blogs </a>    </li>
  <li id="about"> <a href="<?php echo base_url();?>about"> About Us </a> </li>
 
     <li id="contact"> <a href="<?php echo base_url();?>contact"> Contact Us </a> </li>

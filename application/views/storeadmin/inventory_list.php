@@ -597,10 +597,10 @@ if($productCount>0)
 	
 	if($ioBlog_live==0)
 	{	$color="red";
-	    $ioBlog_statusx="On hold";
+	    $ioBlog_statusx="Offline";
 	}else
 	{	$color="";
-	  $ioBlog_statusx="Called";
+	  $ioBlog_statusx="Online";
 	}
 	
 	
