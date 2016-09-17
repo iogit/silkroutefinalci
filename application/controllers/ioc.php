@@ -1243,7 +1243,7 @@ $detid=1;  //temporary $detid value to prevent undefined variable error
 
 
 $jobs="";
-$jobsSql=$this->db->query("SELECT * FROM io_jobs");
+$jobsSql=$this->db->query("SELECT * FROM io_jobs WHERE ioJob_division='$division'");
 
 	$jobcount=$jobsSql->num_rows();
 	
@@ -1275,7 +1275,7 @@ $jobsSql=$this->db->query("SELECT * FROM io_jobs");
 			 
 			   <div class="panel panel-default">
                 <div class="panel-heading"> 
-                <a href="#collapseOne" data-parent="#vc_accordion-widget" data-toggle="collapse" class="accordion-toggle"> 
+                <a href="#'.$ioJob_id.'" data-parent="#vc_accordion-widget" data-toggle="collapse" class="accordion-toggle"> 
                 	<h4 class="panel-title">
                 		<i class="fa fa-fw fa-laptop"></i> '.$ioJob_title.'
                     </h4>
@@ -1284,7 +1284,7 @@ $jobsSql=$this->db->query("SELECT * FROM io_jobs");
                 </a> 
                   
                 </div>
-                <div class="panel-collapse collapse" id="collapseOne">
+                <div class="panel-collapse collapse" id="'.$ioJob_id.'">
                   <div class="panel-body">
                     <div class="row">
                       <div class="col-md-6">
@@ -1315,20 +1315,25 @@ $jobsSql=$this->db->query("SELECT * FROM io_jobs");
 			
 	
 		}else{
+		$jobs='<div id="contact-form-result">
+              <div id="success" class="alert alert-success hidden">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                We have <strong>successfully</strong> received your Message and will get back to you as soon as possible.</div>
+              <div id="error" class="alert alert-danger hidden">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+              </div>
+              <div id="empty" class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong> Sorry :( </strong> We don\'t have any <strong>'.$division.'</strong> jobs yet <strong></strong></div>
+              <div id="unexpected" class="alert alert-danger hidden">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                An <strong>unexpected error</strong> occured. Please Try Again later.</div>
+            </div>';
 			
-		echo '<script language="JavaScript"> 
-{
-window.alert("Beklenmeyen Bir hata Ile Karsilasildi: X090x106ILP, <br> ");
-window.location.href ="'.base_url().'";}';
-		
-		
-		
-		redirect('/');
-		exit();
 			}
 
 
-$data["pagetitle"]=$ioJob_title;	
+//$data["pagetitle"]=$ioJob_title;	
 $data["parentid"]=$detid;
 
 $data["jobs"]=$jobs;

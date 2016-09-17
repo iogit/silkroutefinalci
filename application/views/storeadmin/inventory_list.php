@@ -330,7 +330,7 @@ $product_list.='<table cellpadding="0" cellspacing="0" width="100%" class="table
                                 <th width="25%">
                                    Name/Lastname
                                 </th>
-                                <th width="25%">
+                                <th width="5%">
                                    Phone
                                 </th>
                                 <th width="25%">
@@ -776,7 +776,7 @@ if($productCount>0)
                                 <th width="25%">
                                    Last name
                                 </th>
-                                <th width="100%">
+                                <th width="5%">
                                    Phone
                                 </th>
 								<th width="5%">
@@ -790,6 +790,9 @@ if($productCount>0)
                                 </th>
 								<th width="25%">
                                    Country
+                                </th>
+								<th width="25%">
+                                   Resume
                                 </th>
 								<th width="25%">
                                    Files
@@ -806,6 +809,7 @@ if($productCount>0)
 	$usr_phone=$row["usr_phone"];
 	$usr_email=$row["usr_email"];
 	$usr_city=$row["usr_city"];
+	$usr_resume=$row["usr_resume"];
 	$usr_zipCode=$row["usr_zipCode"];
 	$usr_country=$row["usr_country"];
 	
@@ -863,7 +867,11 @@ if($productCount>0)
                                  </td>
 								 <td style="color:'.$color.'">
                                     '.$usr_country.'
+                                 </td>  
+								 <td style="color:'.$color.'">
+                                    <textarea style="resize:vertical; max-height:600px; min-height:400px;" id="editor" name="editor" name="contact-form-resume" ><?php echo '.$usr_resume.'</textarea>
                                  </td> 
+								 
 								 <td style="color:'.$color.'">
                                     '.$allUserUploadedFiles.'
                                  </td>
@@ -2083,6 +2091,13 @@ exit();
             &copy; 2013 Designed By IO
         </div>
     </div>    
-    
+
+<link rel="stylesheet" href="scripts/cleditor/jquery.cleditor.css" />
+  
+    <script src="scripts/cleditor/jquery.cleditor.min.js"></script>
+    <script>
+        $(document).ready(function () { $("#editor").cleditor(); });
+    </script>    
 </body>
+
 </html>
