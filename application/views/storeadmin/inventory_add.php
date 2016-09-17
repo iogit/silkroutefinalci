@@ -962,8 +962,8 @@ if(isset($_POST['iogalleryvid_title'])){
     <div class="navigation">
 
         <ul class="main">
-           <li><a href="<?php echo base_url();?>master"><span class="icom-screen"></span><span class="text">Ana Sayfa</span></a></li>
-            <li><a href="<?php echo base_url();?>inventory_add"><span class="icom-box-add"></span><span class="text">Ekle</span></a></li>	
+           <li><a href="<?php echo base_url();?>master"><span class="icom-screen"></span><span class="text">Main page</span></a></li>
+            <li><a href="<?php echo base_url();?>inventory_add"><span class="icom-box-add"></span><span class="text">Add</span></a></li>	
 		<!--	<li><a href="<?php echo base_url();?>inventory_edit"><span class="icom-pencil3"></span><span class="text">Düzenle</span></a></li>      -->          
         </ul>
         
