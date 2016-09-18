@@ -37,7 +37,7 @@
               <h3>ACCOUNTING JOBS
 </h3>
               <p>Finance </p>
-              <a class="vc_btn vc_bg-orange" href="#">Learn More</a> </div>
+              <a class="vc_btn vc_bg-orange" href="<?php echo base_url()?>jobs/accounting">Learn More</a> </div>
           </div>
           <div class="col-md-4">
             <div class="vc_services vc_border-blue">
@@ -45,7 +45,7 @@
               <h3>TECHNOLOGY JOBS
 </h3>
               <p>Information Technology </p>
-              <a class="vc_btn vc_bg-blue" href="#">Learn More</a> </div>
+              <a class="vc_btn vc_bg-blue" href="<?php echo base_url()?>jobs/it">Learn More</a> </div>
           </div>
           <div class="col-md-4">
             <div class="vc_services vc_border-red">
@@ -53,7 +53,7 @@
               <h3>HEALTH CARE JOBS
 </h3>
               <p>Medical </p>
-              <a class="vc_btn vc_bg-red" href="#">Learn More</a> </div>
+              <a class="vc_btn vc_bg-red" href="<?php echo base_url()?>jobs/healthcare">Learn More</a> </div>
           </div>
         </div>
         <div class="row" style="padding-top:30px;">
@@ -63,7 +63,7 @@
               <h3>LOGISTIC
 </h3>
               <p>TRANSPORT</p>
-              <a class="vc_btn vc_bg-green" href="#">Learn More</a> </div>
+              <a class="vc_btn vc_bg-green" href="<?php echo base_url()?>jobs/logistic">Learn More</a> </div>
           </div>
           <div class="col-md-4">
             <div class="vc_services vc_border-yellow">
@@ -71,7 +71,7 @@
               <h3>FINANCE
 </h3>
               <p>BANKING </p>
-              <a class="vc_btn vc_bg-yellow" href="#">Learn More</a> </div>
+              <a class="vc_btn vc_bg-yellow" href="<?php echo base_url()?>jobs/banking">Learn More</a> </div>
           </div>
           <div class="col-md-4">
             <div class="vc_services vc_border-grey">
@@ -79,7 +79,7 @@
               <h3>RETAIL
 </h3>
               <p>DIGITAL SHOPPING </p>
-              <a class="vc_btn vc_bg-grey" href="#">Learn More</a> </div>
+              <a class="vc_btn vc_bg-grey" href="<?php echo base_url()?>jobs/retail">Learn More</a> </div>
           </div>
         </div>
         

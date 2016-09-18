@@ -1080,10 +1080,10 @@ if(isset($_POST['iogalleryvid_title'])){
 													 <td width="174">Division</td>
 													 <td width="1293"><label>
 													 <select name="ioJob_division" id="ioJob_division">
-														  <option value="it">IT</option>
-														  <option value="accounting">Accounting</option>
-														  <option value="healthcare">Healthcare</option>
-														  <option value="law">Law</option>
+														  <option value="IT">IT</option>
+														  <option value="Accounting">Accounting</option>
+														  <option value="Healthcare">Healthcare</option>
+														  <option value="Law">Law</option>
 														</select>
 													 
 													 </label></td>

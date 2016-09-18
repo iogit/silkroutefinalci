@@ -332,7 +332,186 @@ $this->load->view("footer",$data);
 
 }
 
+function s()
+{
+	
+	$data["loginerror"]='';
+$email=$this->session->userdata('email');
+if($this->session->userdata('logged_in')){
 
+
+$data["loginSignupHtml"]='   <li id="features"> <a href="postresume"> <span style="color:orange">My profile</span> <i class="fa fa-caret-down"> </i> </a>
+      <div class="vc_menu-open-right vc_menu-2-v">
+        <ul class="clearfix">
+          <li> <a href="logout">Sign Out</a></li>
+          
+        </ul>
+      </div>
+    </li>';
+$data["login"]="";
+}else
+{
+$data["loginSignupHtml"]=$this->loginSignupHtml();	
+$data["email"]="Visitor";
+$data["logout"]="";
+$data["login"]="Login";
+}
+$jobs="";
+	$string_org = $this->input->post('search');
+	//$phrase_org=$this->cleantexteng($string_org);
+
+  $string_senitized = $this->sanitize($string_org);
+  // $good_string returns "Hi! It\'s a good day!"
+	
+  $jobsSql=$this->db->query("SELECT * FROM io_jobs WHERE ioJob_title LIKE '%$string_senitized%' OR ioJob_division LIKE '%$string_senitized%'");
+
+  $jobcount=$jobsSql->num_rows();
+	
+	
+			if($jobcount>=1){
+				foreach($jobsSql->result_array() as $jobcount){
+		    // $blogcount=$detailblogsql->result_array(); 
+//print_r($blogcount);			 
+			 $ioJob_id=$jobcount['ioJob_id'];
+			 $ioJob_title=$jobcount["ioJob_title"];
+			 $ioJob_location=$jobcount["ioJob_location"];
+			 $ioJob_division=$jobcount["ioJob_division"];
+			 $ioJob_description=$jobcount["ioJob_description"];
+			 $ioJob_qualification=$jobcount["ioJob_qualification"];
+			 $ioJob_addDate=$jobcount["ioJob_addDate"];
+			// $ioBlog_day=substr($ioJob_date, 8, 2);
+			 
+			 //Convert month number to 
+			// $monthNum=substr($ioBlog_date, 5, 2);
+            // $dateObj   = DateTime::createFromFormat('!m', $monthNum);
+            // $ioBlog_monthName = $dateObj->format('F'); // March
+			 
+			 //Extract the year from date string.
+			// $ioBlog_year=substr($ioBlog_date, 0, 4);
+			 
+		    // $ioBlog_view=$ioBlog_view+1;
+			 //$this->db->query("UPDATE io_blog SET ioBlog_view='$ioBlog_view' where ioBlog_id='$ioBlog_id'");
+			 $jobs.='
+			 
+			   <div class="panel panel-default">
+                <div class="panel-heading"> 
+                <a href="#'.$ioJob_id.'" data-parent="#vc_accordion-widget" data-toggle="collapse" class="accordion-toggle"> 
+                	<h4 class="panel-title">
+                		<i class="fa fa-fw fa-laptop"></i> '.$ioJob_title.'
+                    </h4>
+                    
+                  	<span class="subtitle"><span class="item">Location: <strong>'.$ioJob_location.'</strong></span><span class="item"> Division: <strong>'.$ioJob_division.'</strong></span></span> 
+                </a> 
+                  
+                </div>
+                <div class="panel-collapse collapse" id="'.$ioJob_id.'">
+                  <div class="panel-body">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <p class="vc_black"><strong>Description:</strong></p>
+                        <p>
+						'.$ioJob_description.'
+                        </p>
+                        <p> <a class="vc_btn" href="'.base_url().'contact">Get In Touch </a> </p>
+                      </div>
+                      <div class="col-md-6">
+                        <p class="vc_black"><strong>Qualifications:</strong></p>
+                        <ul class="vc_li">
+                          <li>
+						  '.$ioJob_qualification.'
+						  </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            
+			';
+			
+	
+				}
+			
+	
+		}else{
+		$jobs='<div id="contact-form-result">
+              <div id="success" class="alert alert-success hidden">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                We have <strong>successfully</strong> received your Message and will get back to you as soon as possible.</div>
+              <div id="error" class="alert alert-danger hidden">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+              </div>
+              <div id="empty" class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong> Sorry :( </strong> No result for <strong>"'.$string_org.'"</strong><strong></strong></div>
+              <div id="unexpected" class="alert alert-danger hidden">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                An <strong>unexpected error</strong> occured. Please Try Again later.</div>
+            </div>';
+			
+			}
+
+
+//$data["pagetitle"]=$ioJob_title;	
+
+$data["jobs"]=$jobs;
+$data["feromon"]=3; //slider category
+$this->load->view("header",$data);
+$this->load->view("jobs",$data);
+$this->load->view("footer",$data);
+
+	
+}
+
+function sanitize($input) {
+    if (is_array($input)) {
+        foreach($input as $var=>$val) {
+            $output[$var] = sanitize($val);
+        }
+    }
+    else {
+        if (get_magic_quotes_gpc()) {
+            $input = stripslashes($input);
+        }
+        $output  = $this->cleanInput($input);
+        //$output = mysql_real_escape_string($input);
+    }
+    return $output;
+}
+
+
+function cleanInput($input) {
+ 
+  $search = array(
+    '@<script[^>]*?>.*?</script>@si',   // Strip out javascript
+    '@<[\/\!]*?[^<>]*?>@si',            // Strip out HTML tags
+    '@<style[^>]*?>.*?</style>@siU',    // Strip style tags properly
+    '@<![\s\S]*?--[ \t\n\r]*>@'         // Strip multi-line comments
+  );
+ 
+    $output = preg_replace($search, '', $input);
+	$output=$this->cleantexteng($output);
+    return $output;
+  }
+
+public function cleantexteng($str, $replace=array(), $delimiter='-')
+{
+setlocale(LC_ALL, 'en_US.UTF8');
+
+
+	if( !empty($replace) ) {
+		$str = str_replace((array)$replace, ' ', $str);
+	}
+
+	$clean = iconv('UTF-8', 'ASCII//TRANSLIT', $str);
+	$clean = preg_replace("/[^a-zA-Z0-9\/_|+ -]/", '', $clean);
+	$clean = strtolower(trim($clean, '-'));
+	$clean = preg_replace("/[\/_|+ -]+/", $delimiter, $clean);
+
+	return $clean;
+
+}
 
 function loginPage()
 {

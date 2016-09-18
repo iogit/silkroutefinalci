@@ -1180,7 +1180,7 @@ echo $loginSignupHtml;
 </ul>
 <!-- Head menu search form ends -->             </div>
             <div class="vc_google-search">
-				<script>
+				<script>/*
   (function() {
     var cx = '011282751335296868116:-r-d_lb5_5y';
     var gcse = document.createElement('script');
@@ -1190,15 +1190,15 @@ echo $loginSignupHtml;
         '//www.google.com/cse/cse.js?cx=' + cx;
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(gcse, s);
-  })();
+  })();*/
 </script>
 <!--
 <gcse:searchbox-only></gcse:searchbox-only>-->
-<div class="gcse-searchbox-only" data-resultsUrl="#" data-queryParameterName="q" ></div>			</div> 
+<div class="gcse-searchbox-only"></div>			</div> 
             
             <div class="vc_menu-search-wrapper pull-right">
         
-              <form class="vc_menu-search">
+              <form class="vc_menu-search" method="POST" action="<?php echo base_url();?>s">
                 <input type="text" name="search" class="vc_menu-search-text" required placeholder="Search">
                 <div class="vc_menu-search-submit"> </div>
               </form>
