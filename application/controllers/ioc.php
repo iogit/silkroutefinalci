@@ -2119,17 +2119,6 @@ redirect('contact');
 }
 
 else{
-/*
-$config=array(
-
-'protokol'=>'smtp',
-'smtp_host'=>'ssl://smtp.googlemail.com',
-'smtp_port'=>465,
-'smtp_user'=>'sweedenibo@gmail.com',
-'smtp_pass'=>'24952495',
-);
-
-*/
 
 $data["message"]="The e-mail has been successfuly send";
 $this->load->library("email");
@@ -3015,6 +3004,7 @@ $this->session->set_userdata($newdata);
 
 
 redirect('postresume');
+
 }
 }
 

@@ -856,7 +856,7 @@ $videocounter=0;
 
 <head>
     <meta charset="utf-8" />
-    <title>Multipurpose Responsive HTML5 Themes with Animated Metro Slider | Vencorp</title>
+     <title> | ITSILKROUTELLC |</title>
     <meta name="keywords" content="HTML5 Template, CSS3, Metro Slider, Elegant HTML5 Theme" />
     <meta name="description" content="Multipurpose Responsive HTML5 Themes with Animated Metro Slider - Vencorp">
     <meta name="author" content="Venmond">
@@ -1155,7 +1155,7 @@ echo $loginSignupHtml;
 </ul>
 <!-- Head menu search form ends -->             </div>
             <div class="vc_google-search">
-				<script>
+				<script>/*
   (function() {
     var cx = '011282751335296868116:-r-d_lb5_5y';
     var gcse = document.createElement('script');
@@ -1165,15 +1165,15 @@ echo $loginSignupHtml;
         '//www.google.com/cse/cse.js?cx=' + cx;
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(gcse, s);
-  })();
+  })();*/
 </script>
 <!--
 <gcse:searchbox-only></gcse:searchbox-only>-->
-<div class="gcse-searchbox-only" data-resultsUrl="pages-search-result" data-queryParameterName="q" ></div>			</div> 
+<div class="gcse-searchbox-only"></div>			</div> 
             
             <div class="vc_menu-search-wrapper pull-right">
         
-              <form class="vc_menu-search">
+              <form class="vc_menu-search" method="POST" action="<?php echo base_url();?>s">
                 <input type="text" name="search" class="vc_menu-search-text" required placeholder="Search">
                 <div class="vc_menu-search-submit"> </div>
               </form>
@@ -1309,7 +1309,7 @@ echo $loginSignupHtml;
               <div class="vc_splitter"></div>
               <h3 style="margin-bottom:0;">SIGN UP FOR JOB ALERTS</h3>
               <p> <em>RECEIVE SPECIFIC EMAIL ALERTS</em> </p>
-              <a class="vc_btn btn-small" href="#">Subscribe</a> </div>
+              <a class="vc_btn btn-small" href="<?php echo base_url()?>loginPage">Subscribe</a> </div>
             <div class="col-md-4">
               <div class="vc_icon-roundx vc_centerx"  >
                 <div class="bg-wrapper">
@@ -1319,7 +1319,7 @@ echo $loginSignupHtml;
               <div class="vc_splitter"></div>
               <h3 style="margin-bottom:0;">POST YOUR RESUME</h3>
               <p> <em>APPLY ONLINE</em> </p>
-              <a class="vc_btn btn-small" href="#">Enter Info</a> </div>
+              <a class="vc_btn btn-small" href="postresume">Enter Info</a> </div>
           </div><!-- row -->
           <!-- .vc_carousel --> 
         </div>
